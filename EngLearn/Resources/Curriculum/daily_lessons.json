@@ -1,0 +1,44 @@
+[
+  {
+    "day": 1,
+    "title": "Welcome to EngLearn",
+    "description": "Start your journey with basic grammar and vocabulary.",
+    "exercisesCount": 5
+  },
+  {
+    "day": 2,
+    "title": "Daily Routines",
+    "description": "Learn to describe your everyday activities.",
+    "exercisesCount": 5
+  },
+  {
+    "day": 3,
+    "title": "Family and Friends",
+    "description": "Master vocabulary related to relationships.",
+    "exercisesCount": 5
+  },
+  {
+    "day": 4,
+    "title": "Food and Drink",
+    "description": "Practice words and grammar for eating out.",
+    "exercisesCount": 5
+  },
+  {
+    "day": 5,
+    "title": "Places in the City",
+    "description": "Learn how to ask for and give directions.",
+    "exercisesCount": 5
+  },
+  {
+    "day": 6,
+    "title": "Weekend Plans",
+    "description": "Discuss future plans and activities.",
+    "exercisesCount": 5
+  },
+  {
+    "day": 7,
+    "title": "Review Challenge",
+    "description": "Test your knowledge from the past week.",
+    "exercisesCount": 10
+  }
+]
