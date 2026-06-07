@@ -24,6 +24,7 @@ struct VocabularyModuleView: View {
                 }
             }
             .navigationTitle("Vocabulary")
+            .background(.regularMaterial)
             .task(id: selectedLevel) {
                 await seedAndLoad()
             }
@@ -43,25 +44,31 @@ struct VocabularyModuleView: View {
     
     private var content: some View {
         ScrollView {
-            LazyVStack(spacing: Spacing.xxl) {
-                statsSection
+            LazyVStack(alignment: .leading, spacing: Spacing.xxl) {
+                statsStrip
+                
+                wordOfTheDaySection
                 
                 actionButtons
+                
+                if levelEntries.isEmpty {
+                    emptyStateCard
+                }
             }
-            .padding(Spacing.xxl)
+            .padding(Spacing.lg)
         }
     }
     
-    private var statsSection: some View {
-        let levelEntries = allEntries.filter { $0.level == selectedLevel.rawValue }
+    private var levelEntries: [VocabularyEntry] {
+        allEntries.filter { $0.level == selectedLevel.rawValue }
+    }
+    
+    private var statsStrip: some View {
         let mastered = levelEntries.filter { $0.repetitions >= 3 }.count
         let needReview = levelEntries.filter { $0.isDueForReview }.count
         
-        return VStack(alignment: .leading, spacing: Spacing.lg) {
-            Text("Statistik Belajar")
-                .font(.headline)
-            
-            HStack(spacing: Spacing.lg) {
+        return ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: Spacing.md) {
                 statCard(title: "Total Kata", value: "\(levelEntries.count)", icon: "book.fill", color: .blue)
                 statCard(title: "Dikuasai", value: "\(mastered)", icon: "checkmark.seal.fill", color: .green)
                 statCard(title: "Perlu Review", value: "\(needReview)", icon: "clock.arrow.2.circlepath", color: .orange)
@@ -70,53 +77,100 @@ struct VocabularyModuleView: View {
     }
     
     private func statCard(title: String, value: String, icon: String, color: Color) -> some View {
-        VStack(spacing: Spacing.xs) {
+        HStack(spacing: Spacing.sm) {
             Image(systemName: icon)
-                .font(.title2)
+                .font(.headline)
                 .foregroundColor(color)
-            Text(value)
-                .font(.title3.bold())
-            Text(title)
-                .font(.caption2)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
+            VStack(alignment: .leading, spacing: 0) {
+                Text(value)
+                    .font(.headline)
+                Text(title)
+                    .font(.system(size: 8))
+                    .foregroundColor(.secondary)
+            }
         }
+        .padding(.horizontal, Spacing.lg)
+        .padding(.vertical, Spacing.md)
+        .background(.background, in: RoundedRectangle(cornerRadius: CornerRadius.card))
+        .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.card))
+    }
+    
+    private var wordOfTheDaySection: some View {
+        VStack(alignment: .leading, spacing: Spacing.md) {
+            HStack {
+                Image(systemName: "sparkles")
+                    .foregroundColor(.yellow)
+                Text("Kata Hari Ini")
+                    .font(.headline)
+            }
+            
+            if let randomWord = levelEntries.shuffled().first {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(randomWord.word)
+                        .font(.title2.bold())
+                    Text(randomWord.definitionID)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+                .padding(Spacing.lg)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(.background, in: RoundedRectangle(cornerRadius: CornerRadius.card))
+                .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.card))
+            } else {
+                Text("Cari kata-kata baru untuk dipelajari!")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+        }
+    }
+    
+    private var emptyStateCard: some View {
+        VStack(spacing: Spacing.md) {
+            Image(systemName: "character.book.closed.fill")
+                .font(.system(size: 32))
+                .foregroundColor(.accentColor)
+            Text("Mulai belajar kosakata!")
+                .font(.headline)
+            Text("Pelajari kata-kata esensial level \(selectedLevel.displayName) untuk memperluas jangkauan komunikasimu.")
+                .font(.caption)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.secondary)
+        }
+        .padding(Spacing.xl)
         .frame(maxWidth: .infinity)
-        .padding(Spacing.md)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: CornerRadius.card))
+        .background(.background, in: RoundedRectangle(cornerRadius: CornerRadius.card))
         .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.card))
     }
     
     private var actionButtons: some View {
-        VStack(spacing: Spacing.lg) {
+        HStack(spacing: Spacing.md) {
             NavigationLink(destination: FlashcardView(level: selectedLevel)) {
-                HStack {
+                VStack(spacing: Spacing.sm) {
                     Image(systemName: "rectangle.on.rectangle.angled.fill")
-                    Text("Kartu Flash (Belajar)")
+                        .font(.title2)
+                    Text("Kartu Flash")
                         .font(.headline)
-                    Spacer()
-                    Image(systemName: "chevron.right")
                 }
-                .padding()
-                .background(Color.accentColor, in: RoundedRectangle(cornerRadius: CornerRadius.card))
-                .foregroundColor(.white)
-            }
-            .accessibilityLabel("Mulai belajar dengan kartu flash")
-            
-            NavigationLink(destination: VocabularyQuizView(level: selectedLevel)) {
-                HStack {
-                    Image(systemName: "checkmark.circle.fill")
-                    Text("Kuis Kosakata (Uji)")
-                        .font(.headline)
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                }
-                .padding()
-                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: CornerRadius.card))
-                .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.card))
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, Spacing.xl)
+                .background(.background, in: RoundedRectangle(cornerRadius: CornerRadius.hero))
+                .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.hero))
             }
             .buttonStyle(.plain)
-            .accessibilityLabel("Mulai kuis kosakata")
+            
+            NavigationLink(destination: VocabularyQuizView(level: selectedLevel)) {
+                VStack(spacing: Spacing.sm) {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.title2)
+                    Text("Kuis")
+                        .font(.headline)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, Spacing.xl)
+                .background(.background, in: RoundedRectangle(cornerRadius: CornerRadius.hero))
+                .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.hero))
+            }
+            .buttonStyle(.plain)
         }
     }
     
