@@ -1,0 +1,36 @@
+name: CI
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode 26
+        run: sudo xcode-select -s /Applications/Xcode_26.app
+
+      - name: SwiftLint
+        run: swiftlint lint --strict --reporter github-actions-logging
+
+      - name: Build
+        run: |
+          xcodebuild -project EngLearn.xcodeproj \
+            -scheme EngLearn \
+            -configuration Debug \
+            -destination 'platform=macOS,arch=arm64' \
+            ARCHS=arm64 \
+            build 2>&1 | xcbeautify
+
+      - name: Test with Coverage
+        run: |
+          xcodebuild -project EngLearn.xcodeproj \
+            -scheme EngLearn \
+            -configuration Debug \
+            -destination 'platform=macOS,arch=arm64' \
+            -enableCodeCoverage YES \
+            test 2>&1 | xcbeautify

@@ -1,0 +1,10 @@
+name: Lint
+on: [pull_request]
+
+jobs:
+  swiftlint:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: SwiftLint
+        run: swiftlint lint --strict --reporter github-actions-logging

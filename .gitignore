@@ -1,0 +1,29 @@
+# Xcode
+DerivedData/
+*.xcuserdata
+xcuserdata/
+*.xcscmblueprint
+*.xcworkspace
+
+# Build
+build/
+dist/*.xcarchive
+
+# macOS
+.DS_Store
+*.swp
+*~
+.Spotlight-V100
+.Trashes
+
+# Swift Package Manager
+.build/
+Packages/
+
+# Logs
+*.log
+full_build.log
+
+# Distribution
+dist/
+!dist/.gitkeep
