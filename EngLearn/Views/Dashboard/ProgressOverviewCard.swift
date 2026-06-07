@@ -26,7 +26,11 @@ struct ProgressOverviewCard: View {
                 .foregroundColor(progressColor)
         }
         .padding(Spacing.lg)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: CornerRadius.card))
+        .background {
+            RoundedRectangle(cornerRadius: CornerRadius.card)
+                .fill(.background)
+                .shadow(color: .black.opacity(0.08), radius: 8, y: 2)
+        }
         .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.card))
         .accessibilityLabel("\(skill.displayName), \(Int(progress * 100))% selesai")
     }
