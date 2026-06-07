@@ -5,6 +5,26 @@ All notable changes to EngLearn will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2026-06-07
+
+### Added
+- Interactive Grammar Module with level picker (A1-C2)
+- GrammarLessonView with detailed Indonesian explanations, examples, and exceptions
+- GrammarExerciseView state machine supporting MCQ, Fill-in-the-blank, and True/False
+- Reusable components: MultipleChoiceView, FillBlankView, TrueFalseView
+- Indonesian feedback and hints for all grammar exercises
+- Expanded grammar_a1 curriculum with Present Continuous and Articles (15 exercises total)
+- Automatic saving of LessonRecord and UserProgress to SwiftData
+
+## [0.3.0] - 2026-06-07
+
+### Added
+- Personalized DashboardView with welcome message and progress overview
+- StreakHeatmapView visualizing daily learning activity (28 days)
+- ProgressOverviewCard showing completion status per skill
+- LevelBadge component for CEFR level visualization
+- Real-time progress calculation from LessonRecord history
+
 ## [0.2.0] - 2026-06-07
 
 ### Added
