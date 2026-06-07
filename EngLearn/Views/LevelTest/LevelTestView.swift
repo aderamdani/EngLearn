@@ -72,7 +72,7 @@ struct LevelTestView: View {
                         Spacer()
                     }
                     .padding()
-                    .background(selectedOption == index ? Color.accentColor.mix(with: .white, by: 0.8) : Color.background, in: RoundedRectangle(cornerRadius: CornerRadius.card))
+                    .background(selectedOption == index ? Color.accentColor.mix(with: .white, by: 0.8) : Color.clear, in: RoundedRectangle(cornerRadius: CornerRadius.card))
                     .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.card))
                     .overlay {
                         if selectedOption == index {
@@ -163,7 +163,7 @@ struct LevelTestView: View {
         if let progress = try? modelContext.fetch(descriptor).first {
             progress.currentLevel = recommendedLevel.rawValue
         } else {
-            let newProgress = UserProgress(currentLevel: recommendedLevel.rawValue)
+            let newProgress = UserProgress(currentLevel: recommendedLevel)
             modelContext.insert(newProgress)
         }
         try? modelContext.save()

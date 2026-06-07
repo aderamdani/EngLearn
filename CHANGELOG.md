@@ -5,6 +5,18 @@ All notable changes to EngLearn will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.9.0] - 2026-06-07
+
+### Added
+- Adaptive Level Placement Test with 10 diagnostic questions across CEFR levels
+- Expanded curriculum content for levels A2 and B1 across all modules
+- New Grammar units: Past Simple, Comparatives (A2), Present Perfect, Conditionals Type 1 (B1)
+- New Vocabulary sets for A2 (Travel, Food, Shopping)
+- New Reading passages and Listening dialogues for A2 level
+- New Writing prompts for A2 level (Describing a place, Writing a message)
+- Data export functionality in Settings for Progress (JSON) and Vocabulary (CSV)
+- Automatic level recommendation based on placement test results
+
 ## [0.8.0] - 2026-06-07
 
 ### Added
