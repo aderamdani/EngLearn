@@ -139,7 +139,7 @@ struct VocabularyQuizView: View {
             Text("Skor kamu:").font(.headline)
             Text("\(score * 100 / quizQuestions.count)%").font(.system(size: 60, weight: .black)).foregroundColor(.green)
             Spacer()
-            Button("Selesai") { dismiss() }
+            Button("Selesai") { saveAndDismiss() }
                 .font(.headline).frame(maxWidth: .infinity).padding()
                 .background(Color.accentColor, in: RoundedRectangle(cornerRadius: CornerRadius.card))
                 .foregroundColor(.white)
@@ -151,6 +151,17 @@ struct VocabularyQuizView: View {
     }
     
     // MARK: - Logic
+    
+    private func saveAndDismiss() {
+        Task {
+            let achievementService = AchievementService()
+            await achievementService.checkAndUnlock(modelContext: modelContext)
+            
+            await MainActor.run {
+                dismiss()
+            }
+        }
+    }
     
     private func generateQuiz() {
         let reviewedEntries = allEntries.filter { $0.repetitions > 0 }

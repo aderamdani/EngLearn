@@ -258,7 +258,16 @@ struct GrammarExerciseView: View {
             progress.totalCorrectAnswers += (score * lesson.exercises.count / 100)
         }
         
-        dismiss()
+        try? modelContext.save()
+        
+        Task {
+            let achievementService = AchievementService()
+            await achievementService.checkAndUnlock(modelContext: modelContext)
+            
+            await MainActor.run {
+                dismiss()
+            }
+        }
     }
 }
 
