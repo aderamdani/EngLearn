@@ -1,9 +1,13 @@
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     @SceneStorage("selectedModule") private var selectedModule: String?
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
+    @AppStorage("dailyGoalMinutes") private var dailyGoalMinutes = 10
     @State private var searchQuery = ""
+    
+    @Query(sort: \DailyStreak.date, order: .reverse) private var streaks: [DailyStreak]
 
     var body: some View {
         if hasCompletedOnboarding {
@@ -114,15 +118,21 @@ struct ContentView: View {
     }
 
     private var streakIndicator: some View {
-        Label("0", systemImage: "flame")
-            .foregroundStyle(.orange)
-            .accessibilityLabel(String(localized: "Streak: 0 hari", comment: "Streak counter"))
+        let count = streaks.count // Placeholder logic
+        return Label("\(count)", systemImage: "flame.fill")
+            .foregroundStyle(count > 0 ? .orange : .secondary)
+            .accessibilityLabel(String(localized: "Streak: \(count) hari", comment: "Streak counter"))
     }
 
     private var dailyGoalRing: some View {
-        Image(systemName: "circle")
-            .foregroundStyle(.secondary)
-            .accessibilityLabel(String(localized: "Target harian: belum dimulai", comment: "Daily goal"))
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: .now)
+        let minutes = streaks.first(where: { calendar.isDate($0.date, inSameDayAs: today) })?.minutesSpent ?? 0
+        let progress = min(Double(minutes) / Double(dailyGoalMinutes), 1.0)
+        
+        return Image(systemName: progress >= 1.0 ? "checkmark.circle.fill" : (progress > 0 ? "circle.dotted" : "circle"))
+            .foregroundStyle(progress >= 1.0 ? .green : .secondary)
+            .accessibilityLabel(String(localized: "Target harian: \(Int(progress * 100))% selesai", comment: "Daily goal"))
     }
 }
 
