@@ -1,0 +1,354 @@
+[
+  {
+    "phoneme": "p",
+    "ipaSymbol": "/p/",
+    "exampleWords": ["pen", "top", "apple"],
+    "description_id": "Bunyi konsonan letup tanpa suara (unvoiced). Dihasilkan dengan menutup kedua bibir lalu melepaskan udara secara tiba-tiba.",
+    "mouthPosition_id": "Tutup kedua bibir rapat-rapat, lalu hembuskan udara dari mulut.",
+    "commonMistake_id": "Sering diucapkan terlalu pelan tanpa letupan udara. Pastikan ada hembusan udara (aspirasi) saat di awal kata."
+  },
+  {
+    "phoneme": "b",
+    "ipaSymbol": "/b/",
+    "exampleWords": ["bat", "rub", "bubble"],
+    "description_id": "Bunyi konsonan letup bersuara (voiced). Dihasilkan seperti /p/ namun pita suara bergetar.",
+    "mouthPosition_id": "Tutup kedua bibir rapat-rapat, getarkan pita suara, lalu lepaskan udara.",
+    "commonMistake_id": "Terkadang diucapkan tanpa getaran pita suara di akhir kata, sehingga terdengar seperti /p/."
+  },
+  {
+    "phoneme": "t",
+    "ipaSymbol": "/t/",
+    "exampleWords": ["tea", "cat", "button"],
+    "description_id": "Bunyi konsonan letup tanpa suara. Ujung lidah menyentuh bagian belakang gigi atas.",
+    "mouthPosition_id": "Sentuhkan ujung lidah ke gusi di belakang gigi depan atas, lalu lepaskan udara.",
+    "commonMistake_id": "Sering disamakan dengan 't' bahasa Indonesia. Dalam bahasa Inggris, /t/ lebih 'tajam' dan sering ada hembusan udara."
+  },
+  {
+    "phoneme": "d",
+    "ipaSymbol": "/d/",
+    "exampleWords": ["dog", "red", "ladder"],
+    "description_id": "Bunyi konsonan letup bersuara. Sama seperti /t/ tapi pita suara bergetar.",
+    "mouthPosition_id": "Sentuhkan ujung lidah ke gusi di belakang gigi depan atas, getarkan pita suara, dan lepaskan udara.",
+    "commonMistake_id": "Sering diucapkan terlalu ringan. Pastikan getaran pita suara jelas terdengar."
+  },
+  {
+    "phoneme": "k",
+    "ipaSymbol": "/k/",
+    "exampleWords": ["cat", "back", "soccer"],
+    "description_id": "Bunyi konsonan letup velar tanpa suara. Dihasilkan di bagian belakang mulut.",
+    "mouthPosition_id": "Angkat bagian belakang lidah menyentuh langit-langit lunak, lalu lepaskan udara.",
+    "commonMistake_id": "Lupa memberikan letupan udara (aspirasi) ketika berada di awal kata seperti pada kata 'cat'."
+  },
+  {
+    "phoneme": "g",
+    "ipaSymbol": "/g/",
+    "exampleWords": ["go", "dog", "giggle"],
+    "description_id": "Bunyi konsonan letup velar bersuara. Sama seperti /k/ tapi dengan getaran pita suara.",
+    "mouthPosition_id": "Angkat bagian belakang lidah menyentuh langit-langit lunak, getarkan pita suara, dan lepaskan.",
+    "commonMistake_id": "Kadang tidak disuarakan dengan jelas di akhir kata, berubah menjadi suara /k/."
+  },
+  {
+    "phoneme": "f",
+    "ipaSymbol": "/f/",
+    "exampleWords": ["fun", "leaf", "coffee"],
+    "description_id": "Bunyi frikatif tanpa suara. Dihasilkan dengan gesekan antara gigi atas dan bibir bawah.",
+    "mouthPosition_id": "Letakkan gigi atas bagian depan di atas bibir bawah, hembuskan udara melewati celah tersebut.",
+    "commonMistake_id": "Bagi penutur bahasa Indonesia, sering diganti menjadi /p/ (seperti pada kata 'Februari'). Pastikan ada gesekan."
+  },
+  {
+    "phoneme": "v",
+    "ipaSymbol": "/v/",
+    "exampleWords": ["van", "love", "seven"],
+    "description_id": "Bunyi frikatif bersuara. Sama seperti /f/ tapi pita suara bergetar.",
+    "mouthPosition_id": "Letakkan gigi atas di bibir bawah, hembuskan udara, dan getarkan pita suara.",
+    "commonMistake_id": "Sering tertukar dengan /f/ (tanpa suara) atau dengan /w/ (bibir membulat). Pastikan gigi menyentuh bibir bawah."
+  },
+  {
+    "phoneme": "th_unvoiced",
+    "ipaSymbol": "/θ/",
+    "exampleWords": ["think", "math", "nothing"],
+    "description_id": "Bunyi frikatif dental tanpa suara. Dihasilkan dengan meletakkan lidah di antara gigi.",
+    "mouthPosition_id": "Letakkan ujung lidah di antara gigi atas dan bawah, lalu hembuskan udara perlahan tanpa getaran.",
+    "commonMistake_id": "Sangat sering diganti menjadi /t/, /s/, atau /f/ karena bunyi ini tidak ada dalam bahasa Indonesia."
+  },
+  {
+    "phoneme": "th_voiced",
+    "ipaSymbol": "/ð/",
+    "exampleWords": ["this", "mother", "breathe"],
+    "description_id": "Bunyi frikatif dental bersuara. Dihasilkan dengan meletakkan lidah di antara gigi sambil menggetarkan pita suara.",
+    "mouthPosition_id": "Letakkan ujung lidah di antara gigi atas dan bawah, lalu hembuskan udara dan getarkan pita suara.",
+    "commonMistake_id": "Sering diganti dengan /d/ (misal 'the' menjadi 'de'). Pastikan lidah ada di antara gigi."
+  },
+  {
+    "phoneme": "s",
+    "ipaSymbol": "/s/",
+    "exampleWords": ["sun", "miss", "bus"],
+    "description_id": "Bunyi frikatif alveolar tanpa suara. Dihasilkan dengan mendekatkan ujung lidah ke gusi atas.",
+    "mouthPosition_id": "Dekatkan lidah ke belakang gigi atas, biarkan udara mendesis keluar.",
+    "commonMistake_id": "Umumnya mudah bagi penutur Indonesia, tapi kadang terlalu mendesis."
+  },
+  {
+    "phoneme": "z",
+    "ipaSymbol": "/z/",
+    "exampleWords": ["zoo", "buzz", "crazy"],
+    "description_id": "Bunyi frikatif alveolar bersuara. Seperti /s/ tapi pita suara bergetar.",
+    "mouthPosition_id": "Dekatkan lidah ke belakang gigi atas, biarkan udara mendesis, dan getarkan pita suara.",
+    "commonMistake_id": "Sering diganti dengan /s/ di akhir kata (misal 'is' dibaca 'is', seharusnya 'iz')."
+  },
+  {
+    "phoneme": "sh",
+    "ipaSymbol": "/ʃ/",
+    "exampleWords": ["shoe", "fish", "nation"],
+    "description_id": "Bunyi frikatif palatal tanpa suara. Seperti menyuruh orang diam 'syhhh'.",
+    "mouthPosition_id": "Majukan bibir sedikit (membulat), angkat lidah ke arah langit-langit, hembuskan udara.",
+    "commonMistake_id": "Diganti menjadi /s/ biasa karena kurang terbiasa membulatkan bibir."
+  },
+  {
+    "phoneme": "zh",
+    "ipaSymbol": "/ʒ/",
+    "exampleWords": ["measure", "vision", "beige"],
+    "description_id": "Bunyi frikatif palatal bersuara. Sama dengan /ʃ/ tapi pita suara bergetar.",
+    "mouthPosition_id": "Majukan bibir sedikit, angkat lidah ke langit-langit, hembuskan udara, dan getarkan pita suara.",
+    "commonMistake_id": "Diganti dengan /z/ atau /dʒ/. Bunyi ini sangat jarang ada di awal kata."
+  },
+  {
+    "phoneme": "ch",
+    "ipaSymbol": "/tʃ/",
+    "exampleWords": ["chair", "watch", "nature"],
+    "description_id": "Bunyi afrikat tanpa suara. Kombinasi dari /t/ dan /ʃ/ yang diucapkan cepat.",
+    "mouthPosition_id": "Sentuh gusi atas dengan lidah (seperti /t/), lalu lepaskan udara mendesis seperti /ʃ/.",
+    "commonMistake_id": "Sering diganti menjadi /c/ dalam bahasa Indonesia, padahal /tʃ/ lebih mendesis."
+  },
+  {
+    "phoneme": "j",
+    "ipaSymbol": "/dʒ/",
+    "exampleWords": ["jump", "page", "magic"],
+    "description_id": "Bunyi afrikat bersuara. Kombinasi dari /d/ dan /ʒ/.",
+    "mouthPosition_id": "Sentuh gusi atas dengan lidah, lalu lepaskan udara sambil menggetarkan pita suara.",
+    "commonMistake_id": "Sering diganti dengan /j/ bahasa Indonesia (misal 'jump' dibaca 'yump')."
+  },
+  {
+    "phoneme": "m",
+    "ipaSymbol": "/m/",
+    "exampleWords": ["man", "some", "hammer"],
+    "description_id": "Bunyi nasal bilabial bersuara. Dihasilkan dengan menutup bibir dan udara keluar dari hidung.",
+    "mouthPosition_id": "Tutup kedua bibir, keluarkan udara melalui hidung, getarkan pita suara.",
+    "commonMistake_id": "Umumnya tidak ada masalah bagi penutur Indonesia."
+  },
+  {
+    "phoneme": "n",
+    "ipaSymbol": "/n/",
+    "exampleWords": ["no", "man", "funny"],
+    "description_id": "Bunyi nasal alveolar bersuara. Lidah menempel di gusi atas.",
+    "mouthPosition_id": "Sentuhkan ujung lidah ke gusi di belakang gigi atas, keluarkan udara melalui hidung.",
+    "commonMistake_id": "Terkadang tidak diucapkan jelas di akhir kata."
+  },
+  {
+    "phoneme": "ng",
+    "ipaSymbol": "/ŋ/",
+    "exampleWords": ["sing", "ring", "singer"],
+    "description_id": "Bunyi nasal velar bersuara. Sama dengan bunyi 'ng' dalam bahasa Indonesia.",
+    "mouthPosition_id": "Angkat bagian belakang lidah ke langit-langit lunak, udara keluar dari hidung.",
+    "commonMistake_id": "Ditambahkan bunyi /g/ di akhir kata 'sing' menjadi 'sing-g'. Seharusnya hanya /ŋ/."
+  },
+  {
+    "phoneme": "h",
+    "ipaSymbol": "/h/",
+    "exampleWords": ["hot", "hat", "behind"],
+    "description_id": "Bunyi glotal tanpa suara. Hanya berupa hembusan udara dari tenggorokan.",
+    "mouthPosition_id": "Buka mulut dan hembuskan udara dari tenggorokan tanpa ada hambatan.",
+    "commonMistake_id": "Sering diabaikan di awal kata (misal 'hot' dibaca 'ot')."
+  },
+  {
+    "phoneme": "l",
+    "ipaSymbol": "/l/",
+    "exampleWords": ["leg", "bell", "hello"],
+    "description_id": "Bunyi lateral alveolar. Udara mengalir lewat sisi lidah.",
+    "mouthPosition_id": "Sentuhkan ujung lidah ke gusi atas, biarkan udara mengalir dari samping lidah.",
+    "commonMistake_id": "Sering disebut 'dark L' di akhir kata (misal 'bell'), yang posisinya lebih ke belakang mulut."
+  },
+  {
+    "phoneme": "r",
+    "ipaSymbol": "/r/",
+    "exampleWords": ["red", "car", "carrot"],
+    "description_id": "Bunyi aproksiman alveolar. Lidah melengkung ke atas tapi tidak menyentuh langit-langit.",
+    "mouthPosition_id": "Tarik ujung lidah ke atas dan belakang, jangan sentuh apapun, dan bunyikan.",
+    "commonMistake_id": "Diuapkan dengan getaran ('trilled R') seperti bahasa Spanyol atau Indonesia. Di Inggris, R tidak bergetar."
+  },
+  {
+    "phoneme": "w",
+    "ipaSymbol": "/w/",
+    "exampleWords": ["win", "swim", "away"],
+    "description_id": "Bunyi aproksiman labiovelar. Bibir membulat dan maju.",
+    "mouthPosition_id": "Bulatkan bibir seolah ingin bersiul, lalu buat suara.",
+    "commonMistake_id": "Tertukar dengan /v/. Pastikan gigi atas tidak menyentuh bibir bawah."
+  },
+  {
+    "phoneme": "y",
+    "ipaSymbol": "/j/",
+    "exampleWords": ["yes", "yellow", "onion"],
+    "description_id": "Bunyi aproksiman palatal. Mirip dengan huruf 'y' dalam 'ya'.",
+    "mouthPosition_id": "Angkat tengah lidah mendekati langit-langit dan hasilkan bunyi.",
+    "commonMistake_id": "Tertukar dengan bunyi /dʒ/ (j). Dalam bahasa Inggris, /j/ dibaca seperti 'y'."
+  },
+  {
+    "phoneme": "ee",
+    "ipaSymbol": "/iː/",
+    "exampleWords": ["see", "heat", "need"],
+    "description_id": "Vokal panjang 'i'.",
+    "mouthPosition_id": "Bibir sedikit ditarik ke samping (seperti tersenyum), lidah tinggi di depan mulut.",
+    "commonMistake_id": "Tidak dibaca cukup panjang sehingga tertukar dengan /ɪ/ (sit)."
+  },
+  {
+    "phoneme": "ih",
+    "ipaSymbol": "/ɪ/",
+    "exampleWords": ["sit", "hit", "bit"],
+    "description_id": "Vokal pendek 'i'. Relaks, tidak setegang /iː/.",
+    "mouthPosition_id": "Mulut sedikit lebih terbuka daripada /iː/, lidah lebih rileks di tengah-depan.",
+    "commonMistake_id": "Dibaca terlalu tegang sehingga terdengar seperti /iː/ (seat)."
+  },
+  {
+    "phoneme": "oo_long",
+    "ipaSymbol": "/uː/",
+    "exampleWords": ["too", "blue", "food"],
+    "description_id": "Vokal panjang 'u'.",
+    "mouthPosition_id": "Bibir membulat erat dan agak maju, punggung lidah tinggi.",
+    "commonMistake_id": "Kurang membulatkan bibir atau tidak diucapkan cukup panjang."
+  },
+  {
+    "phoneme": "oo_short",
+    "ipaSymbol": "/ʊ/",
+    "exampleWords": ["book", "put", "foot"],
+    "description_id": "Vokal pendek 'u'. Lebih rileks dari /uː/.",
+    "mouthPosition_id": "Bibir tidak terlalu membulat, lidah agak rileks di tengah-belakang.",
+    "commonMistake_id": "Dibaca sama dengan /uː/ yang panjang."
+  },
+  {
+    "phoneme": "eh",
+    "ipaSymbol": "/e/",
+    "exampleWords": ["bed", "head", "red"],
+    "description_id": "Vokal pendek 'e'.",
+    "mouthPosition_id": "Bibir rileks, lidah agak rendah di bagian depan.",
+    "commonMistake_id": "Sering tertukar dengan /æ/ (bad vs bat)."
+  },
+  {
+    "phoneme": "er",
+    "ipaSymbol": "/ɜːr/",
+    "exampleWords": ["bird", "heard", "word"],
+    "description_id": "Vokal panjang dengan nuansa 'r' (r-colored vowel).",
+    "mouthPosition_id": "Mulut sedikit terbuka, lidah tegang dan melengkung ke atas di tengah mulut.",
+    "commonMistake_id": "Diucapkan sebagai 'e' biasa tanpa warna 'r' sama sekali, atau 'r' digetarkan."
+  },
+  {
+    "phoneme": "aw",
+    "ipaSymbol": "/ɔː/",
+    "exampleWords": ["law", "caught", "ball"],
+    "description_id": "Vokal panjang 'o'.",
+    "mouthPosition_id": "Mulut terbuka, bibir membulat ke depan, lidah ditarik ke belakang bawah.",
+    "commonMistake_id": "Dibaca seperti 'o' pendek bahasa Indonesia."
+  },
+  {
+    "phoneme": "a_short",
+    "ipaSymbol": "/æ/",
+    "exampleWords": ["cat", "bat", "apple"],
+    "description_id": "Vokal pendek antara 'a' dan 'e'. Sangat umum dalam bahasa Inggris Amerika.",
+    "mouthPosition_id": "Buka mulut lebar-lebar, lidah datar di bagian depan bawah.",
+    "commonMistake_id": "Dibaca sebagai 'e' biasa, sehingga 'bat' terdengar seperti 'bet'."
+  },
+  {
+    "phoneme": "uh",
+    "ipaSymbol": "/ʌ/",
+    "exampleWords": ["cup", "luck", "mud"],
+    "description_id": "Vokal pendek mirip 'a' tertahan.",
+    "mouthPosition_id": "Rahang santai sedikit terbuka, lidah di posisi netral bawah.",
+    "commonMistake_id": "Sering dibaca sebagai 'u' (karena ejaan 'u'), padahal bunyinya lebih mirip 'a' pendek."
+  },
+  {
+    "phoneme": "ah",
+    "ipaSymbol": "/ɑː/",
+    "exampleWords": ["father", "hot", "car"],
+    "description_id": "Vokal panjang 'a'.",
+    "mouthPosition_id": "Buka mulut lebar, rahang turun, lidah ditarik ke belakang bawah.",
+    "commonMistake_id": "Kurang membuka mulut, terdengar seperti 'o'."
+  },
+  {
+    "phoneme": "schwa",
+    "ipaSymbol": "/ə/",
+    "exampleWords": ["about", "pencil", "lemon"],
+    "description_id": "Vokal paling umum dalam bahasa Inggris. Bunyi 'e' pepet (seperti kata 'benar').",
+    "mouthPosition_id": "Mulut dan lidah sangat rileks, bibir tidak tegang, keluarkan suara pendek.",
+    "commonMistake_id": "Membaca huruf sesuai ejaan aslinya, padahal di suku kata tak bertekanan berubah menjadi schwa."
+  },
+  {
+    "phoneme": "ay",
+    "ipaSymbol": "/eɪ/",
+    "exampleWords": ["say", "eight", "make"],
+    "description_id": "Diftong gabungan bunyi 'e' dan 'i'.",
+    "mouthPosition_id": "Mulai dari 'e', lalu tarik sudut bibir perlahan menuju posisi 'i'.",
+    "commonMistake_id": "Hanya diucapkan sebagai 'e' panjang (seperti bahasa Spanyol/Indonesia)."
+  },
+  {
+    "phoneme": "eye",
+    "ipaSymbol": "/aɪ/",
+    "exampleWords": ["my", "five", "high"],
+    "description_id": "Diftong gabungan bunyi 'a' dan 'i'.",
+    "mouthPosition_id": "Mulai dari 'a' (mulut terbuka), lalu tutup sedikit menuju 'i'.",
+    "commonMistake_id": "Umumnya mudah, tapi pastikan perpindahan dua bunyinya jelas."
+  },
+  {
+    "phoneme": "oy",
+    "ipaSymbol": "/ɔɪ/",
+    "exampleWords": ["boy", "voice", "join"],
+    "description_id": "Diftong gabungan bunyi 'o' dan 'i'.",
+    "mouthPosition_id": "Mulai dari 'o' (bibir membulat), lalu tarik sudut bibir menuju 'i'.",
+    "commonMistake_id": "Sering kali perpindahan bentuk bibirnya kurang terlihat."
+  },
+  {
+    "phoneme": "oh",
+    "ipaSymbol": "/oʊ/",
+    "exampleWords": ["go", "home", "boat"],
+    "description_id": "Diftong gabungan bunyi 'o' dan 'u'.",
+    "mouthPosition_id": "Mulai dari 'o', lalu membulatkan bibir lagi menuju 'u'.",
+    "commonMistake_id": "Hanya diucapkan sebagai 'o' tunggal tanpa akhir 'u'."
+  },
+  {
+    "phoneme": "ow",
+    "ipaSymbol": "/aʊ/",
+    "exampleWords": ["now", "out", "cow"],
+    "description_id": "Diftong gabungan bunyi 'a' dan 'u'.",
+    "mouthPosition_id": "Mulai dari 'a' (mulut terbuka lebar), lalu bulatkan bibir menuju 'u'.",
+    "commonMistake_id": "Umumnya mudah, mirip 'au' dalam bahasa Indonesia."
+  },
+  {
+    "phoneme": "ear",
+    "ipaSymbol": "/ɪər/",
+    "exampleWords": ["near", "here", "fear"],
+    "description_id": "Diftong berakhiran bunyi 'r' (r-colored).",
+    "mouthPosition_id": "Mulai dari 'i' pendek, lalu melengkungkan lidah ke bunyi 'er'.",
+    "commonMistake_id": "Lupa melengkungkan lidah di akhir bunyi."
+  },
+  {
+    "phoneme": "air",
+    "ipaSymbol": "/eər/",
+    "exampleWords": ["hair", "there", "care"],
+    "description_id": "Diftong berakhiran bunyi 'r'.",
+    "mouthPosition_id": "Mulai dari 'e', lalu melengkungkan lidah menuju bunyi 'er'.",
+    "commonMistake_id": "Terkadang dibaca seperti dua suku kata terpisah."
+  },
+  {
+    "phoneme": "oor",
+    "ipaSymbol": "/ʊər/",
+    "exampleWords": ["tour", "cure", "poor"],
+    "description_id": "Diftong berakhiran bunyi 'r'.",
+    "mouthPosition_id": "Mulai dari 'u' pendek, lalu melengkungkan lidah menuju bunyi 'er'.",
+    "commonMistake_id": "Sering dilebur menjadi /ɔːr/ oleh beberapa penutur asli juga."
+  },
+  {
+    "phoneme": "ar",
+    "ipaSymbol": "/ɑːr/",
+    "exampleWords": ["car", "hard", "far"],
+    "description_id": "Vokal panjang 'a' dengan nuansa 'r'.",
+    "mouthPosition_id": "Buka mulut lebar untuk 'a', lalu lengkungkan lidah sedikit untuk 'r'.",
+    "commonMistake_id": "Membaca 'r'-nya dengan jelas bergetar (trill)."
+  }
+]
