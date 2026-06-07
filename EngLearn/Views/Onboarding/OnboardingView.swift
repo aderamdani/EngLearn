@@ -50,7 +50,7 @@ struct OnboardingView: View {
     private var welcomeStep: some View {
         VStack(spacing: Spacing.lg) {
             Image(systemName: "hand.wave.fill")
-                .font(.system(size: 80))
+                .font(.system(size: 48))
                 .foregroundColor(.accentColor)
             
             Text("Selamat Datang di EngLearn!")
@@ -77,7 +77,7 @@ struct OnboardingView: View {
                     Image(systemName: "checkmark.circle.fill")
                 }
                 .padding()
-                .background(Color.accentColor.opacity(0.1), in: RoundedRectangle(cornerRadius: CornerRadius.card))
+                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: CornerRadius.card))
             }
             .buttonStyle(.plain)
         }
@@ -162,7 +162,7 @@ struct OnboardingView: View {
     private var finalStep: some View {
         VStack(spacing: Spacing.lg) {
             Image(systemName: "rocket.fill")
-                .font(.system(size: 80))
+                .font(.system(size: 48))
                 .foregroundColor(.orange)
             
             Text("Siap Meluncur!")
