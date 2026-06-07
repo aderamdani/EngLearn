@@ -1,59 +1,161 @@
-//
-//  ContentView.swift
-//  EngLearn
-//
-//  Created by Ade Ramdani on 07/06/26.
-//
-
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @SceneStorage("selectedModule") private var selectedModule: String?
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
+    @State private var searchQuery = ""
 
     var body: some View {
+        if hasCompletedOnboarding {
+            mainContent
+        } else {
+            OnboardingView()
+        }
+    }
+
+    private var mainContent: some View {
         NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-            .toolbar {
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
+            sidebar
+                .navigationSplitViewColumnWidth(
+                    min: AppConstants.Window.sidebarMinWidth,
+                    ideal: AppConstants.Window.sidebarIdealWidth,
+                    max: AppConstants.Window.sidebarMaxWidth
+                )
         } detail: {
-            Text("Select an item")
+            detailView
         }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+        .frame(
+            minWidth: AppConstants.Window.minWidth,
+            minHeight: AppConstants.Window.minHeight
+        )
+        .searchable(
+            text: $searchQuery,
+            placement: .toolbar,
+            prompt: String(localized: "Cari pelajaran, kosakata...", comment: "Search placeholder")
+        )
+        .toolbar {
+            ToolbarItemGroup(placement: .primaryAction) {
+                streakIndicator
+                dailyGoalRing
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: .selectModule)) { notification in
+            if let module = notification.object as? ModuleType {
+                selectedModule = module.rawValue
+            }
+        }
+    }
+
+    private var sidebar: some View {
+        List(selection: $selectedModule) {
+            Section(String(localized: "Belajar", comment: "Sidebar section")) {
+                sidebarItem(.dashboard)
+                sidebarItem(.dailyLesson)
+                sidebarItem(.grammar)
+                sidebarItem(.vocabulary)
+                sidebarItem(.reading)
+                sidebarItem(.listening)
+                sidebarItem(.writing)
+                sidebarItem(.speaking)
+            }
+
+            Section(String(localized: "Jelajahi", comment: "Sidebar section")) {
+                sidebarItem(.immersion)
+                sidebarItem(.levelTest)
+            }
+
+            Section(String(localized: "Progres", comment: "Sidebar section")) {
+                sidebarItem(.achievements)
+                sidebarItem(.settings)
+            }
+        }
+        .listStyle(.sidebar)
+        .navigationTitle(AppConstants.appName)
+    }
+
+    private func sidebarItem(_ module: ModuleType) -> some View {
+        Label(module.displayName, systemImage: module.systemImage)
+            .tag(module.rawValue)
+    }
+
+    @ViewBuilder
+    private var detailView: some View {
+        if let selected = selectedModule, let module = ModuleType(rawValue: selected) {
+            switch module {
+            case .dashboard:
+                PlaceholderModuleView(module: module)
+            case .dailyLesson:
+                PlaceholderModuleView(module: module)
+            case .grammar:
+                PlaceholderModuleView(module: module)
+            case .vocabulary:
+                PlaceholderModuleView(module: module)
+            case .reading:
+                PlaceholderModuleView(module: module)
+            case .listening:
+                PlaceholderModuleView(module: module)
+            case .writing:
+                PlaceholderModuleView(module: module)
+            case .speaking:
+                PlaceholderModuleView(module: module)
+            case .immersion:
+                PlaceholderModuleView(module: module)
+            case .levelTest:
+                PlaceholderModuleView(module: module)
+            case .achievements:
+                PlaceholderModuleView(module: module)
+            case .settings:
+                SettingsView()
+            }
+        } else {
+            PlaceholderModuleView(module: .dashboard)
+        }
+    }
+
+    private var streakIndicator: some View {
+        Label("0", systemImage: "flame")
+            .foregroundStyle(.orange)
+            .accessibilityLabel(String(localized: "Streak: 0 hari", comment: "Streak counter"))
+    }
+
+    private var dailyGoalRing: some View {
+        Image(systemName: "circle")
+            .foregroundStyle(.secondary)
+            .accessibilityLabel(String(localized: "Target harian: belum dimulai", comment: "Daily goal"))
+    }
+}
+
+struct OnboardingView: View {
+    var body: some View {
+        VStack(spacing: Spacing.xxl) {
+            Text(AppConstants.appName)
+                .font(.largeTitle)
+            Text(String(localized: "Belajar Bahasa Inggris dari A1 sampai C2", comment: "Onboarding tagline"))
+                .font(.title3)
+                .foregroundStyle(.secondary)
+        }
+        .frame(
+            minWidth: AppConstants.Window.minWidth,
+            minHeight: AppConstants.Window.minHeight
+        )
+    }
+}
+
+struct PlaceholderModuleView: View {
+    let module: ModuleType
+
+    var body: some View {
+        VStack(spacing: Spacing.lg) {
+            Text(module.displayName)
+                .font(.largeTitle)
+            Text(String(localized: "Modul ini sedang dalam pengembangan.", comment: "Placeholder"))
+                .foregroundStyle(.secondary)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .navigationTitle(module.displayName)
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }

@@ -20,9 +20,9 @@ enum AppConstants {
         static let exerciseTimeoutSeconds: Double = 120
         static let speechSilenceTimeout: Double = 10
         static let writingAutosaveDebounce: Double = 2.0
-        static let ttsSlowRate: Float = 0.3
-        static let ttsNormalRate: Float = 0.5
-        static let ttsFastRate: Float = 0.7
+        static let ttsSlowRate: Double = 0.3
+        static let ttsNormalRate: Double = 0.5
+        static let ttsFastRate: Double = 0.7
     }
 
     enum Window {
