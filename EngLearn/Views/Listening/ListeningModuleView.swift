@@ -42,6 +42,7 @@ struct ListeningModuleView: View {
                 }
             }
             .navigationTitle("Listening")
+            .background(.regularMaterial)
             .task(id: selectedLevel) {
                 await loadDialogues()
             }
@@ -78,33 +79,47 @@ struct ListeningModuleView: View {
     }
     
     private func dialogueCard(_ dialogue: ListeningDialogue) -> some View {
-        HStack {
-            VStack(alignment: .leading, spacing: Spacing.xs) {
+        HStack(spacing: Spacing.md) {
+            Image(systemName: "headphones")
+                .font(.title2)
+                .foregroundStyle(.tint)
+                .frame(width: 44, height: 44)
+                .background(.accentColor.opacity(0.1), in: Circle())
+            
+            VStack(alignment: .leading, spacing: 2) {
                 Text(dialogue.title)
                     .font(.headline)
                 
                 Text("\(dialogue.exercises.count) Latihan Dikte")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 2)
+                    .background(.ultraThinMaterial, in: Capsule())
             }
             
             Spacer()
             
-            Image(systemName: "headphones")
-                .foregroundColor(.accentColor)
+            Image(systemName: "chevron.right")
+                .font(.caption.bold())
+                .foregroundColor(.secondary)
         }
         .padding(Spacing.lg)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: CornerRadius.card))
+        .background {
+            RoundedRectangle(cornerRadius: CornerRadius.card)
+                .fill(.background)
+                .shadow(color: .black.opacity(0.08), radius: 8, y: 2)
+        }
         .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.card))
         .accessibilityLabel("\(dialogue.title), \(dialogue.exercises.count) latihan dikte")
     }
     
     private var emptyState: some View {
-        ContentUnavailableView(
-            "Belum Ada Dialog",
-            systemImage: "waveform",
-            description: Text("Materi listening untuk level \(selectedLevel.displayName) sedang dalam perjalanan!")
-        )
+        VStack(spacing: Spacing.md) {
+            Text("Belum Ada Dialog")
+                .font(.headline)
+                .foregroundColor(.secondary)
+        }
         .padding(.top, Spacing.xxxl)
     }
     
