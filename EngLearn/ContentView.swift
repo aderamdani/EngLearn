@@ -95,9 +95,9 @@ struct ContentView: View {
             case .listening:
                 ListeningModuleView()
             case .writing:
-                PlaceholderModuleView(module: module)
+                WritingModuleView()
             case .speaking:
-                PlaceholderModuleView(module: module)
+                SpeakingModuleView()
             case .immersion:
                 PlaceholderModuleView(module: module)
             case .levelTest:
