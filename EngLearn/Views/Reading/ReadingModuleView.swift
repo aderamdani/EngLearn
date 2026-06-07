@@ -84,7 +84,7 @@ struct ReadingModuleView: View {
                 .font(.title2)
                 .foregroundStyle(.tint)
                 .frame(width: 44, height: 44)
-                .background(.accentColor.opacity(0.1), in: Circle())
+                .background(Color.accentColor.opacity(0.1), in: Circle())
             
             VStack(alignment: .leading, spacing: 2) {
                 Text(passage.title)
