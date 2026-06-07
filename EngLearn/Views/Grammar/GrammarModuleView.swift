@@ -62,54 +62,41 @@ struct GrammarModuleView: View {
     
     private func lessonCard(_ lesson: Lesson, index: Int) -> some View {
         HStack(spacing: Spacing.md) {
-            lessonIcon(index: index)
+            Image(systemName: "textformat")
+                .font(.title2)
+                .foregroundStyle(.tint)
+                .frame(width: 44, height: 44)
+                .background(.accentColor.opacity(0.1), in: Circle())
             
-            VStack(alignment: .leading, spacing: 4) {
-                HStack {
-                    Text(lesson.title)
-                        .font(.headline)
-                    Spacer()
-                    exerciseCountBadge(count: lesson.exercises.count)
-                }
+            VStack(alignment: .leading, spacing: 2) {
+                Text(lesson.title)
+                    .font(.headline)
                 
-                if let preview = lesson.explanation?.ruleID.components(separatedBy: ".").first {
-                    Text(preview + ".")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .lineLimit(1)
-                }
+                Text("\(lesson.exercises.count) Latihan")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
                 
                 difficultyBar(level: lesson.level)
             }
             
+            Spacer()
+            
             if let record = lessonRecords.first(where: { $0.lessonID == lesson.id }) {
                 progressBadge(score: record.scorePercentage)
             }
+            
+            Image(systemName: "chevron.right")
+                .font(.caption.bold())
+                .foregroundColor(.secondary)
         }
         .padding(Spacing.lg)
-        .background(.background, in: RoundedRectangle(cornerRadius: CornerRadius.card))
-        .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.card))
-        .accessibilityLabel("\(lesson.title), pelajaran \(index)")
-    }
-    
-    private func lessonIcon(index: Int) -> some View {
-        ZStack {
-            Circle()
-                .fill(Color.accentColor.mix(with: .white, by: 0.9))
-                .frame(width: 40, height: 40)
-            
-            Text("\(index)")
-                .font(.system(size: 14, weight: .bold))
-                .foregroundColor(.accentColor)
+        .background {
+            RoundedRectangle(cornerRadius: CornerRadius.card)
+                .fill(.background)
+                .shadow(color: .black.opacity(0.08), radius: 8, y: 2)
         }
-    }
-    
-    private func exerciseCountBadge(count: Int) -> some View {
-        Text("\(count) Q")
-            .font(.system(size: 8, weight: .bold))
-            .padding(.horizontal, 6)
-            .padding(.vertical, 2)
-            .background(.ultraThinMaterial, in: Capsule())
+        .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.card))
+        .accessibilityLabel("\(lesson.title), \(lesson.exercises.count) latihan")
     }
     
     private func difficultyBar(level: CEFRLevel) -> some View {
@@ -121,6 +108,7 @@ struct GrammarModuleView: View {
                     .frame(width: 12, height: 3)
             }
         }
+        .padding(.top, 2)
     }
     
     private func progressBadge(score: Double) -> some View {
@@ -133,11 +121,16 @@ struct GrammarModuleView: View {
     }
     
     private var emptyState: some View {
-        ContentUnavailableView(
-            "Belum Ada Materi",
-            systemImage: "book.closed",
-            description: Text("Materi grammar untuk level \(selectedLevel.displayName) sedang dalam perjalanan!")
-        )
+        VStack(spacing: Spacing.md) {
+            Text("Belum Ada Materi")
+                .font(.headline)
+                .foregroundColor(.secondary)
+            
+            Button("Refresh") {
+                Task { await loadLessons() }
+            }
+            .buttonStyle(.bordered)
+        }
         .padding(.top, Spacing.xxxl)
     }
     
