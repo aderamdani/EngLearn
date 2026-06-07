@@ -1,0 +1,17 @@
+[
+  {
+    "id": "listening_a2_001",
+    "title": "Planning a Birthday Party",
+    "audioScript": "Hi Tom, I am planning a surprise party for Jane's birthday. Can you help me with the guest list? I think we should invite about twenty people. What do you think?",
+    "speed": 0.9,
+    "speakerCount": 1,
+    "exercises": [
+      {
+        "id": "l_a2_001_e1",
+        "prompt": "Siapa yang sedang merayakan ulang tahun?",
+        "expectedText": "Jane",
+        "hint_id": "Dengarkan nama setelah kata 'birthday'."
+      }
+    ]
+  }
+]
