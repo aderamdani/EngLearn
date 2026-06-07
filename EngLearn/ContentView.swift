@@ -87,7 +87,7 @@ struct ContentView: View {
             case .dailyLesson:
                 PlaceholderModuleView(module: module)
             case .grammar:
-                PlaceholderModuleView(module: module)
+                GrammarModuleView()
             case .vocabulary:
                 PlaceholderModuleView(module: module)
             case .reading:
