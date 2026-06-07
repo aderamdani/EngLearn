@@ -47,7 +47,11 @@ final class AchievementService: Sendable {
             if unlockedIDs.contains(dto.id) { continue }
 
             if shouldUnlock(dto: dto, progress: userProgress, lessons: lessonRecords, vocab: vocabEntries) {
-                let newRecord = AchievementRecord(achievementID: dto.id, unlockedAt: Date())
+                let newRecord = AchievementRecord(
+                    achievementID: dto.id,
+                    title: dto.title,
+                    descriptionText: dto.description_id
+                )
                 modelContext.insert(newRecord)
                 Log.general.info("Unlocked achievement: \(dto.title)")
             }

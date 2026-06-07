@@ -132,7 +132,8 @@ struct DailyLessonView: View {
         if let existing = todayStreaks.first(where: { calendar.isDate($0.date, inSameDayAs: today) }) {
             existing.minutesSpent = minutesLearned
         } else {
-            let newStreak = DailyStreak(date: today, minutesSpent: minutesLearned)
+            let newStreak = DailyStreak(date: today)
+            newStreak.minutesSpent = minutesLearned
             modelContext.insert(newStreak)
         }
         

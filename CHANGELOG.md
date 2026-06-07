@@ -5,6 +5,17 @@ All notable changes to EngLearn will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.0] - 2026-06-07
+
+### Added
+- Comprehensive Gamification system with 15 unlockable achievements
+- AchievementService for real-time tracking of milestones and progress
+- AchievementsView with interactive grid and Indonesian descriptions
+- DailyLessonView for mixed grammar and vocabulary challenges
+- Visual daily goal tracking with an animated progress ring
+- ImmersionZoneView featuring essential English idioms and expressions
+- Automatic DailyStreak tracking and persistence
+
 ## [0.7.0] - 2026-06-07
 
 ### Added
