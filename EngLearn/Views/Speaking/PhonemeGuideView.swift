@@ -5,6 +5,8 @@ struct PhonemeGuideView: View {
     let phoneme: Phoneme
     
     @State private var audioService = AudioPlaybackService()
+    @State private var speechService = SpeechRecognitionService()
+    @State private var recognitionAuthorized = false
     
     var body: some View {
         ScrollView {
@@ -18,6 +20,8 @@ struct PhonemeGuideView: View {
                 infoSection(title: "Kesalahan Umum", content: phoneme.commonMistakeID, icon: "exclamationmark.triangle.fill", color: .orange)
                 
                 exampleWordsSection
+                
+                practiceSection
             }
             .padding(Spacing.xxl)
         }
@@ -25,6 +29,10 @@ struct PhonemeGuideView: View {
         .background(.regularMaterial)
         .onDisappear {
             audioService.stop()
+            speechService.stop()
+        }
+        .task {
+            recognitionAuthorized = await speechService.requestAuthorization()
         }
     }
     
@@ -96,9 +104,71 @@ struct PhonemeGuideView: View {
                         .accessibilityLabel("Dengarkan kata \(word)")
                     }
                     .padding()
-                    .background(.background, in: RoundedRectangle(cornerRadius: CornerRadius.standard))
+                    .background {
+                        RoundedRectangle(cornerRadius: CornerRadius.standard)
+                            .fill(.background)
+                    }
                     .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.standard))
                 }
+            }
+        }
+    }
+
+    private var practiceSection: some View {
+        VStack(alignment: .leading, spacing: Spacing.md) {
+            Text("Latihan Pengucapan")
+                .font(.headline)
+            
+            if recognitionAuthorized {
+                VStack(spacing: Spacing.md) {
+                    HStack {
+                        Button {
+                            if speechService.isRecording {
+                                speechService.stop()
+                            } else {
+                                try? speechService.start()
+                            }
+                        } label: {
+                            Image(systemName: speechService.isRecording ? "stop.circle.fill" : "mic.circle.fill")
+                                .font(.system(size: 44))
+                                .foregroundColor(speechService.isRecording ? .red : .accentColor)
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityLabel(speechService.isRecording ? "Hentikan rekaman" : "Mulai merekam")
+                        
+                        Text(speechService.isRecording ? "Mendengarkan..." : "Tekan untuk bicara")
+                            .foregroundColor(.secondary)
+                            .padding(.leading, Spacing.sm)
+                        
+                        Spacer()
+                    }
+                    
+                    if !speechService.recognizedText.isEmpty {
+                        Text("Yang terdengar:")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Text(speechService.recognizedText)
+                            .font(.headline)
+                            .padding()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background {
+                                RoundedRectangle(cornerRadius: CornerRadius.card)
+                                    .fill(.background)
+                            }
+                            .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.card))
+                    }
+                }
+                .padding()
+                .background {
+                    RoundedRectangle(cornerRadius: CornerRadius.card)
+                        .fill(.background)
+                        .shadow(color: .black.opacity(0.08), radius: 8, y: 2)
+                }
+                .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.card))
+            } else {
+                Text("Akses mikrofon diperlukan untuk latihan ini.")
+                    .font(.caption)
+                    .foregroundColor(.orange)
             }
         }
     }
