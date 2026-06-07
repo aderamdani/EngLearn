@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @Query private var vocabularyEntries: [VocabularyEntry]
     
-    struct SearchResults: Equatable {
+    struct SearchResults {
         let lessons: [Lesson]
         let vocabulary: [VocabularyEntry]
     }
