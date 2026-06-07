@@ -5,6 +5,8 @@ struct LevelTestView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
     
+    var onComplete: (() -> Void)? = nil
+    
     @State private var currentQuestionIndex = 0
     @State private var score = 0
     @State private var recommendedLevel: CEFRLevel = .a1
@@ -167,7 +169,11 @@ struct LevelTestView: View {
             modelContext.insert(newProgress)
         }
         try? modelContext.save()
-        dismiss()
+        if let onComplete = onComplete {
+            onComplete()
+        } else {
+            dismiss()
+        }
     }
     
     struct TestQuestion {

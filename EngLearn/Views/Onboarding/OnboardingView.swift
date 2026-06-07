@@ -1,18 +1,26 @@
 import SwiftUI
 import SwiftData
+import AVFoundation
 
 struct OnboardingView: View {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @AppStorage("dailyGoalMinutes") private var dailyGoalMinutes = 10
+    @AppStorage("nativeLanguage") private var nativeLanguage = "id"
     @Environment(\.modelContext) private var modelContext
     
     @State private var currentStep = 1
     @State private var showLevelTest = false
+    @State private var micPermissionDenied = false
     
     var body: some View {
         VStack {
             if showLevelTest {
-                LevelTestView()
+                LevelTestView {
+                    withAnimation {
+                        showLevelTest = false
+                        currentStep = 4
+                    }
+                }
             } else {
                 stepContent
             }
@@ -70,14 +78,28 @@ struct OnboardingView: View {
             Text("Bahasa ini akan digunakan untuk instruksi dan penjelasan.")
                 .foregroundColor(.secondary)
             
-            Button { /* Native selection placeholder */ } label: {
+            Button {
+                nativeLanguage = "id"
+            } label: {
                 HStack {
                     Text("Bahasa Indonesia")
                     Spacer()
-                    Image(systemName: "checkmark.circle.fill")
+                    if nativeLanguage == "id" {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundColor(.accentColor)
+                    } else {
+                        Image(systemName: "circle")
+                            .foregroundColor(.secondary)
+                    }
                 }
                 .padding()
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: CornerRadius.card))
+                .overlay {
+                    if nativeLanguage == "id" {
+                        RoundedRectangle(cornerRadius: CornerRadius.card)
+                            .stroke(Color.accentColor, lineWidth: 2)
+                    }
+                }
             }
             .buttonStyle(.plain)
         }
@@ -152,10 +174,32 @@ struct OnboardingView: View {
                 .multilineTextAlignment(.center)
                 .foregroundColor(.secondary)
             
+            if micPermissionDenied {
+                Text("Akses ditolak. Kamu bisa mengubahnya nanti di Pengaturan Mac.")
+                    .font(.caption)
+                    .foregroundColor(.orange)
+                    .padding(.top, Spacing.sm)
+            }
+            
             Button("Berikan Akses") {
-                // Request permission logic
+                Task {
+                    let granted = await AVCaptureDevice.requestAccess(for: .audio)
+                    if granted {
+                        withAnimation { currentStep += 1 }
+                    } else {
+                        micPermissionDenied = true
+                    }
+                }
             }
             .buttonStyle(.borderedProminent)
+            .disabled(micPermissionDenied)
+            
+            if micPermissionDenied {
+                Button("Lanjutkan") {
+                    withAnimation { currentStep += 1 }
+                }
+                .padding(.top, Spacing.sm)
+            }
         }
     }
     
