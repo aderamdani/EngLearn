@@ -61,7 +61,7 @@ struct DashboardView: View {
     
     private func calculateProgress(for skill: SkillType) -> Double {
         let records = lessonRecords.filter { $0.skill == skill.rawValue }
-        guard !records.isEmpty else { return 0.1 } // Placeholder for demo
+        guard !records.isEmpty else { return 0.0 } // Placeholder for demo
         
         // Simple average score as progress for now
         let totalScore = records.reduce(0) { $0 + $1.scorePercentage }
