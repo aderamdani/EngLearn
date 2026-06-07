@@ -42,6 +42,7 @@ struct WritingModuleView: View {
                 }
             }
             .navigationTitle("Writing")
+            .background(.regularMaterial)
             .task(id: selectedLevel) {
                 await loadPrompts()
             }
@@ -78,33 +79,47 @@ struct WritingModuleView: View {
     }
     
     private func promptCard(_ prompt: WritingPrompt) -> some View {
-        HStack {
-            VStack(alignment: .leading, spacing: Spacing.xs) {
+        HStack(spacing: Spacing.md) {
+            Image(systemName: "pencil.line")
+                .font(.title2)
+                .foregroundStyle(.tint)
+                .frame(width: 44, height: 44)
+                .background(.accentColor.opacity(0.1), in: Circle())
+            
+            VStack(alignment: .leading, spacing: 2) {
                 Text(prompt.promptType)
                     .font(.headline)
                 
-                Text("Target: \(prompt.wordCountTarget) kata")
+                Text("Target: \(prompt.wordCountTarget) Kata")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 2)
+                    .background(.ultraThinMaterial, in: Capsule())
             }
             
             Spacer()
             
-            Image(systemName: "pencil.line")
-                .foregroundColor(.accentColor)
+            Image(systemName: "chevron.right")
+                .font(.caption.bold())
+                .foregroundColor(.secondary)
         }
         .padding(Spacing.lg)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: CornerRadius.card))
+        .background {
+            RoundedRectangle(cornerRadius: CornerRadius.card)
+                .fill(.background)
+                .shadow(color: .black.opacity(0.08), radius: 8, y: 2)
+        }
         .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.card))
         .accessibilityLabel("\(prompt.promptType), target \(prompt.wordCountTarget) kata")
     }
     
     private var emptyState: some View {
-        ContentUnavailableView(
-            "Belum Ada Topik",
-            systemImage: "pencil.slash",
-            description: Text("Topik menulis untuk level \(selectedLevel.displayName) sedang dalam perjalanan!")
-        )
+        VStack(spacing: Spacing.md) {
+            Text("Belum Ada Topik")
+                .font(.headline)
+                .foregroundColor(.secondary)
+        }
         .padding(.top, Spacing.xxxl)
     }
     
