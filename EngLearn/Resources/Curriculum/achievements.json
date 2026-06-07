@@ -1,0 +1,107 @@
+[
+  {
+    "id": "first_lesson",
+    "title": "First Step",
+    "description_id": "Kamu telah menyelesaikan pelajaran pertama kamu!",
+    "icon": "figure.walk",
+    "requirement": "lessons_completed >= 1"
+  },
+  {
+    "id": "streak_7",
+    "title": "Week Warrior",
+    "description_id": "Belajar selama 7 hari berturut-turut.",
+    "icon": "flame.fill",
+    "requirement": "current_streak >= 7"
+  },
+  {
+    "id": "streak_30",
+    "title": "Monthly Master",
+    "description_id": "Konsistensi luar biasa! 30 hari belajar.",
+    "icon": "calendar.badge.checkmark",
+    "requirement": "current_streak >= 30"
+  },
+  {
+    "id": "grammar_a1_master",
+    "title": "Grammar Guru A1",
+    "description_id": "Menyelesaikan semua materi Grammar level A1.",
+    "icon": "text.book.closed.fill",
+    "requirement": "grammar_a1_completed >= 3"
+  },
+  {
+    "id": "vocab_100",
+    "title": "Word Collector",
+    "description_id": "Kamu telah mempelajari 100 kosakata baru.",
+    "icon": "character.book.closed.fill",
+    "requirement": "vocab_count >= 100"
+  },
+  {
+    "id": "reading_5",
+    "title": "Bookworm",
+    "description_id": "Membaca 5 teks bacaan dengan pemahaman penuh.",
+    "icon": "book.fill",
+    "requirement": "reading_count >= 5"
+  },
+  {
+    "id": "perfect_score",
+    "title": "Perfect Perfectionist",
+    "description_id": "Mendapatkan skor 100% dalam satu latihan.",
+    "icon": "checkmark.seal.fill",
+    "requirement": "has_perfect_score == true"
+  },
+  {
+    "id": "speed_learner",
+    "title": "Fast Learner",
+    "description_id": "Menyelesaikan latihan dalam waktu kurang dari 2 menit.",
+    "icon": "bolt.fill",
+    "requirement": "fast_completion == true"
+  },
+  {
+    "id": "listening_fan",
+    "title": "Sharp Ears",
+    "description_id": "Menyelesaikan 5 dialog listening.",
+    "icon": "ear.badge.waveform",
+    "requirement": "listening_count >= 5"
+  },
+  {
+    "id": "writing_expert",
+    "title": "Aspiring Author",
+    "description_id": "Menyelesaikan 5 tugas menulis.",
+    "icon": "pencil.line",
+    "requirement": "writing_count >= 5"
+  },
+  {
+    "id": "early_bird",
+    "title": "Early Bird",
+    "description_id": "Belajar sebelum jam 8 pagi.",
+    "icon": "sunrise.fill",
+    "requirement": "learned_early == true"
+  },
+  {
+    "id": "night_owl",
+    "title": "Night Owl",
+    "description_id": "Belajar setelah jam 10 malam.",
+    "icon": "moon.stars.fill",
+    "requirement": "learned_late == true"
+  },
+  {
+    "id": "vocabulary_master_a1",
+    "title": "Lexicon Lord A1",
+    "description_id": "Menguasai semua kosakata level A1.",
+    "icon": "graduationcap.fill",
+    "requirement": "vocab_a1_mastered >= 30"
+  },
+  {
+    "id": "social_sharer",
+    "title": "Motivator",
+    "description_id": "Bagikan kemajuan belajarmu ke teman.",
+    "icon": "square.and.arrow.up",
+    "requirement": "has_shared == true"
+  },
+  {
+    "id": "level_up",
+    "title": "Level Up!",
+    "description_id": "Berhasil naik ke level CEFR berikutnya.",
+    "icon": "arrow.up.circle.fill",
+    "requirement": "level_increased == true"
+  }
+]
