@@ -1,11 +1,20 @@
 import SwiftUI
 import SwiftData
+import OSLog
 
 struct ContentView: View {
     @SceneStorage("selectedModule") private var selectedModule: String?
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @AppStorage("dailyGoalMinutes") private var dailyGoalMinutes = 10
     @State private var searchQuery = ""
+    @State private var searchResults: SearchResults?
+    
+    @Query private var vocabularyEntries: [VocabularyEntry]
+    
+    struct SearchResults: Equatable {
+        let lessons: [Lesson]
+        let vocabulary: [VocabularyEntry]
+    }
     
     @Query(sort: \DailyStreak.date, order: .reverse) private var streaks: [DailyStreak]
 
@@ -26,7 +35,11 @@ struct ContentView: View {
                     max: AppConstants.Window.sidebarMaxWidth
                 )
         } detail: {
-            detailView
+            if searchQuery.isEmpty {
+                detailView
+            } else {
+                searchResultsView
+            }
         }
         .frame(
             minWidth: AppConstants.Window.minWidth,
@@ -72,6 +85,9 @@ struct ContentView: View {
             if let module = notification.object as? ModuleType {
                 selectedModule = module.rawValue
             }
+        }
+        .task(id: searchQuery) {
+            await performSearch()
         }
     }
 
@@ -141,6 +157,10 @@ struct ContentView: View {
         }
     }
 
+    private var searchResultsView: some View {
+        SearchResultsView(query: searchQuery, vocabularyEntries: vocabularyEntries)
+    }
+
     private var currentStreakCount: Int {
         streaks.count
     }
@@ -158,6 +178,38 @@ struct ContentView: View {
     private var dailyGoalProgress: Double {
         guard dailyGoalTarget > 0 else { return 0 }
         return min(1.0, Double(todayMinutes) / Double(dailyGoalTarget))
+    }
+    
+    private func performSearch() async {
+        let query = searchQuery.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        if query.isEmpty {
+            searchResults = nil
+            return
+        }
+        
+        let matchingVocab = vocabularyEntries.filter {
+            $0.word.lowercased().contains(query) ||
+            $0.definitionID.lowercased().contains(query) ||
+            $0.definitionEN.lowercased().contains(query)
+        }
+        
+        var matchingLessons: [Lesson] = []
+        let lessonService = LessonService()
+        for skill in [SkillType.grammar, SkillType.vocabulary] {
+            for level in CEFRLevel.allCases {
+                if let lessons = try? lessonService.lessons(for: skill, level: level) {
+                    matchingLessons.append(contentsOf: lessons.filter {
+                        $0.title.lowercased().contains(query) ||
+                        $0.theme.lowercased().contains(query)
+                    })
+                }
+            }
+        }
+        
+        await MainActor.run {
+            searchResults = SearchResults(lessons: matchingLessons, vocabulary: matchingVocab)
+        }
+        Log.ui.info("Search for '\(query)': \(matchingLessons.count) lessons, \(matchingVocab.count) vocab entries")
     }
 }
 
