@@ -1,0 +1,72 @@
+[
+  {
+    "id": "grammar_a2_past_simple",
+    "skill": "grammar",
+    "level": "a2",
+    "title": "Past Simple",
+    "theme": "past_events",
+    "cefrCanDo": "Can describe past events using regular and common irregular verbs",
+    "explanation": {
+      "rule_id": "Past Simple digunakan untuk aksi yang sudah selesai di masa lalu. Untuk kata kerja beraturan, tambahkan -ed. Untuk tidak beraturan, bentuknya berubah.",
+      "rule_en": "Use Past Simple for completed actions in the past. Regular verbs add -ed. Irregular verbs have unique forms.",
+      "examples": ["I visited London last year.", "She went to the cinema yesterday.", "They played tennis.", "We ate pizza."],
+      "exceptions": ["Be -> was/were", "Go -> went", "Eat -> ate", "Have -> had"],
+      "tip_id": "Gunakan penanda waktu seperti 'yesterday', 'last week', atau 'two days ago'."
+    },
+    "exercises": [
+      {
+        "id": "grammar_a2_ps_001",
+        "type": "multipleChoice",
+        "prompt": "I ___ to the park yesterday.",
+        "options": ["go", "goes", "went", "going"],
+        "correct": 2,
+        "explanation_id": "Jawaban benar: 'went'. 'Go' adalah kata kerja tidak beraturan, bentuk lampaunya adalah 'went'.",
+        "hint_id": "Ada kata 'yesterday', gunakan bentuk lampau dari 'go'."
+      },
+      {
+        "id": "grammar_a2_ps_002",
+        "type": "multipleChoice",
+        "prompt": "They ___ a movie last night.",
+        "options": ["watch", "watched", "watching", "watches"],
+        "correct": 1,
+        "explanation_id": "Jawaban benar: 'watched'. 'Watch' adalah kata kerja beraturan, tambahkan -ed.",
+        "hint_id": "Gunakan bentuk beraturan (+ed) untuk 'watch'."
+      }
+    ]
+  },
+  {
+    "id": "grammar_a2_comparatives",
+    "skill": "grammar",
+    "level": "a2",
+    "title": "Comparatives",
+    "theme": "comparing_things",
+    "cefrCanDo": "Can compare things using comparative adjectives",
+    "explanation": {
+      "rule_id": "Gunakan comparative adjectives untuk membandingkan dua benda. Tambahkan -er untuk kata pendek, dan 'more' untuk kata panjang.",
+      "rule_en": "Use comparative adjectives to compare two things. Add -er for short words, and 'more' for long words.",
+      "examples": ["This car is faster than that one.", "English is more interesting than math.", "She is taller than her brother."],
+      "exceptions": ["Good -> better", "Bad -> worse", "Far -> farther/further"],
+      "tip_id": "Jangan lupa kata 'than' setelah kata sifat pembanding!"
+    },
+    "exercises": [
+      {
+        "id": "grammar_a2_comp_001",
+        "type": "multipleChoice",
+        "prompt": "A plane is ___ than a car.",
+        "options": ["fast", "faster", "more fast", "fastest"],
+        "correct": 1,
+        "explanation_id": "Jawaban benar: 'faster'. 'Fast' adalah kata pendek (1 suku kata), tambahkan -er.",
+        "hint_id": "Kata 'fast' hanya punya satu suku kata."
+      },
+      {
+        "id": "grammar_a2_comp_002",
+        "type": "multipleChoice",
+        "prompt": "This book is ___ than that one.",
+        "options": ["interesting", "interestinger", "more interesting", "most interesting"],
+        "correct": 2,
+        "explanation_id": "Jawaban benar: 'more interesting'. 'Interesting' adalah kata panjang, gunakan 'more'.",
+        "hint_id": "'Interesting' punya lebih dari dua suku kata."
+      }
+    ]
+  }
+]
