@@ -70,7 +70,7 @@ struct FlashcardView: View {
                 Text(entry.phonetic)
                     .font(.title3)
                     .foregroundColor(.secondary)
-                Text(entry.partOfSpeech.uppercased())
+                Text(entry.partOfSpeech.capitalized)
                     .font(.caption.bold())
                     .padding(.horizontal, Spacing.sm)
                     .padding(.vertical, 2)
@@ -118,8 +118,9 @@ struct FlashcardView: View {
                 .font(.headline)
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(color, in: RoundedRectangle(cornerRadius: CornerRadius.card))
-                .foregroundColor(.white)
+                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: CornerRadius.card))
+                .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.card))
+                .tint(color)
         }
         .accessibilityLabel("Nilai sebagai \(title)")
     }
