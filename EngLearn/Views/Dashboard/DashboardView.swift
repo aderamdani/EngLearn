@@ -23,7 +23,6 @@ struct DashboardView: View {
             .padding(Spacing.lg)
         }
         .navigationTitle("Dashboard")
-        .background(.regularMaterial)
     }
     
     // MARK: - Sections
@@ -44,7 +43,11 @@ struct DashboardView: View {
             }
         }
         .padding(Spacing.lg)
-        .background(.background, in: RoundedRectangle(cornerRadius: CornerRadius.hero))
+        .background {
+            RoundedRectangle(cornerRadius: CornerRadius.hero)
+                .fill(.background)
+                .shadow(color: .black.opacity(0.08), radius: 8, y: 2)
+        }
         .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.hero))
     }
     
@@ -60,16 +63,21 @@ struct DashboardView: View {
             ForEach(stats, id: \.title) { stat in
                 VStack(spacing: 4) {
                     Image(systemName: stat.icon)
+                        .font(.headline)
                         .foregroundColor(stat.color)
                     Text(stat.value)
                         .font(.headline)
                     Text(stat.title)
-                        .font(.system(size: 8))
+                        .font(.system(size: 8, weight: .bold))
                         .foregroundColor(.secondary)
                 }
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, Spacing.sm)
-                .background(.background, in: RoundedRectangle(cornerRadius: CornerRadius.card))
+                .padding(.vertical, Spacing.md)
+                .background {
+                    RoundedRectangle(cornerRadius: CornerRadius.card)
+                        .fill(.background)
+                        .shadow(color: .black.opacity(0.08), radius: 8, y: 2)
+                }
                 .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.card))
             }
         }
@@ -92,7 +100,13 @@ struct DashboardView: View {
         VStack(alignment: .leading, spacing: Spacing.md) {
             headerLabel("Lanjutkan Belajar", icon: "play.circle.fill")
             
-            HStack {
+            HStack(spacing: Spacing.md) {
+                Image(systemName: "pencil.and.outline")
+                    .font(.title)
+                    .foregroundColor(.accentColor)
+                    .frame(width: 44, height: 44)
+                    .background(.accentColor.opacity(0.1), in: Circle())
+                
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Terakhir dipelajari:")
                         .font(.caption)
@@ -106,7 +120,11 @@ struct DashboardView: View {
                     .foregroundColor(.accentColor)
             }
             .padding(Spacing.lg)
-            .background(.background, in: RoundedRectangle(cornerRadius: CornerRadius.card))
+            .background {
+                RoundedRectangle(cornerRadius: CornerRadius.card)
+                    .fill(.background)
+                    .shadow(color: .black.opacity(0.08), radius: 8, y: 2)
+            }
             .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.card))
         }
     }
@@ -116,10 +134,11 @@ struct DashboardView: View {
     private func headerLabel(_ title: String, icon: String) -> some View {
         HStack(spacing: Spacing.xs) {
             Image(systemName: icon)
-                .foregroundColor(.accentColor)
+                .foregroundStyle(.tint)
             Text(title)
                 .font(.headline)
         }
+        .padding(.leading, 4)
     }
     
     private var timeBasedGreeting: String {
