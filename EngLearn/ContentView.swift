@@ -40,40 +40,42 @@ struct ContentView: View {
         )
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
-                // Streak indicator
-                HStack(spacing: 4) {
-                    Image(systemName: "flame.fill")
-                        .foregroundStyle(.orange)
-                        .imageScale(.small)
-                    Text("\(currentStreakCount)")
-                        .font(.caption.bold())
-                        .monospacedDigit()
-                }
-                .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background(.ultraThinMaterial, in: Capsule())
-                .accessibilityLabel("Streak \(currentStreakCount) hari")
-
-                // Daily goal progress  
-                HStack(spacing: 4) {
-                    ZStack {
-                        Circle()
-                            .stroke(Color.primary.opacity(0.1), lineWidth: 2)
-                            .frame(width: 16, height: 16)
-                        Circle()
-                            .trim(from: 0, to: dailyGoalProgress)
-                            .stroke(Color.green, style: StrokeStyle(lineWidth: 2, lineCap: .round))
-                            .frame(width: 16, height: 16)
-                            .rotationEffect(.degrees(-90))
+                HStack(spacing: 8) {
+                    // Streak indicator
+                    HStack(spacing: 4) {
+                        Image(systemName: "flame.fill")
+                            .foregroundStyle(.orange)
+                            .imageScale(.small)
+                        Text("\(currentStreakCount)")
+                            .font(.caption.bold())
+                            .monospacedDigit()
                     }
-                    Text("\(todayMinutes) min")
-                        .font(.caption)
-                        .monospacedDigit()
+                    .padding(.horizontal, Spacing.md)
+                    .padding(.vertical, Spacing.sm)
+                    .background(.ultraThinMaterial, in: Capsule())
+                    .accessibilityLabel("Streak \(currentStreakCount) hari")
+
+                    // Daily goal progress  
+                    HStack(spacing: 4) {
+                        ZStack {
+                            Circle()
+                                .stroke(Color.primary.opacity(0.1), lineWidth: 2)
+                                .frame(width: 16, height: 16)
+                            Circle()
+                                .trim(from: 0, to: dailyGoalProgress)
+                                .stroke(Color.green, style: StrokeStyle(lineWidth: 2, lineCap: .round))
+                                .frame(width: 16, height: 16)
+                                .rotationEffect(.degrees(-90))
+                        }
+                        Text("\(todayMinutes) min")
+                            .font(.caption)
+                            .monospacedDigit()
+                    }
+                    .padding(.horizontal, Spacing.md)
+                    .padding(.vertical, Spacing.sm)
+                    .background(.ultraThinMaterial, in: Capsule())
+                    .accessibilityLabel("Hari ini: \(todayMinutes) menit dari \(dailyGoalTarget) menit target")
                 }
-                .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background(.ultraThinMaterial, in: Capsule())
-                .accessibilityLabel("Hari ini: \(todayMinutes) menit dari \(dailyGoalTarget) menit target")
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: .selectModule)) { notification in
