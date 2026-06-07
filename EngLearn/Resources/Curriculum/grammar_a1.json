@@ -1,0 +1,84 @@
+[
+  {
+    "id": "grammar_a1_present_simple",
+    "skill": "grammar",
+    "level": "a1",
+    "title": "Present Simple",
+    "theme": "me_and_my_world",
+    "cefrCanDo": "Can describe daily routines and habits using present simple",
+    "explanation": {
+      "rule_id": "Present Simple digunakan untuk menyatakan kebiasaan, rutinitas sehari-hari, dan kebenaran umum. Untuk subjek he/she/it, tambahkan -s atau -es di akhir kata kerja.",
+      "rule_en": "Use Present Simple for habits, routines, and general truths. Add -s or -es to the verb for third person singular (he/she/it).",
+      "examples": [
+        "I go to school every day.",
+        "She likes coffee.",
+        "The sun rises in the east.",
+        "They play football on Sundays."
+      ],
+      "exceptions": [
+        "Verb 'go' becomes 'goes' (he goes, she goes)",
+        "Verb 'have' becomes 'has' (he has, she has)",
+        "Verb 'do' becomes 'does' (he does, she does)",
+        "Verbs ending in -ch, -sh, -ss, -x, -o add -es (watches, washes, passes)"
+      ],
+      "tip_id": "Ingat: untuk he/she/it, kata kerja selalu berubah. Coba hafalkan: I play, you play, he playS."
+    },
+    "exercises": [
+      {
+        "id": "grammar_a1_ps_001",
+        "type": "multipleChoice",
+        "prompt": "She ___ to school every day.",
+        "options": ["go", "goes", "going", "gone"],
+        "correct": 1,
+        "explanation_id": "Jawaban benar: 'goes'. Untuk subjek 'she' (orang ketiga tunggal), kata kerja 'go' ditambah akhiran -es menjadi 'goes'.",
+        "hint_id": "Perhatikan subjeknya. 'She' adalah orang ketiga tunggal (he/she/it).",
+        "difficulty": 1,
+        "cefrCanDo": "Can use present simple with third person singular"
+      },
+      {
+        "id": "grammar_a1_ps_002",
+        "type": "multipleChoice",
+        "prompt": "They ___ football on Sundays.",
+        "options": ["plays", "play", "playing", "played"],
+        "correct": 1,
+        "explanation_id": "Jawaban benar: 'play'. Untuk subjek 'they' (jamak), kata kerja TIDAK ditambah -s. Tetap dalam bentuk dasar.",
+        "hint_id": "'They' adalah subjek jamak. Apakah perlu -s?",
+        "difficulty": 1,
+        "cefrCanDo": "Can distinguish singular and plural verb forms"
+      },
+      {
+        "id": "grammar_a1_ps_003",
+        "type": "fillBlank",
+        "prompt": "My mother ___ (cook) dinner every evening.",
+        "options": null,
+        "correct": "cooks",
+        "explanation_id": "Jawaban benar: 'cooks'. 'My mother' sama dengan 'she' (orang ketiga tunggal), jadi kata kerja 'cook' ditambah -s.",
+        "hint_id": "'My mother' = 'she'. Apa yang terjadi pada kata kerja untuk she?",
+        "difficulty": 2,
+        "cefrCanDo": "Can apply third person singular rule in fill-in exercises"
+      },
+      {
+        "id": "grammar_a1_ps_004",
+        "type": "trueFalse",
+        "prompt": "'He have a big house.' — Is this sentence correct?",
+        "options": ["True", "False"],
+        "correct": 1,
+        "explanation_id": "Jawaban: False. Kalimat yang benar adalah 'He HAS a big house.' Kata kerja 'have' berubah menjadi 'has' untuk he/she/it.",
+        "hint_id": "Perhatikan kata kerja 'have'. Apakah bentuknya sudah benar untuk subjek 'he'?",
+        "difficulty": 2,
+        "cefrCanDo": "Can identify errors in third person singular verb forms"
+      },
+      {
+        "id": "grammar_a1_ps_005",
+        "type": "multipleChoice",
+        "prompt": "Water ___ at 100 degrees Celsius.",
+        "options": ["boil", "boils", "boiling", "boiled"],
+        "correct": 1,
+        "explanation_id": "Jawaban benar: 'boils'. Ini adalah kebenaran umum (general truth), jadi kita pakai Present Simple. 'Water' dianggap sebagai subjek tunggal (it).",
+        "hint_id": "Fakta ilmiah menggunakan Present Simple. 'Water' = 'it'.",
+        "difficulty": 2,
+        "cefrCanDo": "Can use present simple for general truths"
+      }
+    ]
+  }
+]
