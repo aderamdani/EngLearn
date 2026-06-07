@@ -162,6 +162,11 @@ Every new view, feature, or UI change MUST comply. Non-compliance blocks release
 - **Interactive cards**: `.glassEffect(.regular.interactive(), in: ...)`.
 - **NEVER** `Color(.anything).opacity(x)` for backgrounds.
 - **NEVER** layer manual blur + material + shadow (triple render = battery drain).
+- **NEVER** `.glassEffect()` on content layer (list items, data cards). Glass is for navigation layer only.
+- **NEVER** glass on glass — don't stack `.glassEffect()` on elements that already have it.
+- **ALWAYS** use `GlassEffectContainer` when grouping multiple glass elements.
+- **ALWAYS** use `.glassEffect(.regular.interactive())` for custom interactive controls.
+- **ALWAYS** use `RoundedRectangle(cornerRadius: .containerConcentric)` for corner concentricity.
 
 ### Components
 - **Empty states**: `.secondary` text only. No large icons.
@@ -204,6 +209,110 @@ Every new view, feature, or UI change MUST comply. Non-compliance blocks release
 | JSON lesson load | <50ms per file |
 | Flashcard flip | 60fps constant |
 | TTS audio start | <500ms |
+
+---
+
+## Liquid Glass Design System (WWDC25)
+
+Sumber: WWDC25 "Meet Liquid Glass" + "Build a SwiftUI app with the new design"
+
+### Core Principles
+
+1. Liquid Glass HANYA untuk NAVIGATION LAYER — toolbar, sidebar, controls floating. JANGAN apply ke content layer (table views, list items, cards konten).
+2. NEVER glass on glass — jangan stack .glassEffect() di atas elemen yang sudah punya .glassEffect(). Untuk elemen di atas glass, pakai fills, transparency, vibrancy.
+3. Dua variant Regular dan Clear — JANGAN campur. Regular untuk hampir semua. Clear HANYA kalau: (a) di atas media-rich content, (b) dimming layer tidak ganggu, (c) content di atasnya bold+bright.
+4. Tinting selective — .tint() HANYA untuk primary actions. JANGAN tint semua elemen.
+5. Monochrome icons di toolbar — tint hanya untuk convey meaning, bukan dekorasi.
+
+### SwiftUI API Reference
+
+Custom glass effect capsule default:
+    .glassEffect(.regular, in: .capsule)
+
+Custom shape:
+    .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.card))
+
+Interactive untuk custom controls:
+    .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.card))
+
+Group multiple glass elements (WAJIB untuk visual correctness):
+    GlassEffectContainer { ... }
+
+Glass button styles:
+    .buttonStyle(.glass)
+    .buttonStyle(.glassProminent)
+
+Toolbar spacing:
+    ToolbarSpacer(.fixed)   // fixed antar groups
+    ToolbarSpacer()         // flexible
+
+Toolbar item tanpa shared background:
+    .sharedBackgroundVisibility(.hidden)
+
+Badge on toolbar:
+    .badge(count)
+
+Scroll edge effect untuk dense UIs:
+    .scrollEdgeEffectStyle(.hard)
+
+Corner concentricity:
+    RoundedRectangle(cornerRadius: .containerConcentric)
+
+Background extension sidebar:
+    .backgroundExtensionEffect()
+
+Sheet morphing dari button:
+    .navigationTransition(.zoom(sourceID: id, in: namespace))
+
+Search minimized:
+    .searchToolbarBehavior(.minimize)
+
+### NavigationSplitView macOS
+- Sidebar otomatis floating Liquid Glass
+- Pakai .backgroundExtensionEffect() supaya content tidak terpotong
+- Sidebar appearance informed oleh ambient environment
+
+### Toolbar Rules
+- Items otomatis grouped di glass surface
+- ToolbarSpacer(.fixed) untuk split related actions
+- Monochrome rendering default
+- Badge modifier untuk notifications
+- HAPUS custom background di belakang toolbar — interfere scroll edge effect
+
+### Controls
+- Bordered buttons = capsule shape default
+- .controlSize(.extraLarge) untuk prominent actions
+- Sliders support tick marks via step parameter
+
+### Sheets
+- Partial height = inset + glass background otomatis
+- HAPUS .presentationBackground() custom
+- Sheet morphing via navigationTransition(.zoom)
+
+### Accessibility (otomatis)
+- Reduced Transparency: glass lebih frosty
+- Increased Contrast: elemen black/white + border
+- Reduced Motion: intensity berkurang, elastic disabled
+
+### Anti-Slop Liquid Glass
+
+NEVER:
+- .glassEffect() di content layer (list items, data cards)
+- Glass on glass (stack glass di atas glass)
+- Mix Regular dan Clear variant
+- Tint semua elemen
+- Custom background di belakang toolbar
+- .presentationBackground() di sheets
+- Opaque fills di buttons di atas glass
+
+ALWAYS:
+- GlassEffectContainer untuk group multiple glass elements
+- .glassEffect(.regular.interactive()) untuk custom interactive controls
+- ToolbarSpacer(.fixed) untuk group related items
+- Monochrome icons di toolbar
+- .badge() untuk toolbar notifications
+- RoundedRectangle(cornerRadius: .containerConcentric)
+- Test dengan Reduced Transparency, Increased Contrast, Reduced Motion
 
 ---
 

@@ -73,3 +73,7 @@ custom_rules:
     regex: '\.onAppear\s*\{\s*Task'
     message: "Anti-Slop: Use .task modifier instead of .onAppear { Task {} }"
     severity: error
+  no_presentation_background:
+    regex: '\.presentationBackground'
+    message: "HIG: Remove presentationBackground — let Liquid Glass handle sheet backgrounds"
+    severity: warning

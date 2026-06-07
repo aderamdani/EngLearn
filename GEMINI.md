@@ -119,6 +119,40 @@ Specialized instructions for Gemini CLI. Focus: build optimization, testing, Swi
 
 ---
 
+## Liquid Glass SwiftUI Rules
+
+### API Quick Reference
+- `.glassEffect(.regular, in: .capsule)` — default capsule shape
+- `.glassEffect(.regular, in: .rect(cornerRadius:))` — custom shape
+- `.glassEffect(.regular.interactive(), in:)` — interactive controls
+- `GlassEffectContainer { }` — WAJIB untuk group multiple glass elements
+- `.buttonStyle(.glass)` / `.buttonStyle(.glassProminent)` — glass buttons
+- `ToolbarSpacer(.fixed)` / `ToolbarSpacer()` — toolbar spacing
+- `.sharedBackgroundVisibility(.hidden)` — standalone toolbar item
+- `.badge(count)` — toolbar notifications
+- `.scrollEdgeEffectStyle(.hard)` — dense UIs
+- `RoundedRectangle(cornerRadius: .containerConcentric)` — corner concentricity
+- `.backgroundExtensionEffect()` — sidebar background extension
+- `.navigationTransition(.zoom(sourceID: id, in: namespace))` — sheet morphing
+- `.searchToolbarBehavior(.minimize)` — minimized search
+
+### Common Mistakes
+1. `.glassEffect()` pada content layer (list items, data cards) — glass HANYA untuk navigation layer
+2. Glass on glass — stacking `.glassEffect()` di atas elemen yang sudah glass
+3. Mixing Regular + Clear variant — pilih satu, Regular untuk hampir semua
+4. Tinting semua elemen — `.tint()` HANYA untuk primary actions
+5. Custom background di belakang toolbar — interferes scroll edge effect
+6. `.presentationBackground()` pada sheets — Liquid Glass handles otomatis
+7. Tidak pakai `GlassEffectContainer` saat grouping multiple glass elements
+8. Opaque fills pada buttons di atas glass
+
+### Accessibility (otomatis di Liquid Glass)
+- Reduced Transparency → glass lebih frosty
+- Increased Contrast → elemen black/white + border
+- Reduced Motion → intensity berkurang, elastic disabled
+
+---
+
 ## Anti-Slop (same as CLAUDE.md)
 
 1. NEVER `.background(Color(...).opacity(...))`. ALWAYS `.regularMaterial` + `.glassEffect()`.
