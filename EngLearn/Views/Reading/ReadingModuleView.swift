@@ -120,12 +120,6 @@ struct ReadingModuleView: View {
     }
 }
 
-// Stub for Compilation
-struct ReadingPassageView: View {
-    let passage: ReadingPassage
-    var body: some View { Text(passage.title) }
-}
-
 #Preview {
     ReadingModuleView()
 }

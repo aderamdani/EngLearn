@@ -4,7 +4,7 @@ import SwiftData
 struct DictationView: View {
     let dialogue: ListeningDialogue
     
-    @StateObject private var audioService = AudioPlaybackService()
+    @State private var audioService = AudioPlaybackService()
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
     

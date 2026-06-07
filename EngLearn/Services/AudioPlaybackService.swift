@@ -2,27 +2,23 @@ import Foundation
 import AVFoundation
 import SwiftUI
 import OSLog
+import Observation
 
 @MainActor
-final class AudioPlaybackService: NSObject, ObservableObject, AVSpeechSynthesizerDelegate, @unchecked Sendable {
+@Observable
+final class AudioPlaybackService: NSObject, AVSpeechSynthesizerDelegate, @unchecked Sendable {
     private let synthesizer = AVSpeechSynthesizer()
-    @Published var isPlaying = false
-    
-    // We fetch rate from AppStorage but manage it via properties for simplicity here
-    // In a full implementation, we'd listen to AppStorage changes
+    var isPlaying = false
     
     override init() {
         super.init()
         synthesizer.delegate = self
     }
     
-    func play(text: String, rate: Double = AppConstants.Limits.ttsNormalRate) {
+    func play(text: String, rate: Double) {
         stop()
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        
-        // AVSpeechUtterance rates are 0.0 to 1.0, with default ~0.5
-        // Convert the rate parameter to fit reasonably
         utterance.rate = Float(rate)
         
         Log.audio.info("Playing audio: \(text)")

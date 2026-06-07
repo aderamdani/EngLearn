@@ -57,9 +57,3 @@ struct ReadingPassageView: View {
         .accessibilityLabel("Mulai kuis pemahaman")
     }
 }
-
-// Stub for Compilation
-struct ComprehensionQuizView: View {
-    let passage: ReadingPassage
-    var body: some View { Text("Quiz for \(passage.title)") }
-}

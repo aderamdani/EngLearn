@@ -119,9 +119,3 @@ struct ListeningModuleView: View {
         }
     }
 }
-
-// Stub for Compilation
-struct DictationView: View {
-    let dialogue: ListeningDialogue
-    var body: some View { Text(dialogue.title) }
-}

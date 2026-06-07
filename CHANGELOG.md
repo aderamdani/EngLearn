@@ -5,6 +5,16 @@ All notable changes to EngLearn will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2026-06-07
+
+### Added
+- Reading Module with graded passages and word count tracking
+- ReadingPassageView featuring highlighted vocabulary extraction
+- ComprehensionQuizView with multiple-choice questions and Indonesian feedback
+- Listening Module with dictation exercises and adjustable audio speed
+- AudioPlaybackService utilizing AVSpeechSynthesizer for TTS
+- Expanded curriculum with 5 reading passages and 5 listening dialogues (A1 level)
+
 ## [0.5.0] - 2026-06-07
 
 ### Added

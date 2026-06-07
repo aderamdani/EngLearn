@@ -1,0 +1,107 @@
+[
+  {
+    "id": "listening_a1_001",
+    "title": "Meeting a New Friend",
+    "audioScript": "Hello! My name is Anna. What is your name? Nice to meet you. Where are you from? I am from Canada.",
+    "speed": 0.8,
+    "speakerCount": 1,
+    "exercises": [
+      {
+        "id": "l_a1_001_e1",
+        "prompt": "Dengarkan audio dan ketikkan nama orang tersebut.",
+        "expectedText": "Anna",
+        "hint_id": "Dengarkan kalimat 'My name is...'."
+      },
+      {
+        "id": "l_a1_001_e2",
+        "prompt": "Dari negara manakah dia berasal?",
+        "expectedText": "Canada",
+        "hint_id": "Dengarkan kalimat terakhir: 'I am from...'."
+      }
+    ]
+  },
+  {
+    "id": "listening_a1_002",
+    "title": "Ordering Coffee",
+    "audioScript": "I would like a large coffee, please. And a piece of chocolate cake. Thank you. How much is that?",
+    "speed": 0.8,
+    "speakerCount": 1,
+    "exercises": [
+      {
+        "id": "l_a1_002_e1",
+        "prompt": "Minuman apa yang dia pesan?",
+        "expectedText": "a large coffee",
+        "hint_id": "Dengarkan kalimat pertama: 'I would like...'."
+      },
+      {
+        "id": "l_a1_002_e2",
+        "prompt": "Makanan apa yang dia pesan?",
+        "expectedText": "a piece of chocolate cake",
+        "hint_id": "Dengarkan bagian 'And a piece of...'."
+      }
+    ]
+  },
+  {
+    "id": "listening_a1_003",
+    "title": "Daily Schedule",
+    "audioScript": "I wake up at six in the morning. I take a shower and eat breakfast at seven. Then I go to work.",
+    "speed": 0.9,
+    "speakerCount": 1,
+    "exercises": [
+      {
+        "id": "l_a1_003_e1",
+        "prompt": "Jam berapa dia bangun?",
+        "expectedText": "six",
+        "hint_id": "Dengarkan kata yang mengikuti 'I wake up at...'."
+      },
+      {
+        "id": "l_a1_003_e2",
+        "prompt": "Jam berapa dia sarapan?",
+        "expectedText": "seven",
+        "hint_id": "Dengarkan kata yang mengikuti 'eat breakfast at...'."
+      }
+    ]
+  },
+  {
+    "id": "listening_a1_004",
+    "title": "Asking for Directions",
+    "audioScript": "Excuse me, where is the train station? Oh, it is straight ahead. Just walk for five minutes. Thank you!",
+    "speed": 0.9,
+    "speakerCount": 1,
+    "exercises": [
+      {
+        "id": "l_a1_004_e1",
+        "prompt": "Tempat apa yang sedang dicari?",
+        "expectedText": "the train station",
+        "hint_id": "Dengarkan kata yang mengikuti 'where is...'."
+      },
+      {
+        "id": "l_a1_004_e2",
+        "prompt": "Berapa lama dia harus berjalan?",
+        "expectedText": "five minutes",
+        "hint_id": "Dengarkan bagian 'Just walk for...'."
+      }
+    ]
+  },
+  {
+    "id": "listening_a1_005",
+    "title": "Weekend Plans",
+    "audioScript": "This weekend, I want to go to the beach. I will swim in the sea and eat ice cream. It will be fun.",
+    "speed": 0.8,
+    "speakerCount": 1,
+    "exercises": [
+      {
+        "id": "l_a1_005_e1",
+        "prompt": "Ke mana dia ingin pergi akhir pekan ini?",
+        "expectedText": "the beach",
+        "hint_id": "Dengarkan kalimat pertama: 'I want to go to...'."
+      },
+      {
+        "id": "l_a1_005_e2",
+        "prompt": "Apa yang akan dia makan di sana?",
+        "expectedText": "ice cream",
+        "hint_id": "Dengarkan kata yang mengikuti 'and eat...'."
+      }
+    ]
+  }
+]
