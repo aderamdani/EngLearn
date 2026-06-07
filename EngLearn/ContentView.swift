@@ -126,22 +126,6 @@ struct ContentView: View {
     }
 }
 
-struct OnboardingView: View {
-    var body: some View {
-        VStack(spacing: Spacing.xxl) {
-            Text(AppConstants.appName)
-                .font(.largeTitle)
-            Text(String(localized: "Belajar Bahasa Inggris dari A1 sampai C2", comment: "Onboarding tagline"))
-                .font(.title3)
-                .foregroundStyle(.secondary)
-        }
-        .frame(
-            minWidth: AppConstants.Window.minWidth,
-            minHeight: AppConstants.Window.minHeight
-        )
-    }
-}
-
 struct PlaceholderModuleView: View {
     let module: ModuleType
 
