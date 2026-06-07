@@ -12,7 +12,15 @@ struct EngLearnApp: App {
             height: AppConstants.Window.defaultHeight
         )
         .windowResizability(.contentMinSize)
-        .modelContainer(for: [])
+        .modelContainer(for: [
+            UserProgress.self,
+            LessonRecord.self,
+            VocabularyEntry.self,
+            WritingEntry.self,
+            SpeakingRecord.self,
+            AchievementRecord.self,
+            DailyStreak.self
+        ])
         .commands {
             CommandGroup(replacing: .newItem) {
                 Button(String(localized: "New Writing Entry", comment: "Menu item")) {
