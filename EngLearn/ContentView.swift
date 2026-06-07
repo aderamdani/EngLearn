@@ -83,19 +83,19 @@ struct ContentView: View {
     private var sidebar: some View {
         List(selection: $selectedModule) {
             Section(String(localized: "Belajar", comment: "Sidebar section")) {
-                sidebarItem(.dashboard, key: "1")
-                sidebarItem(.dailyLesson, key: "2")
-                sidebarItem(.grammar, key: "3")
-                sidebarItem(.vocabulary, key: "4")
-                sidebarItem(.reading, key: "5")
-                sidebarItem(.listening, key: "6")
-                sidebarItem(.writing, key: "7")
-                sidebarItem(.speaking, key: "8")
+                sidebarItem(.dashboard)
+                sidebarItem(.dailyLesson)
+                sidebarItem(.grammar)
+                sidebarItem(.vocabulary)
+                sidebarItem(.reading)
+                sidebarItem(.listening)
+                sidebarItem(.writing)
+                sidebarItem(.speaking)
             }
 
             Section(String(localized: "Jelajahi", comment: "Sidebar section")) {
-                sidebarItem(.immersion, key: "9")
-                sidebarItem(.levelTest, key: "0")
+                sidebarItem(.immersion)
+                sidebarItem(.levelTest)
             }
 
             Section(String(localized: "Progres", comment: "Sidebar section")) {
@@ -107,14 +107,9 @@ struct ContentView: View {
         .navigationTitle(AppConstants.appName)
     }
 
-    private func sidebarItem(_ module: ModuleType, key: KeyEquivalent? = nil) -> some View {
-        let label = Label(module.displayName, systemImage: module.systemImage)
+    private func sidebarItem(_ module: ModuleType) -> some View {
+        Label(module.displayName, systemImage: module.systemImage)
             .tag(module.rawValue)
-            
-        if let key = key {
-            return AnyView(label.keyboardShortcut(key, modifiers: .command))
-        }
-        return AnyView(label)
     }
 
     @ViewBuilder
