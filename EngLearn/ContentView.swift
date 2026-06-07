@@ -118,10 +118,14 @@ struct ContentView: View {
     }
 
     private var streakIndicator: some View {
-        let count = streaks.count // Placeholder logic
-        return Label("\(count)", systemImage: "flame.fill")
-            .foregroundStyle(count > 0 ? .orange : .secondary)
-            .accessibilityLabel(String(localized: "Streak: \(count) hari", comment: "Streak counter"))
+        let count = streaks.count
+        return HStack(spacing: 4) {
+            Image(systemName: "flame.fill")
+                .foregroundColor(count > 0 ? .orange : .secondary)
+            Text("\(count)")
+                .font(.headline.monospacedDigit())
+        }
+        .accessibilityLabel(String(localized: "Streak: \(count) hari", comment: "Streak counter"))
     }
 
     private var dailyGoalRing: some View {
@@ -130,9 +134,24 @@ struct ContentView: View {
         let minutes = streaks.first(where: { calendar.isDate($0.date, inSameDayAs: today) })?.minutesSpent ?? 0
         let progress = min(Double(minutes) / Double(dailyGoalMinutes), 1.0)
         
-        return Image(systemName: progress >= 1.0 ? "checkmark.circle.fill" : (progress > 0 ? "circle.dotted" : "circle"))
-            .foregroundStyle(progress >= 1.0 ? .green : .secondary)
-            .accessibilityLabel(String(localized: "Target harian: \(Int(progress * 100))% selesai", comment: "Daily goal"))
+        return ZStack {
+            Circle()
+                .stroke(Color.secondary.opacity(0.2), lineWidth: 3)
+                .frame(width: 24, height: 24)
+            
+            Circle()
+                .trim(from: 0, to: CGFloat(progress))
+                .stroke(progress >= 1.0 ? Color.green : Color.accentColor, style: StrokeStyle(lineWidth: 3, lineCap: .round))
+                .frame(width: 24, height: 24)
+                .rotationEffect(.degrees(-90))
+            
+            if progress >= 1.0 {
+                Image(systemName: "checkmark")
+                    .font(.system(size: 8, weight: .bold))
+                    .foregroundColor(.green)
+            }
+        }
+        .accessibilityLabel(String(localized: "Target harian: \(Int(progress * 100))% selesai", comment: "Daily goal"))
     }
 }
 
