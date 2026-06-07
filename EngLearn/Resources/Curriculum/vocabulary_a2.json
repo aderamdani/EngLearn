@@ -1,0 +1,57 @@
+[
+  {
+    "word": "airport",
+    "phonetic": "/ˈerpɔːrt/",
+    "partOfSpeech": "noun",
+    "definition_en": "A place where aircraft land and take off",
+    "definition_id": "Tempat di mana pesawat mendarat dan lepas landas; bandara",
+    "exampleSentence": "We need to be at the airport two hours early.",
+    "context_id": "Hub transportasi udara.",
+    "collocations": ["airport security", "international airport"],
+    "theme": "travel"
+  },
+  {
+    "word": "ticket",
+    "phonetic": "/ˈtɪkɪt/",
+    "partOfSpeech": "noun",
+    "definition_en": "A piece of paper that shows you have paid for a journey or event",
+    "definition_id": "Sepotong kertas yang menunjukkan kamu sudah membayar perjalanan; tiket",
+    "exampleSentence": "Don't lose your train ticket!",
+    "context_id": "Bukti pembayaran transportasi atau acara.",
+    "collocations": ["one-way ticket", "round-trip ticket"],
+    "theme": "travel"
+  },
+  {
+    "word": "breakfast",
+    "phonetic": "/ˈbrekfəst/",
+    "partOfSpeech": "noun",
+    "definition_en": "The first meal of the day",
+    "definition_id": "Makan pertama di awal hari; sarapan",
+    "exampleSentence": "What did you have for breakfast?",
+    "context_id": "Makan pagi.",
+    "collocations": ["eat breakfast", "breakfast buffet"],
+    "theme": "food"
+  },
+  {
+    "word": "shopping",
+    "phonetic": "/ˈʃɑːpɪŋ/",
+    "partOfSpeech": "noun",
+    "definition_en": "The activity of buying things in shops",
+    "definition_id": "Aktivitas membeli barang di toko; belanja",
+    "exampleSentence": "I love going shopping on Saturdays.",
+    "context_id": "Kegiatan konsumsi atau rekreasi.",
+    "collocations": ["go shopping", "online shopping"],
+    "theme": "shopping"
+  },
+  {
+    "word": "delicious",
+    "phonetic": "/dɪˈlɪʃəs/",
+    "partOfSpeech": "adjective",
+    "definition_en": "Having a very pleasant taste",
+    "definition_id": "Memiliki rasa yang sangat enak; lezat",
+    "exampleSentence": "This cake is delicious!",
+    "context_id": "Deskripsi makanan yang enak.",
+    "collocations": ["delicious meal", "absolutely delicious"],
+    "theme": "food"
+  }
+]
