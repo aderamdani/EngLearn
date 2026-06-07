@@ -1,0 +1,20 @@
+[
+  {
+    "id": "writing_a2_001",
+    "promptType": "Describing a Place",
+    "prompt": "Describe a place you visited recently.",
+    "instruction_id": "Gambarkan tempat yang baru saja kamu kunjungi. Bagaimana suasananya? Apa yang kamu lakukan di sana?",
+    "wordCountTarget": 60,
+    "sampleAnswer": "I visited a beautiful lake in the mountains last week. The water was very calm and the air was fresh. I spent the afternoon walking around the lake and taking photos. It was very peaceful and I felt very relaxed. I want to go back there again soon.",
+    "tip_id": "Gunakan kata sifat deskriptif seperti 'calm', 'fresh', 'peaceful', dan 'relaxed'."
+  },
+  {
+    "id": "writing_a2_002",
+    "promptType": "Writing a Message",
+    "prompt": "Write a short message to a friend inviting them to dinner.",
+    "instruction_id": "Tulis pesan singkat untuk mengajak teman makan malam. Tentukan waktu dan tempatnya.",
+    "wordCountTarget": 30,
+    "sampleAnswer": "Hi Sarah, are you free this Friday evening? I would like to invite you to dinner at the new Italian restaurant in the city center at 7 PM. Let me know if you can come!",
+    "tip_id": "Gunakan 'I would like to invite you' dan jangan lupa sebutkan waktu dan lokasi."
+  }
+]
