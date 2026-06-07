@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import OSLog
 
 struct WritingPromptView: View {
     let prompt: WritingPrompt
@@ -143,17 +144,17 @@ struct WritingPromptView: View {
             await MainActor.run {
                 let descriptor = FetchDescriptor<WritingEntry>(predicate: #Predicate { $0.promptID == prompt.id })
                 if let entry = try? modelContext.fetch(descriptor).first {
-                    entry.text = text
+                    entry.userText = text
                     entry.wordCount = currentWordCount
-                    entry.lastEditedAt = Date()
+                    entry.updatedAt = Date()
                 } else {
                     let newEntry = WritingEntry(
                         promptID: prompt.id,
                         level: CEFRLevel.a1, // Defaulting to A1 for now
-                        text: text,
-                        wordCount: currentWordCount,
-                        targetWordCount: prompt.wordCountTarget
+                        promptText: prompt.prompt
                     )
+                    newEntry.userText = text
+                    newEntry.wordCount = currentWordCount
                     modelContext.insert(newEntry)
                 }
                 try? modelContext.save()
