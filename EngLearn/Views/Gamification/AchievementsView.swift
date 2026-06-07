@@ -15,12 +15,28 @@ struct AchievementsView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVGrid(columns: columns, spacing: Spacing.md) {
-                    ForEach(allAchievements, id: \.id) { dto in
-                        achievementCard(dto: dto)
+                LazyVStack(alignment: .leading, spacing: Spacing.xxl) {
+                    StreakHeatmapView()
+                        .padding(.horizontal, Spacing.lg)
+                    
+                    VStack(alignment: .leading, spacing: Spacing.md) {
+                        HStack {
+                            Image(systemName: "trophy.fill")
+                                .foregroundColor(.yellow)
+                            Text("Pencapaian Kamu")
+                                .font(.headline)
+                        }
+                        .padding(.leading, Spacing.lg)
+                        
+                        LazyVGrid(columns: columns, spacing: Spacing.md) {
+                            ForEach(allAchievements, id: \.id) { dto in
+                                achievementCard(dto: dto)
+                            }
+                        }
+                        .padding(.horizontal, Spacing.lg)
                     }
                 }
-                .padding(Spacing.lg)
+                .padding(.vertical, Spacing.lg)
             }
             .navigationTitle("Pencapaian")
             .background(.regularMaterial)
