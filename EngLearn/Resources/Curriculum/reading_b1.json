@@ -1,0 +1,19 @@
+[
+  {
+    "id": "reading_b1_001",
+    "title": "The Impact of Technology on Education",
+    "passageText": "Technology has completely transformed the way we learn. In the past, students relied heavily on printed textbooks and physical libraries. Today, the internet provides access to an endless amount of information. E-learning platforms allow people to study from anywhere in the world, breaking down geographical barriers. However, this shift also brings challenges, such as the digital divide, where not everyone has equal access to reliable internet or devices. Despite these issues, the benefits of incorporating technology into education are undeniable.",
+    "wordCount": 81,
+    "vocabulary": ["transformed", "relied", "barriers", "divide", "incorporating"],
+    "comprehensionQuiz": [
+      {
+        "id": "r_b1_001_q1",
+        "question": "What is one challenge mentioned in the text?",
+        "options": ["Too many textbooks", "The digital divide", "Lack of schools", "Expensive e-learning platforms"],
+        "correctIndex": 1,
+        "explanation_id": "Teks menyebutkan 'this shift also brings challenges, such as the digital divide'.",
+        "hint_id": "Cari kalimat yang menyebutkan kata 'challenges'."
+      }
+    ]
+  }
+]

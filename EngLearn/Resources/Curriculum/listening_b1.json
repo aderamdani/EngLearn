@@ -1,0 +1,17 @@
+[
+  {
+    "id": "listening_b1_001",
+    "title": "A Job Interview",
+    "audioScript": "Good morning. Please take a seat. I've reviewed your resume and I must say your experience is quite impressive. Can you tell me why you want to work for our company?",
+    "speed": 1.0,
+    "speakerCount": 1,
+    "exercises": [
+      {
+        "id": "l_b1_001_e1",
+        "prompt": "Apa yang dikatakan pewawancara tentang pengalaman kandidat?",
+        "expectedText": "quite impressive",
+        "hint_id": "Dengarkan kalimat 'your experience is...'."
+      }
+    ]
+  }
+]

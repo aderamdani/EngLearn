@@ -1,0 +1,11 @@
+[
+  {
+    "id": "writing_b1_001",
+    "promptType": "Formal Email",
+    "prompt": "Write an email to a hotel to change your reservation dates.",
+    "instruction_id": "Tulis email formal ke hotel untuk mengubah tanggal reservasimu. Jelaskan alasan perubahan tersebut dengan sopan.",
+    "wordCountTarget": 80,
+    "sampleAnswer": "Dear Sir/Madam, I am writing to request a change to my reservation (Booking Ref: 12345). Due to an unexpected change in my flight schedule, I would like to move my stay from July 10th-12th to July 12th-14th. I hope this is possible and apologize for any inconvenience caused. I look forward to your reply.",
+    "tip_id": "Gunakan frasa pembuka 'I am writing to' dan penutup 'I look forward to your reply'."
+  }
+]

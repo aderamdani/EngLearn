@@ -1,0 +1,57 @@
+[
+  {
+    "word": "environment",
+    "phonetic": "/ɪnˈvaɪrənmənt/",
+    "partOfSpeech": "noun",
+    "definition_en": "The surroundings or conditions in which a person, animal, or plant lives or operates.",
+    "definition_id": "Lingkungan",
+    "exampleSentence": "We must protect the environment for future generations.",
+    "context_id": "Sering digunakan dalam konteks alam dan pelestariannya.",
+    "collocations": ["protect the environment", "natural environment"],
+    "theme": "nature"
+  },
+  {
+    "word": "pollution",
+    "phonetic": "/pəˈluːʃn/",
+    "partOfSpeech": "noun",
+    "definition_en": "The presence in or introduction into the environment of a substance which has harmful or poisonous effects.",
+    "definition_id": "Polusi; pencemaran",
+    "exampleSentence": "Air pollution is a major problem in big cities.",
+    "context_id": "Masalah lingkungan.",
+    "collocations": ["air pollution", "water pollution"],
+    "theme": "nature"
+  },
+  {
+    "word": "development",
+    "phonetic": "/dɪˈveləpmənt/",
+    "partOfSpeech": "noun",
+    "definition_en": "The process of developing or being developed.",
+    "definition_id": "Perkembangan; pembangunan",
+    "exampleSentence": "Child development is crucial in the early years.",
+    "context_id": "Proses pertumbuhan atau perubahan.",
+    "collocations": ["economic development", "child development"],
+    "theme": "society"
+  },
+  {
+    "word": "opportunity",
+    "phonetic": "/ˌɑːpərˈtuːnəti/",
+    "partOfSpeech": "noun",
+    "definition_en": "A set of circumstances that makes it possible to do something.",
+    "definition_id": "Kesempatan; peluang",
+    "exampleSentence": "This is a great opportunity for you.",
+    "context_id": "Momen yang menguntungkan.",
+    "collocations": ["great opportunity", "miss an opportunity"],
+    "theme": "work"
+  },
+  {
+    "word": "experience",
+    "phonetic": "/ɪkˈspɪriəns/",
+    "partOfSpeech": "noun",
+    "definition_en": "Practical contact with and observation of facts or events.",
+    "definition_id": "Pengalaman",
+    "exampleSentence": "Do you have any experience in sales?",
+    "context_id": "Sesuatu yang didapat dari praktik atau kejadian.",
+    "collocations": ["work experience", "lack of experience"],
+    "theme": "work"
+  }
+]
