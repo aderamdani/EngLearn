@@ -83,6 +83,9 @@ final class VocabularyEntry {
     var definitionID: String
     var phonetic: String
     var exampleSentence: String
+    var contextID: String
+    var theme: String
+    var collocations: [String]
     var easeFactor: Double
     var interval: Int
     var repetitions: Int
@@ -97,7 +100,10 @@ final class VocabularyEntry {
         definitionEN: String = "",
         definitionID: String = "",
         phonetic: String = "",
-        exampleSentence: String = ""
+        exampleSentence: String = "",
+        contextID: String = "",
+        theme: String = "",
+        collocations: [String] = []
     ) {
         self.word = word
         self.level = level.rawValue
@@ -106,6 +112,9 @@ final class VocabularyEntry {
         self.definitionID = definitionID
         self.phonetic = phonetic
         self.exampleSentence = exampleSentence
+        self.contextID = contextID
+        self.theme = theme
+        self.collocations = collocations
         self.easeFactor = AppConstants.SM2.defaultEaseFactor
         self.interval = AppConstants.SM2.initialInterval
         self.repetitions = 0
