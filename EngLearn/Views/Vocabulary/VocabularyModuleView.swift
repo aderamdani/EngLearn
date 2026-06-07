@@ -6,6 +6,7 @@ struct VocabularyModuleView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var selectedLevel: CEFRLevel = .a1
     @State private var isLoading = false
+    @State private var searchQuery = ""
     
     @Query private var allEntries: [VocabularyEntry]
     
@@ -25,6 +26,7 @@ struct VocabularyModuleView: View {
             }
             .navigationTitle("Vocabulary")
             .background(.regularMaterial)
+            .searchable(text: $searchQuery, prompt: "Cari kosakata...")
             .task(id: selectedLevel) {
                 await seedAndLoad()
             }
@@ -62,7 +64,9 @@ struct VocabularyModuleView: View {
     }
     
     private var levelEntries: [VocabularyEntry] {
-        allEntries.filter { $0.level == selectedLevel.rawValue }
+        let entries = allEntries.filter { $0.level == selectedLevel.rawValue }
+        if searchQuery.isEmpty { return entries }
+        return entries.filter { $0.word.localizedCaseInsensitiveContains(searchQuery) }
     }
     
     private var statsStrip: some View {
