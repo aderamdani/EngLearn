@@ -1,0 +1,54 @@
+[
+  {
+    "id": "grammar_b1_present_perfect",
+    "skill": "grammar",
+    "level": "b1",
+    "title": "Present Perfect",
+    "theme": "life_experiences",
+    "cefrCanDo": "Can describe experiences using present perfect",
+    "explanation": {
+      "rule_id": "Present Perfect digunakan untuk aksi yang terjadi di masa lalu namun waktunya tidak ditentukan, atau masih berhubungan dengan sekarang. Polanya: have/has + verb 3.",
+      "rule_en": "Use Present Perfect for actions at an unspecific time in the past or connected to the present. Pattern: have/has + past participle (verb 3).",
+      "examples": ["I have seen that movie before.", "She has lived in Paris for three years.", "We have already eaten.", "Have you ever traveled abroad?"],
+      "exceptions": ["Jangan gunakan Present Perfect dengan penanda waktu spesifik seperti 'yesterday'." ],
+      "tip_id": "Gunakan 'ever' untuk bertanya pengalaman, dan 'never' untuk yang belum pernah dilakukan."
+    },
+    "exercises": [
+      {
+        "id": "grammar_b1_pp_001",
+        "type": "multipleChoice",
+        "prompt": "I ___ to that restaurant many times.",
+        "options": ["was", "have been", "gone", "has been"],
+        "correct": 1,
+        "explanation_id": "Jawaban benar: 'have been'. Ini adalah pengalaman hidup, gunakan Present Perfect. 'I' berpasangan dengan 'have'.",
+        "hint_id": "I + have + verb 3."
+      }
+    ]
+  },
+  {
+    "id": "grammar_b1_conditionals_1",
+    "skill": "grammar",
+    "level": "b1",
+    "title": "Conditionals Type 1",
+    "theme": "possibilities",
+    "cefrCanDo": "Can talk about possible future events",
+    "explanation": {
+      "rule_id": "Conditional Type 1 digunakan untuk kemungkinan nyata di masa depan. Polanya: If + Present Simple, will + verb 1.",
+      "rule_en": "Use Conditional Type 1 for real possibilities in the future. Pattern: If + Present Simple, will + verb 1.",
+      "examples": ["If it rains, I will stay at home.", "If you study hard, you will pass the exam.", "We will be late if we don't hurry."],
+      "exceptions": [],
+      "tip_id": "Koma (,) hanya digunakan jika kalimat dimulai dengan 'If'."
+    },
+    "exercises": [
+      {
+        "id": "grammar_b1_c1_001",
+        "type": "multipleChoice",
+        "prompt": "If she ___ early, she will catch the bus.",
+        "options": ["leaves", "will leave", "leave", "left"],
+        "correct": 0,
+        "explanation_id": "Jawaban benar: 'leaves'. Setelah 'If', gunakan Present Simple.",
+        "hint_id": "If + subjek + Present Simple."
+      }
+    ]
+  }
+]
