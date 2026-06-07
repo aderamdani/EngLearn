@@ -85,7 +85,7 @@ struct ContentView: View {
             case .dashboard:
                 DashboardView()
             case .dailyLesson:
-                PlaceholderModuleView(module: module)
+                DailyLessonView()
             case .grammar:
                 GrammarModuleView()
             case .vocabulary:
@@ -99,11 +99,11 @@ struct ContentView: View {
             case .speaking:
                 SpeakingModuleView()
             case .immersion:
-                PlaceholderModuleView(module: module)
+                ImmersionZoneView()
             case .levelTest:
                 PlaceholderModuleView(module: module)
             case .achievements:
-                PlaceholderModuleView(module: module)
+                AchievementsView()
             case .settings:
                 SettingsView()
             }
