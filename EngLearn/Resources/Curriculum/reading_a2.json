@@ -1,0 +1,19 @@
+[
+  {
+    "id": "reading_a2_001",
+    "title": "A Trip to the Beach",
+    "passageText": "Last summer, my friends and I decided to take a trip to the coast. We left early in the morning to avoid the heavy traffic. When we arrived, the sun was shining brightly. We spent the whole day swimming in the clear blue water and building sandcastles. For lunch, we found a small seafood restaurant near the pier. The food was fresh and delicious. It was a memorable day that we will never forget.",
+    "wordCount": 85,
+    "vocabulary": ["coast", "avoid", "brightly", "pier", "memorable"],
+    "comprehensionQuiz": [
+      {
+        "id": "r_a2_001_q1",
+        "question": "Why did they leave early in the morning?",
+        "options": ["To see the sunrise", "To avoid heavy traffic", "To find a good parking spot", "Because they were excited"],
+        "correctIndex": 1,
+        "explanation_id": "Teks menyatakan 'We left early in the morning to avoid the heavy traffic'.",
+        "hint_id": "Cari alasan keberangkatan pagi hari."
+      }
+    ]
+  }
+]
