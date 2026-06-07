@@ -101,7 +101,7 @@ struct ContentView: View {
             case .immersion:
                 ImmersionZoneView()
             case .levelTest:
-                PlaceholderModuleView(module: module)
+                LevelTestView()
             case .achievements:
                 AchievementsView()
             case .settings:
