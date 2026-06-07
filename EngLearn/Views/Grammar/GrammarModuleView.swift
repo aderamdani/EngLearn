@@ -24,6 +24,7 @@ struct GrammarModuleView: View {
                 }
             }
             .navigationTitle("Grammar")
+            .background(.regularMaterial)
             .task(id: selectedLevel) {
                 await loadLessons()
             }
@@ -47,9 +48,9 @@ struct GrammarModuleView: View {
                 if lessons.isEmpty {
                     emptyState
                 } else {
-                    ForEach(lessons) { lesson in
+                    ForEach(Array(lessons.enumerated()), id: \.element.id) { index, lesson in
                         NavigationLink(destination: GrammarLessonView(lesson: lesson)) {
-                            lessonCard(lesson)
+                            lessonCard(lesson, index: index + 1)
                         }
                         .buttonStyle(.plain)
                     }
@@ -59,27 +60,67 @@ struct GrammarModuleView: View {
         }
     }
     
-    private func lessonCard(_ lesson: Lesson) -> some View {
-        HStack {
-            VStack(alignment: .leading, spacing: Spacing.xs) {
-                Text(lesson.title)
-                    .font(.headline)
-                
-                Text("\(lesson.exercises.count) Latihan")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-            }
+    private func lessonCard(_ lesson: Lesson, index: Int) -> some View {
+        HStack(spacing: Spacing.md) {
+            lessonIcon(index: index)
             
-            Spacer()
+            VStack(alignment: .leading, spacing: 4) {
+                HStack {
+                    Text(lesson.title)
+                        .font(.headline)
+                    Spacer()
+                    exerciseCountBadge(count: lesson.exercises.count)
+                }
+                
+                if let preview = lesson.explanation?.ruleID.components(separatedBy: ".").first {
+                    Text(preview + ".")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .lineLimit(1)
+                }
+                
+                difficultyBar(level: lesson.level)
+            }
             
             if let record = lessonRecords.first(where: { $0.lessonID == lesson.id }) {
                 progressBadge(score: record.scorePercentage)
             }
         }
         .padding(Spacing.lg)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: CornerRadius.card))
+        .background(.background, in: RoundedRectangle(cornerRadius: CornerRadius.card))
         .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.card))
-        .accessibilityLabel("\(lesson.title), \(lesson.exercises.count) latihan")
+        .accessibilityLabel("\(lesson.title), pelajaran \(index)")
+    }
+    
+    private func lessonIcon(index: Int) -> some View {
+        ZStack {
+            Circle()
+                .fill(Color.accentColor.mix(with: .white, by: 0.9))
+                .frame(width: 40, height: 40)
+            
+            Text("\(index)")
+                .font(.system(size: 14, weight: .bold))
+                .foregroundColor(.accentColor)
+        }
+    }
+    
+    private func exerciseCountBadge(count: Int) -> some View {
+        Text("\(count) Q")
+            .font(.system(size: 8, weight: .bold))
+            .padding(.horizontal, 6)
+            .padding(.vertical, 2)
+            .background(.ultraThinMaterial, in: Capsule())
+    }
+    
+    private func difficultyBar(level: CEFRLevel) -> some View {
+        HStack(spacing: 2) {
+            let count = (level == .a1 || level == .a2) ? 1 : (level == .b1 || level == .b2 ? 2 : 3)
+            ForEach(0..<3) { i in
+                RoundedRectangle(cornerRadius: 1)
+                    .fill(i < count ? Color.orange : Color.secondary.opacity(0.2))
+                    .frame(width: 12, height: 3)
+            }
+        }
     }
     
     private func progressBadge(score: Double) -> some View {
