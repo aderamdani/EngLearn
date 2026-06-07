@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @SceneStorage("selectedModule") private var selectedModule: String?
-    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = true
     @State private var searchQuery = ""
 
     var body: some View {
