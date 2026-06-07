@@ -2,11 +2,13 @@ import Foundation
 import Speech
 import OSLog
 import AVFoundation
+import Observation
 
 @MainActor
-final class SpeechRecognitionService: ObservableObject, @unchecked Sendable {
-    @Published var recognizedText: String = ""
-    @Published var isRecording: Bool = false
+@Observable
+final class SpeechRecognitionService: @unchecked Sendable {
+    var recognizedText: String = ""
+    var isRecording: Bool = false
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -28,9 +30,7 @@ final class SpeechRecognitionService: ObservableObject, @unchecked Sendable {
         
         stop()
         
-        let audioSession = AVAudioSession.sharedInstance()
-        try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
-        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+        // AVAudioSession is not available or required on macOS
         
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         guard let request = recognitionRequest else {

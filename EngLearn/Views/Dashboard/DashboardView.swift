@@ -199,10 +199,9 @@ struct DashboardView: View {
                             VStack(alignment: .leading, spacing: 2) {
                                 Text("\(record.skill.capitalized): \(record.lessonID.replacingOccurrences(of: "_", with: " ").capitalized)")
                                     .font(.subheadline.bold())
-                                Text(record.completedAt, style: .relative)
+                                Text("\(Text(record.completedAt, style: .relative)) yang lalu")
                                     .font(.caption2)
                                     .foregroundColor(.secondary)
-                                    + Text(" yang lalu").font(.caption2).foregroundColor(.secondary)
                             }
                             Spacer()
                             Text("\(Int(record.scorePercentage))%")

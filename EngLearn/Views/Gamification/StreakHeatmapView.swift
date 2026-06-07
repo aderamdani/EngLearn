@@ -120,9 +120,9 @@ struct StreakHeatmapView: View {
         let dateString = formatter.string(from: date)
         
         if let streak = streaks.first(where: { Calendar.current.isDate($0.date, inSameDayAs: date) }), streak.minutesSpent > 0 {
-            return String(localized: "Aktivitas pada \(dateString): \(streak.minutesSpent) menit", comment: "Heatmap cell accessibility")
+            return "Aktivitas pada \(dateString): \(streak.minutesSpent) menit"
         } else {
-            return String(localized: "Tidak ada aktivitas pada \(dateString)", comment: "Heatmap cell accessibility")
+            return "Tidak ada aktivitas pada \(dateString)"
         }
     }
 }

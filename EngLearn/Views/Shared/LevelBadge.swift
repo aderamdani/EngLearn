@@ -14,7 +14,7 @@ struct LevelBadge: View {
                     .fill(Color.cefrColor(for: level))
             }
             .foregroundColor(.white)
-            .accessibilityLabel(String(localized: "Level \(level.displayName)", comment: "Accessibility label for level badge"))
+            .accessibilityLabel("Level \(level.displayName)")
     }
 }
 
