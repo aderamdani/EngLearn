@@ -83,7 +83,7 @@ struct ContentView: View {
         if let selected = selectedModule, let module = ModuleType(rawValue: selected) {
             switch module {
             case .dashboard:
-                PlaceholderModuleView(module: module)
+                DashboardView()
             case .dailyLesson:
                 PlaceholderModuleView(module: module)
             case .grammar:
@@ -108,7 +108,7 @@ struct ContentView: View {
                 SettingsView()
             }
         } else {
-            PlaceholderModuleView(module: .dashboard)
+            DashboardView()
         }
     }
 
