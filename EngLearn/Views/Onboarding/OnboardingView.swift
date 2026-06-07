@@ -172,9 +172,9 @@ struct OnboardingView: View {
     
     private var permissionStep: some View {
         VStack(spacing: Spacing.lg) {
-            Image(systemName: "mic.fill")
+            Image(systemName: micPermissionDenied ? "mic.slash.fill" : "mic.fill")
                 .font(.system(size: 60))
-                .foregroundColor(.accentColor)
+                .foregroundColor(micPermissionDenied ? .orange : .accentColor)
             
             Text("Izin Mikrofon")
                 .font(.title.bold())
@@ -184,30 +184,48 @@ struct OnboardingView: View {
                 .foregroundColor(.secondary)
             
             if micPermissionDenied {
-                Text("Akses ditolak. Kamu bisa mengubahnya nanti di Pengaturan Mac.")
-                    .font(.caption)
-                    .foregroundColor(.orange)
-                    .padding(.top, Spacing.sm)
-            }
-            
-            Button("Berikan Akses") {
-                Task {
-                    let granted = await AVCaptureDevice.requestAccess(for: .audio)
-                    if granted {
-                        withAnimation { currentStep += 1 }
-                    } else {
-                        micPermissionDenied = true
-                    }
+                VStack(spacing: Spacing.sm) {
+                    Text("Akses mikrofon ditolak.")
+                        .font(.subheadline.bold())
+                        .foregroundColor(.orange)
+                    Text("Kamu bisa mengaktifkannya nanti di System Settings > Privacy & Security > Microphone.")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                }
+                .padding(Spacing.md)
+                .background {
+                    RoundedRectangle(cornerRadius: CornerRadius.card)
+                        .fill(Color.orange.opacity(0.1))
                 }
             }
-            .buttonStyle(.borderedProminent)
-            .disabled(micPermissionDenied)
             
-            if micPermissionDenied {
-                Button("Lanjutkan") {
+            if !micPermissionDenied {
+                Button("Berikan Akses") {
+                    requestMicrophoneAccess()
+                }
+                .buttonStyle(.borderedProminent)
+                .accessibilityLabel("Minta izin akses mikrofon")
+            }
+            
+            Button(micPermissionDenied ? "Lanjutkan Tanpa Mikrofon" : "Lewati") {
+                withAnimation { currentStep += 1 }
+            }
+            .buttonStyle(.plain)
+            .foregroundColor(.secondary)
+        }
+    }
+    
+    private func requestMicrophoneAccess() {
+        Task {
+            let granted = await AVCaptureDevice.requestAccess(for: .audio)
+            await MainActor.run {
+                if granted {
                     withAnimation { currentStep += 1 }
+                } else {
+                    micPermissionDenied = true
+                    Log.ui.warning("Microphone permission denied by user")
                 }
-                .padding(.top, Spacing.sm)
             }
         }
     }
