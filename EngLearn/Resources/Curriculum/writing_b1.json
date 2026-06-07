@@ -2,10 +2,91 @@
   {
     "id": "writing_b1_001",
     "promptType": "Formal Email",
-    "prompt": "Write an email to a hotel to change your reservation dates.",
-    "instruction_id": "Tulis email formal ke hotel untuk mengubah tanggal reservasimu. Jelaskan alasan perubahan tersebut dengan sopan.",
+    "prompt": "Write an email to a hotel to change your reservation dates. Explain the reason politely and ask for confirmation.",
+    "instruction_id": "Tulis email formal ke hotel untuk mengubah tanggal reservasimu. Jelaskan alasan perubahan tersebut dengan sopan dan minta konfirmasi.",
     "wordCountTarget": 80,
-    "sampleAnswer": "Dear Sir/Madam, I am writing to request a change to my reservation (Booking Ref: 12345). Due to an unexpected change in my flight schedule, I would like to move my stay from July 10th-12th to July 12th-14th. I hope this is possible and apologize for any inconvenience caused. I look forward to your reply.",
-    "tip_id": "Gunakan frasa pembuka 'I am writing to' dan penutup 'I look forward to your reply'."
+    "sampleAnswer": "Dear Sir or Madam, I am writing to request a change to my reservation (Booking Ref: 12345). Due to an unexpected change in my flight schedule, I would like to move my stay from July 10th to 12th to July 12th to 14th. I hope this is possible and apologize for any inconvenience caused. Could you please confirm the change by email? I look forward to your reply. Yours faithfully, John Smith.",
+    "tip_id": "Gunakan frasa pembuka 'I am writing to' dan penutup 'I look forward to your reply'. Jangan lupa sertakan nomor reservasi."
+  },
+  {
+    "id": "writing_b1_002",
+    "promptType": "Opinion Paragraph",
+    "prompt": "Do you think social media has a positive or negative influence on young people? Write a paragraph explaining your opinion with examples.",
+    "instruction_id": "Menurut kamu, apakah media sosial berpengaruh positif atau negatif bagi kaum muda? Tulis paragraf yang menjelaskan pendapatmu dengan contoh.",
+    "wordCountTarget": 100,
+    "sampleAnswer": "In my opinion, social media has both positive and negative effects on young people. On the positive side, it allows them to connect with friends and family around the world and access educational content. For example, many students use YouTube to learn new skills. However, excessive use of social media can lead to problems such as cyberbullying and reduced face-to-face communication. Therefore, I believe it is important for young people to use social media responsibly and in moderation.",
+    "tip_id": "Mulai dengan 'In my opinion,' dan dukung pendapatmu dengan contoh spesifik. Gunakan kata penghubung seperti 'however' dan 'therefore'."
+  },
+  {
+    "id": "writing_b1_003",
+    "promptType": "Story Narration",
+    "prompt": "Write a short story about a time you got lost in a new city. Describe what happened and how you found your way back.",
+    "instruction_id": "Tulis cerita singkat tentang saat kamu tersesat di kota baru. Jelaskan apa yang terjadi dan bagaimana kamu menemukan jalan kembali.",
+    "wordCountTarget": 120,
+    "sampleAnswer": "Last summer, I visited Barcelona for the first time. After exploring the famous Sagrada Familia, I decided to walk back to my hotel. Unfortunately, the narrow streets of the Gothic Quarter all looked the same, and before I knew it, I was completely lost. My phone battery had died, so I couldn't use a map. I felt nervous but decided to stay calm. I approached a local shopkeeper and tried to explain my situation in broken Spanish. She smiled, drew me a simple map, and even walked with me for two blocks to point me in the right direction. Thanks to her kindness, I found my hotel within fifteen minutes.",
+    "tip_id": "Gunakan past tense (went, decided, felt). Sertakan detail sensorik seperti apa yang kamu lihat dan dengar."
+  },
+  {
+    "id": "writing_b1_004",
+    "promptType": "Formal Letter",
+    "prompt": "Write a letter to your local council suggesting improvements to public transportation in your area.",
+    "instruction_id": "Tulis surat formal ke dewan lokalmu menyarankan perbaikan transportasi umum di daerahmu.",
+    "wordCountTarget": 100,
+    "sampleAnswer": "Dear Council Members, I am writing to suggest some improvements to the public transportation system in our area. Firstly, the bus service is unreliable, with buses often arriving thirty minutes late. I recommend increasing the frequency of buses during peak hours. Secondly, there are no bus shelters at several stops, which makes waiting uncomfortable during rain or extreme heat. Finally, introducing a mobile app for real-time bus tracking would greatly improve the experience for passengers. I hope you will consider these suggestions. Yours sincerely, Maria Lopez.",
+    "tip_id": "Gunakan bahasa formal. Mulai setiap paragraf dengan 'Firstly', 'Secondly', 'Finally'. Akhiri dengan 'Yours sincerely'."
+  },
+  {
+    "id": "writing_b1_005",
+    "promptType": "Descriptive Paragraph",
+    "prompt": "Describe your favorite place in your city. Explain why you like it and what people can do there.",
+    "instruction_id": "Jelaskan tempat favoritmu di kotamu. Ceritakan kenapa kamu menyukainya dan apa saja yang bisa dilakukan orang di sana.",
+    "wordCountTarget": 90,
+    "sampleAnswer": "My favorite place in my city is the central park near the river. It is a large, green space with tall trees, colorful flower beds, and a small lake where people can rent paddle boats. I love going there on weekends because it is peaceful and relaxing, even though it is in the middle of the city. People can jog along the paths, have picnics on the grass, or simply sit on a bench and read a book. In the summer, the park also hosts free outdoor concerts, which are always enjoyable.",
+    "tip_id": "Gunakan kata sifat yang hidup seperti 'peaceful', 'colorful', 'enjoyable'. Mulai dengan memperkenalkan tempatnya, lalu jelaskan aktivitasnya."
+  },
+  {
+    "id": "writing_b1_006",
+    "promptType": "Informal Email",
+    "prompt": "Write an email to a friend inviting them to your birthday party. Include the date, time, location, and any special plans.",
+    "instruction_id": "Tulis email informal ke temanmu untuk mengundangnya ke pesta ulang tahunmu. Sertakan tanggal, waktu, lokasi, dan rencana spesial.",
+    "wordCountTarget": 80,
+    "sampleAnswer": "Hey Sarah! I hope you're doing well. I'm writing to invite you to my birthday party next Saturday, June 15th. It starts at 7 PM at my apartment on Oak Street. We're having a barbecue in the backyard, and I've also planned some fun games. A few of our old school friends are coming too, so it'll be great to catch up. Let me know if you can make it! Can't wait to see you. Best, Alex.",
+    "tip_id": "Gunakan nada yang ramah dan santai. Sertakan semua detail penting: kapan, di mana, dan apa yang akan dilakukan."
+  },
+  {
+    "id": "writing_b1_007",
+    "promptType": "Review",
+    "prompt": "Write a review of a book you recently read. Summarize the story, say what you liked or disliked, and recommend it to others.",
+    "instruction_id": "Tulis ulasan buku yang baru saja kamu baca. Ringkas ceritanya, sebutkan apa yang kamu suka atau tidak suka, dan rekomendasikan ke orang lain.",
+    "wordCountTarget": 110,
+    "sampleAnswer": "I recently read 'The Alchemist' by Paulo Coelho, and I absolutely loved it. The story follows a young shepherd named Santiago who travels from Spain to Egypt in search of a treasure. Along the way, he meets many interesting characters who teach him valuable lessons about following his dreams. What I liked most was the simple yet powerful writing style. The book made me think about my own goals and dreams. The only downside is that some parts felt a bit slow. Overall, I would highly recommend this book to anyone who enjoys inspiring stories about self-discovery.",
+    "tip_id": "Mulai dengan memperkenalkan buku dan pengarangnya. Sertakan ringkasan singkat, pendapat pribadi, dan rekomendasi."
+  },
+  {
+    "id": "writing_b1_008",
+    "promptType": "For and Against",
+    "prompt": "Write a short essay discussing the advantages and disadvantages of working from home.",
+    "instruction_id": "Tulis esai singkat yang membahas kelebihan dan kekurangan bekerja dari rumah.",
+    "wordCountTarget": 130,
+    "sampleAnswer": "Working from home has become increasingly common in recent years. There are several advantages to this arrangement. First, employees save time and money by not having to commute to the office. Second, they have more flexibility to balance work and personal responsibilities. However, there are also some disadvantages. Many people find it difficult to separate work from their personal life when both happen in the same space. Additionally, working from home can lead to feelings of isolation and reduced collaboration with colleagues. In conclusion, while working from home offers significant benefits, it is important to address its challenges to maintain productivity and well-being.",
+    "tip_id": "Gunakan struktur yang jelas: pendahuluan, kelebihan, kekurangan, dan kesimpulan. Gunakan kata penghubung seperti 'first', 'second', 'however', 'in conclusion'."
+  },
+  {
+    "id": "writing_b1_009",
+    "promptType": "Personal Narrative",
+    "prompt": "Write about a skill you learned recently. Explain how you learned it, what challenges you faced, and how it has helped you.",
+    "instruction_id": "Tulis tentang keterampilan yang baru saja kamu pelajari. Jelaskan bagaimana kamu mempelajarinya, tantangan yang kamu hadapi, dan bagaimana keterampilan itu membantumu.",
+    "wordCountTarget": 110,
+    "sampleAnswer": "A few months ago, I decided to learn how to cook. Before that, I could barely make toast without burning it. I started by watching cooking videos on YouTube and following simple recipes. The biggest challenge was learning to manage my time in the kitchen — I often ended up with some dishes overcooked while others were still raw. After weeks of practice, I can now prepare a full meal for my family. Learning to cook has not only saved me money on takeaway food but has also become a relaxing hobby that I truly enjoy.",
+    "tip_id": "Gunakan past tense untuk menceritakan pengalaman. Sertakan tantangan spesifik dan bagaimana kamu mengatasinya."
+  },
+  {
+    "id": "writing_b1_010",
+    "promptType": "Formal Email",
+    "prompt": "Write an email to a company complaining about a product you received that was damaged during delivery. Request a replacement or refund.",
+    "instruction_id": "Tulis email formal ke perusahaan untuk mengeluh tentang produk yang rusak saat pengiriman. Minta penggantian atau pengembalian dana.",
+    "wordCountTarget": 90,
+    "sampleAnswer": "Dear Customer Service Team, I am writing to express my dissatisfaction with a recent order (Order #78901). I received the package yesterday, but unfortunately, the ceramic vase inside was broken. The packaging appeared to be insufficient to protect the item during transit. I would kindly request either a replacement vase or a full refund. I have kept the original packaging and taken photos of the damage for your reference. Please let me know how you would like to proceed. I look forward to your prompt response. Yours faithfully, David Park.",
+    "tip_id": "Gunakan nada yang sopan tetapi tegas. Sertakan nomor pesanan, jelaskan masakannya dengan jelas, dan sebutkan apa yang kamu inginkan."
   }
 ]

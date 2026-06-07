@@ -1,18 +1,166 @@
 [
   {
     "id": "reading_b1_001",
-    "title": "The Impact of Technology on Education",
-    "passageText": "Technology has completely transformed the way we learn. In the past, students relied heavily on printed textbooks and physical libraries. Today, the internet provides access to an endless amount of information. E-learning platforms allow people to study from anywhere in the world, breaking down geographical barriers. However, this shift also brings challenges, such as the digital divide, where not everyone has equal access to reliable internet or devices. Despite these issues, the benefits of incorporating technology into education are undeniable.",
-    "wordCount": 81,
-    "vocabulary": ["transformed", "relied", "barriers", "divide", "incorporating"],
+    "title": "The Rise of Remote Work",
+    "passageText": "Remote work has become one of the most significant changes in the modern workplace. Before 2020, only a small percentage of employees worked from home on a regular basis. However, the global pandemic forced companies around the world to adopt remote working policies almost overnight. What started as a temporary solution has now become a permanent feature of many organizations.\n\nThere are several advantages to remote work. Employees save time and money by eliminating their daily commute. They also have more flexibility to manage their personal responsibilities, such as childcare or medical appointments. Studies have shown that many remote workers report higher levels of job satisfaction and productivity.\n\nHowever, remote work is not without its challenges. Some employees struggle with feelings of isolation and find it difficult to separate their work life from their personal life. Communication can also be more complicated when team members are not in the same physical space. Companies need to invest in the right tools and create clear policies to support their remote workforce effectively.",
+    "wordCount": 178,
+    "vocabulary": ["significant", "pandemic", "commute", "flexibility", "isolation"],
     "comprehensionQuiz": [
       {
         "id": "r_b1_001_q1",
-        "question": "What is one challenge mentioned in the text?",
-        "options": ["Too many textbooks", "The digital divide", "Lack of schools", "Expensive e-learning platforms"],
+        "question": "What event caused companies to adopt remote work policies?",
+        "options": ["A new government law", "The global pandemic", "Employee protests", "A technology breakthrough"],
         "correctIndex": 1,
-        "explanation_id": "Teks menyebutkan 'this shift also brings challenges, such as the digital divide'.",
-        "hint_id": "Cari kalimat yang menyebutkan kata 'challenges'."
+        "explanation_id": "Teks menyebutkan 'the global pandemic forced companies around the world to adopt remote working policies'.",
+        "hint_id": "Cari peristiwa besar yang terjadi sekitar tahun 2020."
+      },
+      {
+        "id": "r_b1_001_q2",
+        "question": "Which of the following is NOT mentioned as an advantage of remote work?",
+        "options": ["Saving time on commuting", "Higher salary", "More flexibility", "Higher job satisfaction"],
+        "correctIndex": 1,
+        "explanation_id": "Teks menyebutkan penghematan waktu, fleksibilitas, dan kepuasan kerja, tetapi tidak menyebutkan gaji yang lebih tinggi.",
+        "hint_id": "Baca kembali paragraf kedua dengan cermat."
+      },
+      {
+        "id": "r_b1_001_q3",
+        "question": "What challenge of remote work is mentioned in the text?",
+        "options": ["Higher internet costs", "Feelings of isolation", "Lack of computers", "Too many meetings"],
+        "correctIndex": 1,
+        "explanation_id": "Paragraf ketiga menyebutkan 'Some employees struggle with feelings of isolation'.",
+        "hint_id": "Cari kata yang berkaitan dengan perasaan kesepian."
+      }
+    ]
+  },
+  {
+    "id": "reading_b1_002",
+    "title": "The Benefits of Learning a Second Language",
+    "passageText": "Learning a second language is one of the most rewarding investments a person can make. In today's interconnected world, being bilingual or multilingual opens doors to new career opportunities, cultural experiences, and personal growth. Research has shown that learning another language has numerous cognitive benefits as well.\n\nOne of the most well-documented advantages is improved memory and problem-solving skills. When you learn a new language, your brain has to work harder to recognize and produce different sounds, structures, and vocabulary. This mental exercise strengthens neural connections and can even delay the onset of age-related cognitive decline.\n\nBeyond the cognitive benefits, speaking another language allows you to connect with people from different cultures on a deeper level. You gain access to literature, films, and music in their original language, which provides a richer understanding of the culture. Many employers also value language skills, especially in industries such as international business, diplomacy, and tourism.\n\nDespite these benefits, many people give up on language learning because they find it difficult or time-consuming. Experts recommend setting realistic goals, practicing regularly, and immersing yourself in the language through media and conversation with native speakers.",
+    "wordCount": 212,
+    "vocabulary": ["rewarding", "interconnected", "cognitive", "neural", "immersion"],
+    "comprehensionQuiz": [
+      {
+        "id": "r_b1_002_q1",
+        "question": "According to the text, what cognitive benefit does learning a language provide?",
+        "options": ["Better eyesight", "Improved memory and problem-solving", "Stronger muscles", "Faster running speed"],
+        "correctIndex": 1,
+        "explanation_id": "Teks menyatakan bahwa belajar bahasa meningkatkan memori dan keterampilan pemecahan masalah.",
+        "hint_id": "Cari kata 'cognitive' di paragraf kedua."
+      },
+      {
+        "id": "r_b1_002_q2",
+        "question": "Which industries value language skills according to the passage?",
+        "options": ["Agriculture and mining", "International business, diplomacy, and tourism", "Construction and manufacturing", "Healthcare and education only"],
+        "correctIndex": 1,
+        "explanation_id": "Paragraf ketiga menyebutkan 'international business, diplomacy, and tourism'.",
+        "hint_id": "Cari daftar industri di paragraf ketiga."
+      },
+      {
+        "id": "r_b1_002_q3",
+        "question": "What do experts recommend for successful language learning?",
+        "options": ["Study only grammar books", "Set realistic goals and practice regularly", "Move to another country immediately", "Avoid speaking with native speakers"],
+        "correctIndex": 1,
+        "explanation_id": "Paragraf terakhir menyebutkan 'setting realistic goals, practicing regularly, and immersing yourself'.",
+        "hint_id": "Baca rekomendasi di paragraf terakhir."
+      }
+    ]
+  },
+  {
+    "id": "reading_b1_003",
+    "title": "Sustainable Living: Small Changes, Big Impact",
+    "passageText": "Sustainable living has moved from being a niche concern to a mainstream movement. More and more people are realizing that the choices they make every day have a direct impact on the health of our planet. While large-scale industrial changes are essential, individual actions also play a crucial role in reducing our environmental footprint.\n\nOne of the simplest ways to live more sustainably is to reduce food waste. According to the United Nations, approximately one-third of all food produced globally is wasted each year. Planning meals in advance, storing food properly, and using leftovers creatively can significantly cut down on waste. Composting organic waste is another effective strategy that reduces methane emissions from landfills.\n\nTransportation is another area where individuals can make a difference. Choosing to walk, cycle, or use public transport instead of driving alone can substantially reduce carbon emissions. For longer distances, consider whether a video call could replace a business trip. When driving is necessary, carpooling or choosing a fuel-efficient vehicle helps minimize the environmental impact.\n\nEnergy consumption at home is the third major area of focus. Simple actions like switching to LED light bulbs, unplugging devices when not in use, and using a programmable thermostat can lower both your carbon footprint and your electricity bill. Many households are also exploring renewable energy options such as solar panels.",
+    "wordCount": 228,
+    "vocabulary": ["sustainable", "footprint", "composting", "emissions", "renewable"],
+    "comprehensionQuiz": [
+      {
+        "id": "r_b1_003_q1",
+        "question": "How much food is wasted globally each year according to the text?",
+        "options": ["One-tenth", "One-quarter", "One-third", "One-half"],
+        "correctIndex": 2,
+        "explanation_id": "Teks menyebutkan 'approximately one-third of all food produced globally is wasted each year'.",
+        "hint_id": "Cari angka atau pecahan di paragraf kedua."
+      },
+      {
+        "id": "r_b1_003_q2",
+        "question": "What does composting help reduce?",
+        "options": ["Water usage", "Methane emissions from landfills", "Noise pollution", "Traffic congestion"],
+        "correctIndex": 1,
+        "explanation_id": "Teks menyatakan bahwa composting 'reduces methane emissions from landfills'.",
+        "hint_id": "Cari kata 'composting' dan efeknya."
+      },
+      {
+        "id": "r_b1_003_q3",
+        "question": "Which of the following is NOT mentioned as a way to reduce energy consumption at home?",
+        "options": ["Switching to LED bulbs", "Unplugging devices", "Installing a swimming pool", "Using a programmable thermostat"],
+        "correctIndex": 2,
+        "explanation_id": "Teks menyebutkan LED, mencabut perangkat, dan termostat terprogram, tetapi tidak menyebutkan kolam renang.",
+        "hint_id": "Baca paragraf terakhir dan cari yang tidak disebutkan."
+      }
+    ]
+  },
+  {
+    "id": "reading_b1_004",
+    "title": "The History and Future of Space Exploration",
+    "passageText": "Space exploration has captured the human imagination for centuries, but it was only in the twentieth century that we developed the technology to leave Earth's atmosphere. The launch of Sputnik by the Soviet Union in 1957 marked the beginning of the space age. This was followed by the historic Apollo 11 mission in 1969, when Neil Armstrong became the first human to set foot on the Moon.\n\nSince those early achievements, space exploration has advanced significantly. The International Space Station, orbiting Earth since 1998, serves as a laboratory where astronauts from different countries conduct scientific experiments in microgravity. Robotic missions have explored Mars, Jupiter, Saturn, and even the outer edges of our solar system. The Hubble Space Telescope has provided breathtaking images of distant galaxies and helped scientists understand the age and expansion of the universe.\n\nToday, space exploration is no longer the exclusive domain of government agencies. Private companies such as SpaceX and Blue Origin are developing reusable rockets and planning missions to Mars. NASA's Artemis program aims to return humans to the Moon by the mid-2020s, this time establishing a sustainable presence rather than just a brief visit.\n\nLooking further ahead, the possibility of human settlements on Mars and beyond raises fascinating questions about the future of our species. While the technical and financial challenges are enormous, the progress made in recent decades suggests that these dreams may eventually become reality.",
+    "wordCount": 232,
+    "vocabulary": ["atmosphere", "microgravity", "telescope", "galaxies", "sustainable"],
+    "comprehensionQuiz": [
+      {
+        "id": "r_b1_004_q1",
+        "question": "What event marked the beginning of the space age?",
+        "options": ["The Apollo 11 Moon landing", "The launch of Sputnik", "The construction of the ISS", "The Hubble Telescope launch"],
+        "correctIndex": 1,
+        "explanation_id": "Teks menyatakan 'The launch of Sputnik by the Soviet Union in 1957 marked the beginning of the space age'.",
+        "hint_id": "Cari peristiwa pertama yang disebutkan di paragraf pertama."
+      },
+      {
+        "id": "r_b1_004_q2",
+        "question": "What is the purpose of NASA's Artemis program?",
+        "options": ["To build a new space telescope", "To return humans to the Moon and establish a sustainable presence", "To send robots to Jupiter", "To shut down the International Space Station"],
+        "correctIndex": 1,
+        "explanation_id": "Teks menyebutkan 'NASA's Artemis program aims to return humans to the Moon... establishing a sustainable presence'.",
+        "hint_id": "Cari kata 'Artemis' di paragraf ketiga."
+      },
+      {
+        "id": "r_b1_004_q3",
+        "question": "What role do private companies play in modern space exploration?",
+        "options": ["They only provide funding", "They are developing reusable rockets and planning Mars missions", "They have replaced all government agencies", "They focus only on satellite TV"],
+        "correctIndex": 1,
+        "explanation_id": "Paragraf ketiga menyatakan perusahaan swasta 'are developing reusable rockets and planning missions to Mars'.",
+        "hint_id": "Cari informasi tentang SpaceX dan Blue Origin."
+      }
+    ]
+  },
+  {
+    "id": "reading_b1_005",
+    "title": "The Psychology of Habits",
+    "passageText": "Habits are powerful forces that shape our daily lives, often without us realizing it. According to researchers at Duke University, nearly forty percent of the actions people perform each day are not conscious decisions but habits. Understanding how habits work can help us build better routines and break unhealthy ones.\n\nThe habit loop, a concept popularized by Charles Duhigg, consists of three elements: a cue, a routine, and a reward. The cue triggers the behavior, the routine is the behavior itself, and the reward is the positive outcome that reinforces the loop. For example, feeling stressed (cue) might lead someone to eat snacks (routine), which provides temporary comfort (reward).\n\nBreaking a bad habit requires identifying the cue and reward, then replacing the routine with a healthier alternative. If stress triggers snacking, a person could try taking a short walk or practicing deep breathing instead. The key is to keep the same cue and reward while changing the behavior in between.\n\nBuilding new habits takes time and consistency. Research suggests that it takes an average of sixty-six days for a new behavior to become automatic, contrary to the popular belief that it only takes twenty-one days. Starting small, tracking progress, and celebrating small wins are effective strategies for making new habits stick.",
+    "wordCount": 220,
+    "vocabulary": ["conscious", "cue", "routine", "reinforces", "automatic"],
+    "comprehensionQuiz": [
+      {
+        "id": "r_b1_005_q1",
+        "question": "According to the text, what percentage of daily actions are habits?",
+        "options": ["About 20 percent", "About 40 percent", "About 60 percent", "About 80 percent"],
+        "correctIndex": 1,
+        "explanation_id": "Teks menyebutkan 'nearly forty percent of the actions people perform each day are not conscious decisions but habits'.",
+        "hint_id": "Cari persentase di paragraf pertama."
+      },
+      {
+        "id": "r_b1_005_q2",
+        "question": "What are the three elements of the habit loop?",
+        "options": ["Thought, action, result", "Cue, routine, reward", "Trigger, behavior, punishment", "Signal, habit, outcome"],
+        "correctIndex": 1,
+        "explanation_id": "Paragraf kedua menjelaskan habit loop terdiri dari 'a cue, a routine, and a reward'.",
+        "hint_id": "Cari tiga elemen yang disebutkan setelah 'habit loop'."
+      },
+      {
+        "id": "r_b1_005_q3",
+        "question": "How long does it take for a new habit to become automatic according to research?",
+        "options": ["21 days", "30 days", "66 days", "100 days"],
+        "correctIndex": 2,
+        "explanation_id": "Teks menyatakan 'it takes an average of sixty-six days for a new behavior to become automatic'.",
+        "hint_id": "Cari angka di paragraf terakhir, bukan angka 21 hari."
       }
     ]
   }

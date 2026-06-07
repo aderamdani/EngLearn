@@ -2,15 +2,105 @@
   {
     "id": "listening_b1_001",
     "title": "A Job Interview",
-    "audioScript": "Good morning. Please take a seat. I've reviewed your resume and I must say your experience is quite impressive. Can you tell me why you want to work for our company?",
+    "audioScript": "Interviewer: Good morning. Please, take a seat. I've reviewed your resume and I must say your experience is quite impressive. Can you tell me why you want to work for our company? Candidate: Thank you. I've always admired your company's commitment to innovation. I believe my skills in project management would be a great fit for your team. I'm also excited about the opportunity to work on international projects.",
     "speed": 1.0,
-    "speakerCount": 1,
+    "speakerCount": 2,
     "exercises": [
       {
         "id": "l_b1_001_e1",
-        "prompt": "Apa yang dikatakan pewawancara tentang pengalaman kandidat?",
+        "prompt": "Dengarkan dan ketik apa yang dikatakan pewawancara tentang pengalaman kandidat.",
         "expectedText": "quite impressive",
         "hint_id": "Dengarkan kalimat 'your experience is...'."
+      },
+      {
+        "id": "l_b1_001_e2",
+        "prompt": "Dengarkan dan ketik alasan kandidat ingin bekerja di perusahaan tersebut.",
+        "expectedText": "commitment to innovation",
+        "hint_id": "Kandidat menyebutkan sesuatu tentang inovasi."
+      }
+    ]
+  },
+  {
+    "id": "listening_b1_002",
+    "title": "Making a Restaurant Reservation",
+    "audioScript": "Receptionist: Good afternoon, Bella Italia Restaurant. How may I help you? Caller: Hi, I'd like to make a reservation for dinner this Saturday. Receptionist: Certainly. For how many people? Caller: For four people, please. And could we get a table by the window? Receptionist: Let me check. Yes, we have a window table available at 7:30 PM. Caller: That sounds perfect. The name is Johnson. Receptionist: Great, Mr. Johnson. We'll see you on Saturday at 7:30.",
+    "speed": 1.0,
+    "speakerCount": 2,
+    "exercises": [
+      {
+        "id": "l_b1_002_e1",
+        "prompt": "Dengarkan dan ketik hari apa reservasi tersebut dibuat.",
+        "expectedText": "Saturday",
+        "hint_id": "Dengarkan hari yang disebutkan oleh pemanggil."
+      },
+      {
+        "id": "l_b1_002_e2",
+        "prompt": "Dengarkan dan ketik jam berapa reservasi tersebut.",
+        "expectedText": "7:30 PM",
+        "hint_id": "Dengarkan waktu yang disebutkan oleh resepsionis."
+      }
+    ]
+  },
+  {
+    "id": "listening_b1_003",
+    "title": "Asking for Directions",
+    "audioScript": "Tourist: Excuse me, could you tell me how to get to the National Museum? Local: Of course! Go straight down this road for about two blocks, then turn left at the traffic lights. You'll see a large park on your right. The museum is just past the park, next to the library. Tourist: Thank you so much! Is it far from here? Local: Not at all. It's about a ten-minute walk. You can't miss it.",
+    "speed": 1.0,
+    "speakerCount": 2,
+    "exercises": [
+      {
+        "id": "l_b1_003_e1",
+        "prompt": "Dengarkan dan ke arah mana turis harus berbelok.",
+        "expectedText": "left",
+        "hint_id": "Dengarkan arah yang disebutkan setelah lampu merah."
+      },
+      {
+        "id": "l_b1_003_e2",
+        "prompt": "Dengarkan dan ketik berapa lama waktu tempuh berjalan kaki ke museum.",
+        "expectedText": "ten-minute walk",
+        "hint_id": "Penduduk lokal menyebutkan durasi berjalan kaki."
+      }
+    ]
+  },
+  {
+    "id": "listening_b1_004",
+    "title": "A Doctor's Appointment",
+    "audioScript": "Doctor: Hello, Mrs. Chen. What seems to be the problem today? Patient: Hi, Doctor. I've had a terrible headache for the past three days, and I also feel quite tired. Doctor: I see. Have you been drinking enough water? Patient: Not really. I've been very busy at work. Doctor: That could be the cause. Dehydration often leads to headaches. I recommend drinking at least eight glasses of a day and getting plenty of rest. I'll also prescribe some pain relief medication. Patient: Thank you, Doctor.",
+    "speed": 1.0,
+    "speakerCount": 2,
+    "exercises": [
+      {
+        "id": "l_b1_004_e1",
+        "prompt": "Dengarkan dan ketik berapa lama pasien sudah mengalami sakit kepala.",
+        "expectedText": "three days",
+        "hint_id": "Pasien menyebutkan durasi sakit kepalanya."
+      },
+      {
+        "id": "l_b1_004_e2",
+        "prompt": "Dengarkan dan ketik berapa gelas air yang direkomendasikan dokter per hari.",
+        "expectedText": "eight glasses",
+        "hint_id": "Dokter menyebutkan jumlah gelas air yang harus diminum."
+      }
+    ]
+  },
+  {
+    "id": "listening_b1_005",
+    "title": "Discussing Weekend Plans",
+    "audioScript": "Anna: Hey Tom, do you have any plans for the weekend? Tom: Not really. I was thinking about going hiking if the weather is nice. Why? Anna: A few of us are planning to visit the new art exhibition at the City Gallery. Would you like to join us? Tom: That sounds interesting. What time are you going? Anna: We're meeting at 10 AM on Saturday. After the exhibition, we could grab lunch at that new Italian place nearby. Tom: Perfect! Count me in. Should I bring anything? Anna: Just yourself and maybe a camera. The exhibition has some amazing photography.",
+    "speed": 1.0,
+    "speakerCount": 2,
+    "exercises": [
+      {
+        "id": "l_b1_005_e1",
+        "prompt": "Dengarkan dan ketik aktivitas yang direncanakan Tom jika cuaca bagus.",
+        "expectedText": "hiking",
+        "hint_id": "Tom menyebutkan aktivitas luar ruangan."
+      },
+      {
+        "id": "l_b1_005_e2",
+        "prompt": "Dengarkan dan ketik jam berapa mereka akan bertemu pada hari Sabtu.",
+        "expectedText": "10 AM",
+        "hint_id": "Anna menyebutkan waktu pertemuan."
       }
     ]
   }
