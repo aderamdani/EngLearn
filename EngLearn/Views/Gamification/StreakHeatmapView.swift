@@ -13,7 +13,7 @@ struct StreakHeatmapView: View {
         VStack(alignment: .leading, spacing: Spacing.md) {
             headerView
             
-            VStack(spacing: 4) {
+            VStack(spacing: 8) {
                 dayLabelsRow
                 
                 LazyVGrid(columns: columns, spacing: 4) {
@@ -27,13 +27,17 @@ struct StreakHeatmapView: View {
             legendView
         }
         .padding(Spacing.lg)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: CornerRadius.card))
+        .background {
+            RoundedRectangle(cornerRadius: CornerRadius.card)
+                .fill(.background)
+                .shadow(color: .black.opacity(0.08), radius: 8, y: 2)
+        }
         .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.card))
     }
     
     private var headerView: some View {
         HStack {
-            Label("Aktivitas Belajar", systemImage: "flame.fill")
+            Label("Aktivitas Belajar", systemImage: "calendar.badge.clock")
                 .font(.headline)
                 .foregroundColor(.orange)
             
@@ -51,7 +55,7 @@ struct StreakHeatmapView: View {
         HStack(spacing: 0) {
             ForEach(dayLabels, id: \.self) { label in
                 Text(label)
-                    .font(.system(size: 8, weight: .bold))
+                    .font(.system(size: 10, weight: .bold))
                     .foregroundColor(.secondary)
                     .frame(maxWidth: .infinity)
             }
@@ -67,19 +71,19 @@ struct StreakHeatmapView: View {
     
     private var legendView: some View {
         HStack(spacing: Spacing.sm) {
-            Text("0 min").font(.system(size: 8)).foregroundColor(.secondary)
-            legendCell(color: .gray.mix(with: .white, by: 0.9))
-            legendCell(color: .green.mix(with: .white, by: 0.6))
-            legendCell(color: .green.mix(with: .white, by: 0.3))
-            legendCell(color: .green)
-            Text("30+ min").font(.system(size: 8)).foregroundColor(.secondary)
+            Text("0 min").font(.system(size: 9)).foregroundColor(.secondary)
+            legendCell(color: Color.primary.opacity(0.06))
+            legendCell(color: Color.green.opacity(0.3))
+            legendCell(color: Color.green.opacity(0.6))
+            legendCell(color: Color.green)
+            Text("30+ min").font(.system(size: 9)).foregroundColor(.secondary)
         }
     }
     
     private func legendCell(color: Color) -> some View {
         RoundedRectangle(cornerRadius: 2)
             .fill(color)
-            .frame(width: 8, height: 8)
+            .frame(width: 10, height: 10)
     }
     
     // MARK: - Helper Logic
@@ -101,13 +105,13 @@ struct StreakHeatmapView: View {
     
     private func color(for date: Date) -> Color {
         guard let streak = streaks.first(where: { Calendar.current.isDate($0.date, inSameDayAs: date) }) else {
-            return .gray.mix(with: .white, by: 0.9)
+            return Color.primary.opacity(0.06)
         }
         
-        if streak.minutesSpent >= 30 { return .green }
-        if streak.minutesSpent >= 15 { return .green.mix(with: .white, by: 0.3) }
-        if streak.minutesSpent > 0 { return .green.mix(with: .white, by: 0.6) }
-        return .gray.mix(with: .white, by: 0.9)
+        if streak.minutesSpent >= 30 { return Color.green }
+        if streak.minutesSpent >= 15 { return Color.green.opacity(0.7) }
+        if streak.minutesSpent > 0 { return Color.green.opacity(0.4) }
+        return Color.primary.opacity(0.06)
     }
     
     private func accessibilityLabel(for date: Date) -> String {
