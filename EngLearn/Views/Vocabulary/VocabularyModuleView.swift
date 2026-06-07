@@ -250,7 +250,7 @@ struct VocabularyModuleView: View {
         isLoading = true
         defer { isLoading = false }
         do {
-            try await vocabularyService.seedInitialData(modelContext: modelContext, level: selectedLevel)
+            try await vocabularyService.seedVocabulary(modelContext: modelContext, level: selectedLevel)
         } catch {
             Log.data.error("Gagal menyemai data kosakata: \(error.localizedDescription)")
         }

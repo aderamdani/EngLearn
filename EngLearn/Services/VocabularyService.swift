@@ -43,7 +43,7 @@ final class VocabularyService: Sendable {
         }
     }
 
-    func seedInitialData(modelContext: ModelContext, level: CEFRLevel) async throws {
+    func seedVocabulary(modelContext: ModelContext, level: CEFRLevel) async throws {
         let dtos = try loadVocabulary(for: level)
         
         // Fetch existing words for this level to avoid duplicates

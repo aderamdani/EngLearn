@@ -59,7 +59,7 @@ struct FlashcardView: View {
             }
         }
         .rotation3DEffect(.degrees(isFlipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
-        .accessibilityLabel("Kartu kosakata: \(entries.isEmpty ? "" : entries[currentIndex].word)")
+        .accessibilityLabel(entries.isEmpty ? "Tidak ada kartu" : "Kartu kosakata: \(entries[currentIndex].word)")
     }
     
     private func cardFace(entry: VocabularyEntry, isFront: Bool) -> some View {
@@ -126,6 +126,7 @@ struct FlashcardView: View {
     }
     
     private func rateEntry(quality: Int) {
+        guard !entries.isEmpty, currentIndex < entries.count else { return }
         let entry = entries[currentIndex]
         entry.updateAfterReview(quality: quality)
         
