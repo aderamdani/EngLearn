@@ -1,0 +1,92 @@
+[
+  {
+    "id": "writing_a1_001",
+    "promptType": "Personal Introduction",
+    "prompt": "Introduce yourself to a new friend.",
+    "instruction_id": "Tulis paragraf singkat untuk memperkenalkan dirimu. Sebutkan nama, umur, asal negara, dan hobi kamu.",
+    "wordCountTarget": 40,
+    "sampleAnswer": "Hello, my name is Alex. I am twenty years old. I am from Indonesia. In my free time, I like to read books and play football. Nice to meet you!",
+    "tip_id": "Gunakan 'I am' untuk nama, umur, dan asal. Gunakan 'I like to' untuk hobi."
+  },
+  {
+    "id": "writing_a1_002",
+    "promptType": "Describing Family",
+    "prompt": "Describe your family members.",
+    "instruction_id": "Ceritakan tentang keluargamu. Berapa banyak anggota keluargamu? Siapa saja mereka dan apa pekerjaan mereka?",
+    "wordCountTarget": 50,
+    "sampleAnswer": "There are four people in my family: my father, my mother, my sister, and me. My father is a teacher and my mother is a nurse. My sister is a student. We love to watch movies together on weekends.",
+    "tip_id": "Gunakan 'There are' untuk menyebutkan jumlah. Gunakan 'is a [pekerjaan]' untuk menjelaskan profesi."
+  },
+  {
+    "id": "writing_a1_003",
+    "promptType": "Daily Routine",
+    "prompt": "Write about your daily routine.",
+    "instruction_id": "Tuliskan aktivitas sehari-harimu dari bangun tidur sampai tidur lagi.",
+    "wordCountTarget": 60,
+    "sampleAnswer": "I wake up at 6 AM every day. I take a shower, get dressed, and have breakfast. I usually eat bread and drink coffee. I start work at 9 AM and finish at 5 PM. In the evening, I eat dinner with my family and watch TV before I go to sleep at 10 PM.",
+    "tip_id": "Gunakan Present Simple (I wake up, I eat) dan kata penghubung waktu seperti 'then' atau 'after that'."
+  },
+  {
+    "id": "writing_a1_004",
+    "promptType": "Favorite Food",
+    "prompt": "Describe your favorite food.",
+    "instruction_id": "Jelaskan makanan favoritmu. Apa rasanya? Mengapa kamu menyukainya?",
+    "wordCountTarget": 40,
+    "sampleAnswer": "My favorite food is fried rice. It is very delicious and a little bit spicy. I like it because my mother cooks it for me every Sunday. I usually eat it with a fried egg.",
+    "tip_id": "Gunakan kata sifat seperti 'delicious', 'spicy', 'sweet', atau 'salty'."
+  },
+  {
+    "id": "writing_a1_005",
+    "promptType": "My House",
+    "prompt": "Describe the house you live in.",
+    "instruction_id": "Gambarkan rumah tempat tinggalmu. Berapa banyak kamar yang ada? Ruangan mana yang paling kamu suka?",
+    "wordCountTarget": 50,
+    "sampleAnswer": "I live in a small house with a beautiful garden. My house has two bedrooms, one living room, a kitchen, and a bathroom. My favorite room is my bedroom because it is very quiet and comfortable. I love my house.",
+    "tip_id": "Gunakan 'There is/There are' untuk menyebutkan ruangan, dan 'has' (My house has...)."
+  },
+  {
+    "id": "writing_a1_006",
+    "promptType": "My Pet",
+    "prompt": "Write about your pet or an animal you like.",
+    "instruction_id": "Ceritakan tentang hewan peliharaanmu atau hewan yang kamu sukai. Sebutkan nama, warna, dan apa yang biasa dilakukannya.",
+    "wordCountTarget": 40,
+    "sampleAnswer": "I have a pet dog named Max. He is brown and very active. Max loves to run in the park and play with a ball. He is a very good and friendly dog.",
+    "tip_id": "Gunakan subjek 'He', 'She', atau 'It' tergantung apakah kamu menyebut namanya."
+  },
+  {
+    "id": "writing_a1_007",
+    "promptType": "Weekend Activities",
+    "prompt": "What do you usually do on the weekend?",
+    "instruction_id": "Tuliskan apa yang biasa kamu lakukan di akhir pekan untuk bersantai.",
+    "wordCountTarget": 50,
+    "sampleAnswer": "On the weekend, I like to relax. On Saturday morning, I clean my house. In the afternoon, I meet my friends at a cafe. On Sunday, I stay at home, read a book, and prepare for the next week.",
+    "tip_id": "Gunakan preposisi 'on' untuk hari (On Saturday, On Sunday) dan 'in' untuk waktu (In the morning)."
+  },
+  {
+    "id": "writing_a1_008",
+    "promptType": "My Best Friend",
+    "prompt": "Describe your best friend.",
+    "instruction_id": "Jelaskan tentang sahabatmu. Siapa namanya, bagaimana sifatnya, dan apa yang suka kalian lakukan bersama?",
+    "wordCountTarget": 50,
+    "sampleAnswer": "My best friend is Sarah. She is very smart and funny. We met at school five years ago. We both like to listen to music and go shopping. She always helps me when I have a problem.",
+    "tip_id": "Gunakan kata sifat (adjectives) untuk mendeskripsikan sifat seseorang (smart, funny, kind)."
+  },
+  {
+    "id": "writing_a1_009",
+    "promptType": "My City",
+    "prompt": "Write about the city or town where you live.",
+    "instruction_id": "Ceritakan tentang kotamu. Apakah kota itu besar atau kecil? Apa yang menarik di sana?",
+    "wordCountTarget": 50,
+    "sampleAnswer": "I live in Jakarta. It is a very big and busy city. The traffic is often bad, but I love the food here. There are many tall buildings and big shopping malls. The people are also very friendly.",
+    "tip_id": "Kamu bisa menggunakan kalimat 'There is/are' untuk menyebutkan tempat-tempat di kota."
+  },
+  {
+    "id": "writing_a1_010",
+    "promptType": "Future Plans",
+    "prompt": "What are your plans for your next holiday?",
+    "instruction_id": "Tuliskan rencanamu untuk liburan berikutnya. Ke mana kamu akan pergi dan apa yang akan kamu lakukan?",
+    "wordCountTarget": 40,
+    "sampleAnswer": "Next holiday, I want to go to Bali with my family. We will stay at a hotel near the beach. I want to swim, eat seafood, and watch the beautiful sunset.",
+    "tip_id": "Gunakan 'I want to' atau 'I will' untuk menceritakan rencana di masa depan."
+  }
+]
