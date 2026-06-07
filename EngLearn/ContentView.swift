@@ -40,8 +40,40 @@ struct ContentView: View {
         )
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
-                streakIndicator
-                dailyGoalRing
+                // Streak indicator
+                HStack(spacing: 4) {
+                    Image(systemName: "flame.fill")
+                        .foregroundStyle(.orange)
+                        .imageScale(.small)
+                    Text("\(currentStreakCount)")
+                        .font(.caption.bold())
+                        .monospacedDigit()
+                }
+                .padding(.horizontal, 8)
+                .padding(.vertical, 4)
+                .background(.ultraThinMaterial, in: Capsule())
+                .accessibilityLabel("Streak \(currentStreakCount) hari")
+
+                // Daily goal progress  
+                HStack(spacing: 4) {
+                    ZStack {
+                        Circle()
+                            .stroke(Color.primary.opacity(0.1), lineWidth: 2)
+                            .frame(width: 16, height: 16)
+                        Circle()
+                            .trim(from: 0, to: dailyGoalProgress)
+                            .stroke(Color.green, style: StrokeStyle(lineWidth: 2, lineCap: .round))
+                            .frame(width: 16, height: 16)
+                            .rotationEffect(.degrees(-90))
+                    }
+                    Text("\(todayMinutes) min")
+                        .font(.caption)
+                        .monospacedDigit()
+                }
+                .padding(.horizontal, 8)
+                .padding(.vertical, 4)
+                .background(.ultraThinMaterial, in: Capsule())
+                .accessibilityLabel("Hari ini: \(todayMinutes) menit dari \(dailyGoalTarget) menit target")
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: .selectModule)) { notification in
@@ -117,41 +149,24 @@ struct ContentView: View {
         }
     }
 
-    private var streakIndicator: some View {
-        let count = streaks.count
-        return HStack(spacing: 4) {
-            Image(systemName: "flame.fill")
-                .foregroundColor(count > 0 ? .orange : .secondary)
-            Text("\(count)")
-                .font(.headline.monospacedDigit())
-        }
-        .accessibilityLabel(String(localized: "Streak: \(count) hari", comment: "Streak counter"))
+    private var currentStreakCount: Int {
+        // Hitung streak dari DailyStreak records
+        streaks.count
     }
 
-    private var dailyGoalRing: some View {
+    private var todayMinutes: Int {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: .now)
-        let minutes = streaks.first(where: { calendar.isDate($0.date, inSameDayAs: today) })?.minutesSpent ?? 0
-        let progress = min(Double(minutes) / Double(dailyGoalMinutes), 1.0)
-        
-        return ZStack {
-            Circle()
-                .stroke(Color.secondary.opacity(0.2), lineWidth: 3)
-                .frame(width: 24, height: 24)
-            
-            Circle()
-                .trim(from: 0, to: CGFloat(progress))
-                .stroke(progress >= 1.0 ? Color.green : Color.accentColor, style: StrokeStyle(lineWidth: 3, lineCap: .round))
-                .frame(width: 24, height: 24)
-                .rotationEffect(.degrees(-90))
-            
-            if progress >= 1.0 {
-                Image(systemName: "checkmark")
-                    .font(.system(size: 8, weight: .bold))
-                    .foregroundColor(.green)
-            }
-        }
-        .accessibilityLabel(String(localized: "Target harian: \(Int(progress * 100))% selesai", comment: "Daily goal"))
+        return streaks.first(where: { calendar.isDate($0.date, inSameDayAs: today) })?.minutesSpent ?? 0
+    }
+
+    private var dailyGoalTarget: Int {
+        dailyGoalMinutes
+    }
+
+    private var dailyGoalProgress: Double {
+        guard dailyGoalTarget > 0 else { return 0 }
+        return min(1.0, Double(todayMinutes) / Double(dailyGoalTarget))
     }
 }
 
