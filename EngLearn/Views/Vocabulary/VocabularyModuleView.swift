@@ -131,17 +131,6 @@ struct VocabularyModuleView: View {
     }
 }
 
-// Stubs for Compilation
-struct FlashcardView: View {
-    let level: CEFRLevel
-    var body: some View { Text("Flashcards for \(level.displayName)") }
-}
-
-struct VocabularyQuizView: View {
-    let level: CEFRLevel
-    var body: some View { Text("Quiz for \(level.displayName)") }
-}
-
 #Preview {
     VocabularyModuleView()
         .modelContainer(for: [VocabularyEntry.self], inMemory: true)

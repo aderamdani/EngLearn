@@ -17,7 +17,7 @@ struct FillBlankView: View {
             TextField("Ketik jawabanmu di sini...", text: $inputText)
                 .textFieldStyle(.plain)
                 .padding()
-                .background(.background, in: RoundedRectangle(cornerRadius: CornerRadius.standard))
+                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: CornerRadius.standard))
                 .overlay {
                     RoundedRectangle(cornerRadius: CornerRadius.standard)
                         .stroke(borderColor, lineWidth: 1)
@@ -48,7 +48,7 @@ struct FillBlankView: View {
 }
 
 #Preview {
-    @State var text = ""
+    @Previewable @State var text = ""
     return FillBlankView(
         prompt: "I ___ (be) a student.",
         correctAnswer: "am",

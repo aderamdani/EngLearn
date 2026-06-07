@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import OSLog
 
 struct GrammarModuleView: View {
     @State private var selectedLevel: CEFRLevel = .a1

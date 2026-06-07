@@ -58,12 +58,12 @@ struct MultipleChoiceView: View {
                 return Color.orange.mix(with: .white, by: 0.8)
             }
         }
-        return Color.background
+        return .clear
     }
 }
 
 #Preview {
-    @State var selected: Int? = nil
+    @Previewable @State var selected: Int? = nil
     return MultipleChoiceView(
         options: ["Apple", "Banana", "Cherry", "Date"],
         correctIndex: 1,

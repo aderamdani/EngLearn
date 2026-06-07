@@ -36,7 +36,6 @@ struct GrammarExerciseView: View {
         }
         .padding()
         .navigationTitle(lesson.title)
-        .navigationBarTitleDisplayMode(.inline)
         .background(.regularMaterial)
     }
     

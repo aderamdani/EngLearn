@@ -5,6 +5,17 @@ All notable changes to EngLearn will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2026-06-07
+
+### Added
+- Interactive Vocabulary Module with level picker (A1-C2)
+- 3D Flashcard system with SM-2 spaced repetition integration
+- Vocabulary Quiz with definition-to-word and word-to-definition matching
+- VocabularyService for JSON curriculum loading and database seeding
+- Initial curriculum: 30 essential A1 vocabulary words with bilingual definitions
+- Updated VocabularyEntry model to support theme, collocations, and context tips
+- Learning statistics tracking mastery and review status
+
 ## [0.4.0] - 2026-06-07
 
 ### Added

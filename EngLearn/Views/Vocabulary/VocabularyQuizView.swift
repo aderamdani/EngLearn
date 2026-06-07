@@ -102,7 +102,7 @@ struct VocabularyQuizView: View {
             if index == correct { return .green.mix(with: .white, by: 0.8) }
             if index == selectedOption { return .orange.mix(with: .white, by: 0.8) }
         }
-        return .background
+        return .clear
     }
     
     private func feedbackView(_ question: QuizQuestion) -> some View {

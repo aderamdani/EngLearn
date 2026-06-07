@@ -94,14 +94,6 @@ struct GrammarLessonView: View {
     }
 }
 
-// Stub for Compilation
-struct GrammarExerciseView: View {
-    let lesson: Lesson
-    var body: some View {
-        Text("Latihan: \(lesson.title)")
-    }
-}
-
 #Preview {
     NavigationStack {
         GrammarLessonView(lesson: Lesson(

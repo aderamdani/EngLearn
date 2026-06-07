@@ -62,12 +62,12 @@ struct TrueFalseView: View {
                 return Color.orange.mix(with: .white, by: 0.8)
             }
         }
-        return Color.background
+        return .clear
     }
 }
 
 #Preview {
-    @State var ans: Bool? = nil
+    @Previewable @State var ans: Bool? = nil
     return TrueFalseView(
         prompt: "'I is' is correct English.",
         isCorrectTrue: false,
