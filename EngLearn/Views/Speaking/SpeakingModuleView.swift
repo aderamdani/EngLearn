@@ -29,7 +29,7 @@ struct SpeakingModuleView: View {
     private let speakingService = SpeakingService()
     
     private let columns = [
-        GridItem(.adaptive(minimum: 100), spacing: Spacing.md)
+        GridItem(.adaptive(minimum: 140), spacing: Spacing.md)
     ]
     
     var body: some View {
@@ -68,6 +68,16 @@ struct SpeakingModuleView: View {
     
     private func phonemeCard(_ phoneme: Phoneme) -> some View {
         VStack(spacing: Spacing.sm) {
+            HStack {
+                Image(systemName: "waveform")
+                    .font(.caption)
+                    .foregroundStyle(.tint)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 8))
+                    .foregroundColor(.secondary)
+            }
+            
             Text(phoneme.ipaSymbol)
                 .font(.system(size: 32, weight: .bold))
                 .foregroundColor(.accentColor)
@@ -78,8 +88,12 @@ struct SpeakingModuleView: View {
                 .lineLimit(1)
         }
         .frame(maxWidth: .infinity)
-        .padding(.vertical, Spacing.lg)
-        .background(.background, in: RoundedRectangle(cornerRadius: CornerRadius.card))
+        .padding(Spacing.lg)
+        .background {
+            RoundedRectangle(cornerRadius: CornerRadius.card)
+                .fill(.background)
+                .shadow(color: .black.opacity(0.08), radius: 8, y: 2)
+        }
         .glassEffect(.regular.interactive(), in: .rect(cornerRadius: CornerRadius.card))
         .accessibilityLabel("Fonem \(phoneme.ipaSymbol)")
     }
