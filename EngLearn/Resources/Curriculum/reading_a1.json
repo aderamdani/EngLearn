@@ -1,0 +1,167 @@
+[
+  {
+    "id": "reading_a1_001",
+    "title": "My Morning Routine",
+    "passageText": "I wake up at seven o'clock every morning. First, I wash my face and brush my teeth. Then, I eat breakfast with my family. I usually have bread and milk. After breakfast, I put on my uniform and go to school by bus. The bus trip takes about twenty minutes. I like my mornings because they are quiet and peaceful.",
+    "wordCount": 64,
+    "vocabulary": ["morning", "breakfast", "uniform", "bus", "peaceful"],
+    "comprehensionQuiz": [
+      {
+        "id": "r_a1_001_q1",
+        "question": "What time does the person wake up?",
+        "options": ["Six o'clock", "Seven o'clock", "Eight o'clock", "Nine o'clock"],
+        "correctIndex": 1,
+        "explanation_id": "Teks menyebutkan 'I wake up at seven o'clock every morning'.",
+        "hint_id": "Cari kata 'wake up' di kalimat pertama."
+      },
+      {
+        "id": "r_a1_001_q2",
+        "question": "What does the person usually have for breakfast?",
+        "options": ["Rice and chicken", "Eggs and coffee", "Bread and milk", "Fruits and juice"],
+        "correctIndex": 2,
+        "explanation_id": "Di teks tertulis 'I usually have bread and milk'.",
+        "hint_id": "Cari makanan dan minuman setelah kata 'breakfast'."
+      },
+      {
+        "id": "r_a1_001_q3",
+        "question": "How does the person go to school?",
+        "options": ["By car", "By train", "By bicycle", "By bus"],
+        "correctIndex": 3,
+        "explanation_id": "Teks menyebutkan 'go to school by bus'.",
+        "hint_id": "Cari alat transportasi yang disebutkan di teks."
+      }
+    ]
+  },
+  {
+    "id": "reading_a1_002",
+    "title": "My Best Friend",
+    "passageText": "My best friend is Sarah. She is tall and has long black hair. She is very kind and funny. We go to the same school, but we are in different classes. We always eat lunch together in the cafeteria. On weekends, we often go to the park or watch movies at my house. I am very happy to have a friend like her.",
+    "wordCount": 65,
+    "vocabulary": ["tall", "kind", "funny", "cafeteria", "weekends"],
+    "comprehensionQuiz": [
+      {
+        "id": "r_a1_002_q1",
+        "question": "What does Sarah look like?",
+        "options": ["Short and blonde", "Tall and has long black hair", "Tall and has short brown hair", "Short and has black hair"],
+        "correctIndex": 1,
+        "explanation_id": "Teks menyebutkan 'She is tall and has long black hair'.",
+        "hint_id": "Cari deskripsi fisik (ciri-ciri) Sarah di kalimat kedua."
+      },
+      {
+        "id": "r_a1_002_q2",
+        "question": "Are they in the same class?",
+        "options": ["Yes, they are.", "No, they are in different classes.", "The text does not say.", "Sometimes."],
+        "correctIndex": 1,
+        "explanation_id": "Di teks tertulis 'we are in different classes'.",
+        "hint_id": "Cari kata 'class' di teks."
+      },
+      {
+        "id": "r_a1_002_q3",
+        "question": "Where do they eat lunch?",
+        "options": ["In the classroom", "In the park", "In the cafeteria", "At home"],
+        "correctIndex": 2,
+        "explanation_id": "Teks menyebutkan 'We always eat lunch together in the cafeteria'.",
+        "hint_id": "Cari tempat di mana mereka 'eat lunch'."
+      }
+    ]
+  },
+  {
+    "id": "reading_a1_003",
+    "title": "My Pet Cat",
+    "passageText": "I have a small pet cat named Luna. She is white with black spots on her back. Luna loves to sleep on my bed. She is very playful and likes to chase small balls. Every morning, she meows loudly because she is hungry. I give her cat food and fresh water. Playing with Luna makes me feel relaxed after a long day at school.",
+    "wordCount": 66,
+    "vocabulary": ["spots", "playful", "chase", "loudly", "relaxed"],
+    "comprehensionQuiz": [
+      {
+        "id": "r_a1_003_q1",
+        "question": "What color is Luna?",
+        "options": ["Black with white spots", "All white", "White with black spots", "Brown and white"],
+        "correctIndex": 2,
+        "explanation_id": "Teks menyebutkan 'She is white with black spots'.",
+        "hint_id": "Cari kalimat yang menjelaskan warna Luna."
+      },
+      {
+        "id": "r_a1_003_q2",
+        "question": "Why does Luna meow in the morning?",
+        "options": ["Because she is cold", "Because she wants to play", "Because she is angry", "Because she is hungry"],
+        "correctIndex": 3,
+        "explanation_id": "Teks menyebutkan 'she meows loudly because she is hungry'.",
+        "hint_id": "Cari kata 'meows' atau 'morning'."
+      },
+      {
+        "id": "r_a1_003_q3",
+        "question": "Where does Luna love to sleep?",
+        "options": ["Under the bed", "On the bed", "On the sofa", "In the garden"],
+        "correctIndex": 1,
+        "explanation_id": "Di teks tertulis 'Luna loves to sleep on my bed'.",
+        "hint_id": "Cari kata 'sleep' di teks."
+      }
+    ]
+  },
+  {
+    "id": "reading_a1_004",
+    "title": "My Favorite Room",
+    "passageText": "My favorite room in my house is my bedroom. It is not very big, but it is very comfortable. There is a bed, a desk, and a chair. I have a small bookshelf with many interesting books. The walls are painted light blue, which is my favorite color. A large window lets in plenty of sunlight during the day. I do my homework and read books here.",
+    "wordCount": 69,
+    "vocabulary": ["comfortable", "bookshelf", "interesting", "painted", "sunlight"],
+    "comprehensionQuiz": [
+      {
+        "id": "r_a1_004_q1",
+        "question": "Is the bedroom big?",
+        "options": ["Yes, very big.", "No, it is not very big.", "It is huge.", "The text does not say."],
+        "correctIndex": 1,
+        "explanation_id": "Teks mengatakan 'It is not very big, but it is very comfortable'.",
+        "hint_id": "Cari kalimat tentang ukuran (big/small) kamar tersebut."
+      },
+      {
+        "id": "r_a1_004_q2",
+        "question": "What color are the walls?",
+        "options": ["White", "Light green", "Light blue", "Yellow"],
+        "correctIndex": 2,
+        "explanation_id": "Di teks tertulis 'The walls are painted light blue'.",
+        "hint_id": "Cari kata 'walls' atau 'painted'."
+      },
+      {
+        "id": "r_a1_004_q3",
+        "question": "What does the person do in this room?",
+        "options": ["Watch TV and sleep", "Do homework and read books", "Eat and drink", "Play video games"],
+        "correctIndex": 1,
+        "explanation_id": "Teks menyebutkan 'I do my homework and read books here'.",
+        "hint_id": "Lihat kalimat terakhir dari teks."
+      }
+    ]
+  },
+  {
+    "id": "reading_a1_005",
+    "title": "A Visit to the Park",
+    "passageText": "Yesterday, my family and I went to the city park. The weather was sunny and warm. We brought a picnic basket with sandwiches, apples, and water. Many people were in the park. Some children were flying kites, and others were riding bicycles. We sat under a big tree and enjoyed our food. Later, we walked around the small lake. It was a perfect family day.",
+    "wordCount": 67,
+    "vocabulary": ["weather", "sunny", "picnic basket", "flying kites", "lake"],
+    "comprehensionQuiz": [
+      {
+        "id": "r_a1_005_q1",
+        "question": "What did they bring to the park?",
+        "options": ["A ball and a kite", "A picnic basket", "A dog", "A bicycle"],
+        "correctIndex": 1,
+        "explanation_id": "Teks menyebutkan 'We brought a picnic basket'.",
+        "hint_id": "Cari kata 'brought'."
+      },
+      {
+        "id": "r_a1_005_q2",
+        "question": "What was the weather like?",
+        "options": ["Rainy and cold", "Cloudy and windy", "Sunny and warm", "Snowy"],
+        "correctIndex": 2,
+        "explanation_id": "Di teks tertulis 'The weather was sunny and warm'.",
+        "hint_id": "Cari kata 'weather'."
+      },
+      {
+        "id": "r_a1_005_q3",
+        "question": "Where did they sit to enjoy their food?",
+        "options": ["On a bench", "Near the lake", "Under a big tree", "In the car"],
+        "correctIndex": 2,
+        "explanation_id": "Teks mengatakan 'We sat under a big tree and enjoyed our food'.",
+        "hint_id": "Cari kata 'sat' atau 'food'."
+      }
+    ]
+  }
+]
