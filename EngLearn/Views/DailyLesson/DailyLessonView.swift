@@ -157,9 +157,20 @@ struct DailyLessonView: View {
         let lessonService = LessonService()
         Task {
             do {
-                let lessons = try lessonService.lessons(for: .grammar, level: .a1)
-                let allExercises = lessons.flatMap { $0.exercises }.shuffled()
-                let selected = Array(allExercises.prefix(5))
+                var allExercises: [Exercise] = []
+                
+                // Load grammar exercises from multiple levels for variety
+                for level in [CEFRLevel.a1, CEFRLevel.a2, CEFRLevel.b1] {
+                    let grammarLessons = try lessonService.lessons(for: .grammar, level: level)
+                    allExercises.append(contentsOf: grammarLessons.flatMap { $0.exercises })
+                }
+                
+                guard !allExercises.isEmpty else {
+                    Log.general.warning("No exercises available for daily challenge")
+                    return
+                }
+                
+                let selected = Array(allExercises.shuffled().prefix(5))
                 
                 dailyLesson = Lesson(
                     id: "daily_\(UUID().uuidString)",
@@ -171,9 +182,12 @@ struct DailyLessonView: View {
                     explanation: nil,
                     exercises: selected
                 )
-                navigateToExercise = true
+                
+                await MainActor.run {
+                    navigateToExercise = true
+                }
             } catch {
-                Log.general.error("Failed to generate daily lesson")
+                Log.general.error("Failed to generate daily lesson: \(error.localizedDescription)")
             }
         }
     }
@@ -184,12 +198,10 @@ struct DailyLessonView: View {
         let today = calendar.startOfDay(for: .now)
         
         if let existing = todayStreaks.first(where: { calendar.isDate($0.date, inSameDayAs: today) }) {
-            existing.minutesSpent = minutesLearned
-            existing.exercisesCompleted += exercises
+            existing.addActivity(minutes: minutes, lessons: 0, exercises: exercises)
         } else {
             let newStreak = DailyStreak(date: today)
-            newStreak.minutesSpent = minutesLearned
-            newStreak.exercisesCompleted = exercises
+            newStreak.addActivity(minutes: minutes, lessons: 0, exercises: exercises)
             modelContext.insert(newStreak)
         }
         
@@ -198,5 +210,6 @@ struct DailyLessonView: View {
         }
         
         try? modelContext.save()
+        Log.data.info("Daily streak updated: \(minutesLearned) minutes, \(exercises) exercises")
     }
 }
