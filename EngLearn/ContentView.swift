@@ -17,7 +17,6 @@ struct ContentView: View {
         }
     }
 
-
     private var mainContent: some View {
         NavigationSplitView {
             sidebar
@@ -33,21 +32,19 @@ struct ContentView: View {
             minWidth: AppConstants.Window.minWidth,
             minHeight: AppConstants.Window.minHeight
         )
+        .searchable(text: $searchQuery, prompt: "Cari kosakata atau materi...")
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
-                HStack(spacing: 8) {
+                HStack(spacing: Spacing.md) {
                     // Streak indicator
                     HStack(spacing: 4) {
                         Image(systemName: "flame.fill")
                             .foregroundStyle(.orange)
-                            .imageScale(.small)
                         Text("\(currentStreakCount)")
                             .font(.caption.bold())
                             .monospacedDigit()
                     }
-                    .padding(.horizontal, Spacing.md)
-                    .padding(.vertical, Spacing.sm)
-                    .background(.ultraThinMaterial, in: Capsule())
+                    .padding(.horizontal, Spacing.sm)
                     .accessibilityLabel("Streak \(currentStreakCount) hari")
 
                     // Daily goal progress  
@@ -55,20 +52,18 @@ struct ContentView: View {
                         ZStack {
                             Circle()
                                 .stroke(Color.primary.opacity(0.1), lineWidth: 2)
-                                .frame(width: 16, height: 16)
+                                .frame(width: 14, height: 14)
                             Circle()
                                 .trim(from: 0, to: dailyGoalProgress)
                                 .stroke(Color.green, style: StrokeStyle(lineWidth: 2, lineCap: .round))
-                                .frame(width: 16, height: 16)
+                                .frame(width: 14, height: 14)
                                 .rotationEffect(.degrees(-90))
                         }
-                        Text("\(todayMinutes) min")
-                            .font(.caption)
+                        Text("\(todayMinutes)m")
+                            .font(.caption.bold())
                             .monospacedDigit()
                     }
-                    .padding(.horizontal, Spacing.md)
-                    .padding(.vertical, Spacing.sm)
-                    .background(.ultraThinMaterial, in: Capsule())
+                    .padding(.horizontal, Spacing.sm)
                     .accessibilityLabel("Hari ini: \(todayMinutes) menit dari \(dailyGoalTarget) menit target")
                 }
             }
@@ -82,7 +77,7 @@ struct ContentView: View {
 
     private var sidebar: some View {
         List(selection: $selectedModule) {
-            Section(String(localized: "Belajar", comment: "Sidebar section")) {
+            Section("Belajar") {
                 sidebarItem(.dashboard)
                 sidebarItem(.dailyLesson)
                 sidebarItem(.grammar)
@@ -93,12 +88,12 @@ struct ContentView: View {
                 sidebarItem(.speaking)
             }
 
-            Section(String(localized: "Jelajahi", comment: "Sidebar section")) {
+            Section("Jelajahi") {
                 sidebarItem(.immersion)
                 sidebarItem(.levelTest)
             }
 
-            Section(String(localized: "Progres", comment: "Sidebar section")) {
+            Section("Progres") {
                 sidebarItem(.achievements)
                 sidebarItem(.settings)
             }
@@ -147,7 +142,6 @@ struct ContentView: View {
     }
 
     private var currentStreakCount: Int {
-        // Hitung streak dari DailyStreak records
         streaks.count
     }
 
@@ -167,21 +161,7 @@ struct ContentView: View {
     }
 }
 
-struct PlaceholderModuleView: View {
-    let module: ModuleType
-
-    var body: some View {
-        VStack(spacing: Spacing.lg) {
-            Text(module.displayName)
-                .font(.largeTitle)
-            Text(String(localized: "Modul ini sedang dalam pengembangan.", comment: "Placeholder"))
-                .foregroundStyle(.secondary)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .navigationTitle(module.displayName)
-    }
-}
-
 #Preview {
     ContentView()
+        .modelContainer(for: [DailyStreak.self], inMemory: true)
 }
