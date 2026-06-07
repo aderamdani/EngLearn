@@ -47,6 +47,20 @@ struct SettingsView: View {
                 }
             }
 
+            Section(String(localized: "Data", comment: "Settings section")) {
+                Button {
+                    exportProgress()
+                } label: {
+                    Label("Ekspor Progres (JSON)", systemImage: "doc.text.below.ecg")
+                }
+                
+                Button {
+                    exportVocabulary()
+                } label: {
+                    Label("Ekspor Kosakata (CSV)", systemImage: "tablecells")
+                }
+            }
+
             #if DEBUG
             debugSection
             #endif
@@ -138,6 +152,16 @@ struct SettingsView: View {
         }
     }
     #endif
+    
+    private func exportProgress() {
+        Log.general.info("Exporting progress...")
+        // In a real app, use ShareLink or fileExporter to save a JSON of UserProgress + LessonRecords
+    }
+    
+    private func exportVocabulary() {
+        Log.general.info("Exporting vocabulary...")
+        // In a real app, generate a CSV string from VocabularyEntries and present a ShareSheet
+    }
 }
 
 #Preview {
