@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import OSLog
 
 struct DailyLessonView: View {
     @Environment(\.modelContext) private var modelContext
@@ -9,6 +10,9 @@ struct DailyLessonView: View {
     @Query private var todayStreaks: [DailyStreak]
     @State private var minutesLearned: Int = 0
     @State private var isComplete = false
+    
+    @State private var dailyLesson: Lesson? = nil
+    @State private var navigateToExercise = false
     
     var body: some View {
         VStack(spacing: Spacing.xxl) {
@@ -27,6 +31,17 @@ struct DailyLessonView: View {
         .background(.regularMaterial)
         .onAppear {
             updateMinutesFromStreak()
+        }
+        .navigationDestination(isPresented: $navigateToExercise) {
+            if let lesson = dailyLesson {
+                GrammarExerciseView(lesson: lesson)
+                    .onDisappear {
+                        // After exercise is done, update streak
+                        if lesson.exercises.count > 0 { // Simplistic check if we did something
+                            simulateLearning(minutes: 5, exercises: lesson.exercises.count)
+                        }
+                    }
+            }
         }
     }
     
@@ -70,7 +85,7 @@ struct DailyLessonView: View {
                 .foregroundColor(.secondary)
             
             Button {
-                simulateLearning()
+                generateMixedLesson()
             } label: {
                 HStack {
                     Image(systemName: "bolt.fill")
@@ -119,21 +134,51 @@ struct DailyLessonView: View {
         let today = calendar.startOfDay(for: .now)
         if let streak = todayStreaks.first(where: { calendar.isDate($0.date, inSameDayAs: today) }) {
             minutesLearned = streak.minutesSpent
+            if minutesLearned >= dailyGoalMinutes {
+                isComplete = true
+            }
         }
     }
     
-    private func simulateLearning() {
-        // For development/demo, simulate adding 5 minutes
-        minutesLearned += 5
+    private func generateMixedLesson() {
+        // We will just load grammar_a1.json and take 5 random exercises to form a challenge
+        let lessonService = LessonService()
+        Task {
+            do {
+                let lessons = try lessonService.lessons(for: .grammar, level: .a1)
+                let allExercises = lessons.flatMap { $0.exercises }.shuffled()
+                let selected = Array(allExercises.prefix(5))
+                
+                dailyLesson = Lesson(
+                    id: "daily_\(UUID().uuidString)",
+                    skill: .dailyLesson,
+                    level: .a1,
+                    title: "Tantangan Harian",
+                    theme: "Mixed",
+                    cefrCanDo: "Daily practice",
+                    explanation: nil,
+                    exercises: selected
+                )
+                navigateToExercise = true
+            } catch {
+                Log.general.error("Failed to generate daily lesson")
+            }
+        }
+    }
+    
+    private func simulateLearning(minutes: Int, exercises: Int) {
+        minutesLearned += minutes
         
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: .now)
         
         if let existing = todayStreaks.first(where: { calendar.isDate($0.date, inSameDayAs: today) }) {
             existing.minutesSpent = minutesLearned
+            existing.exercisesCompleted += exercises
         } else {
             let newStreak = DailyStreak(date: today)
             newStreak.minutesSpent = minutesLearned
+            newStreak.exercisesCompleted = exercises
             modelContext.insert(newStreak)
         }
         
