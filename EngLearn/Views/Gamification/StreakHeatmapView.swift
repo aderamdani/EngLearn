@@ -56,13 +56,13 @@ struct StreakHeatmapView: View {
     
     private func color(for date: Date) -> Color {
         guard let streak = streaks.first(where: { Calendar.current.isDate($0.date, inSameDayAs: date) }) else {
-            return .quaternary
+            return Color.gray.mix(with: .white, by: 0.8)
         }
         
         if streak.minutesSpent >= 30 { return .green }
         if streak.minutesSpent >= 15 { return .green.mix(with: .white, by: 0.3) }
         if streak.minutesSpent > 0 { return .green.mix(with: .white, by: 0.6) }
-        return .quaternary
+        return Color.gray.mix(with: .white, by: 0.8)
     }
     
     private var currentStreak: Int {
