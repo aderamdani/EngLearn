@@ -91,9 +91,9 @@ struct ContentView: View {
             case .vocabulary:
                 VocabularyModuleView()
             case .reading:
-                PlaceholderModuleView(module: module)
+                ReadingModuleView()
             case .listening:
-                PlaceholderModuleView(module: module)
+                ListeningModuleView()
             case .writing:
                 PlaceholderModuleView(module: module)
             case .speaking:
