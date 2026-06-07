@@ -80,5 +80,164 @@
         "cefrCanDo": "Can use present simple for general truths"
       }
     ]
+  },
+  {
+    "id": "grammar_a1_present_continuous",
+    "skill": "grammar",
+    "level": "a1",
+    "title": "Present Continuous",
+    "theme": "actions_now",
+    "cefrCanDo": "Can describe actions happening at the moment of speaking",
+    "explanation": {
+      "rule_id": "Present Continuous digunakan untuk aksi yang sedang berlangsung saat ini. Polanya: am/is/are + kata kerja ing (verb-ing).",
+      "rule_en": "Use Present Continuous for actions happening right now. Pattern: am/is/are + verb-ing.",
+      "examples": [
+        "I am studying English now.",
+        "He is watching TV at the moment.",
+        "They are playing in the garden."
+      ],
+      "exceptions": [
+        "Kata kerja statif seperti 'love', 'know', 'want' biasanya tidak dipakai dalam pola -ing.",
+        "Jika kata kerja berakhir dengan -e tunggal, hapus -e sebelum tambah -ing (make -> making)."
+      ],
+      "tip_id": "Jangan lupa 'to be' (am/is/are) sebelum kata kerja -ing!"
+    },
+    "exercises": [
+      {
+        "id": "grammar_a1_pc_001",
+        "type": "multipleChoice",
+        "prompt": "Look! The baby ___.",
+        "options": ["sleep", "is sleeping", "are sleeping", "sleeps"],
+        "correct": 1,
+        "explanation_id": "Jawaban benar: 'is sleeping'. Aksi sedang terjadi sekarang. 'The baby' adalah subjek tunggal (is).",
+        "hint_id": "Gunakan is/am/are + -ing untuk aksi yang sedang terjadi.",
+        "difficulty": 1,
+        "cefrCanDo": "Can identify correct present continuous form"
+      },
+      {
+        "id": "grammar_a1_pc_002",
+        "type": "fillBlank",
+        "prompt": "I ___ (write) a letter to my friend.",
+        "options": null,
+        "correct": "am writing",
+        "explanation_id": "Jawaban benar: 'am writing'. Subjek 'I' berpasangan dengan 'am'. Ingat hapus akhiran 'e' pada 'write'.",
+        "hint_id": "I + am + write(ing).",
+        "difficulty": 2,
+        "cefrCanDo": "Can form present continuous sentences"
+      },
+      {
+        "id": "grammar_a1_pc_003",
+        "type": "multipleChoice",
+        "prompt": "What ___ you doing right now?",
+        "options": ["is", "am", "are", "be"],
+        "correct": 2,
+        "explanation_id": "Jawaban benar: 'are'. Untuk subjek 'you', kita gunakan 'to be' 'are'.",
+        "hint_id": "Pasangan 'to be' untuk 'you' adalah...",
+        "difficulty": 1,
+        "cefrCanDo": "Can use correct auxiliary verb in questions"
+      },
+      {
+        "id": "grammar_a1_pc_004",
+        "type": "trueFalse",
+        "prompt": "'They are runing in the park.' — Is the spelling of the verb correct?",
+        "options": ["True", "False"],
+        "correct": 1,
+        "explanation_id": "Jawaban: False. Ejaan yang benar adalah 'RUNNING'. Konsonan 'n' digandakan.",
+        "hint_id": "Cek ejaan 'running'. Apakah ada huruf yang kurang?",
+        "difficulty": 3,
+        "cefrCanDo": "Can identify spelling rules for verb-ing"
+      },
+      {
+        "id": "grammar_a1_pc_005",
+        "type": "multipleChoice",
+        "prompt": "We ___ lunch at the moment.",
+        "options": ["having", "are having", "is having", "have"],
+        "correct": 1,
+        "explanation_id": "Jawaban benar: 'are having'. Subjek 'we' (jamak) menggunakan 'are'.",
+        "hint_id": "We + are + verb-ing.",
+        "difficulty": 2,
+        "cefrCanDo": "Can use present continuous for temporary actions"
+      }
+    ]
+  },
+  {
+    "id": "grammar_a1_articles",
+    "skill": "grammar",
+    "level": "a1",
+    "title": "Articles (a/an/the)",
+    "theme": "objects_and_places",
+    "cefrCanDo": "Can use basic articles a, an, and the correctly with singular nouns",
+    "explanation": {
+      "rule_id": "Gunakan 'a' untuk kata benda tunggal yang berawalan bunyi konsonan. 'an' untuk yang berawalan bunyi vokal (a,e,i,o,u). 'the' untuk benda yang sudah spesifik.",
+      "rule_en": "Use 'a' for singular nouns starting with a consonant sound. 'an' for those starting with a vowel sound. 'the' for specific objects.",
+      "examples": [
+        "A cat is on the mat.",
+        "I have an apple.",
+        "The sun is hot.",
+        "Open the door, please."
+      ],
+      "exceptions": [
+        "Beberapa kata berawalan vokal tapi bunyi konsonan pakai 'a' (a university).",
+        "Beberapa kata berawalan konsonan tapi bunyi vokal pakai 'an' (an hour)."
+      ],
+      "tip_id": "Fokus pada BUNYI huruf pertama, bukan sekadar hurufnya saja."
+    },
+    "exercises": [
+      {
+        "id": "grammar_a1_art_001",
+        "type": "multipleChoice",
+        "prompt": "I saw ___ elephant at the zoo.",
+        "options": ["a", "an", "the", "no article"],
+        "correct": 1,
+        "explanation_id": "Jawaban benar: 'an'. 'Elephant' berawalan dengan bunyi vokal 'e'.",
+        "hint_id": "Cek bunyi awal kata 'elephant'.",
+        "difficulty": 1,
+        "cefrCanDo": "Can use 'an' before vowel sounds"
+      },
+      {
+        "id": "grammar_a1_art_002",
+        "type": "multipleChoice",
+        "prompt": "She lives in ___ big house.",
+        "options": ["a", "an", "the", "some"],
+        "correct": 0,
+        "explanation_id": "Jawaban benar: 'a'. 'Big' berawalan dengan bunyi konsonan 'b'.",
+        "hint_id": "Cek bunyi awal kata 'big'.",
+        "difficulty": 1,
+        "cefrCanDo": "Can use 'a' before consonant sounds"
+      },
+      {
+        "id": "grammar_a1_art_003",
+        "type": "fillBlank",
+        "prompt": "Look at ___ moon! It is so bright.",
+        "options": null,
+        "correct": "the",
+        "explanation_id": "Jawaban benar: 'the'. Kita menggunakan 'the' untuk benda unik atau yang sudah jelas maksudnya.",
+        "hint_id": "Hanya ada satu bulan (moon). Gunakan artikel spesifik.",
+        "difficulty": 2,
+        "cefrCanDo": "Can use 'the' for specific or unique objects"
+      },
+      {
+        "id": "grammar_a1_art_004",
+        "type": "multipleChoice",
+        "prompt": "He is ___ honest man.",
+        "options": ["a", "an", "the", "any"],
+        "correct": 1,
+        "explanation_id": "Jawaban benar: 'an'. Meskipun diawali 'h', bunyi awal 'honest' adalah vokal 'o'.",
+        "hint_id": "Bunyi awal 'honest' sama seperti 'on-est'.",
+        "difficulty": 3,
+        "cefrCanDo": "Can identify exceptions in article usage"
+      },
+      {
+        "id": "grammar_a1_art_005",
+        "type": "trueFalse",
+        "prompt": "'I am a student at an university.' — Is this sentence correct?",
+        "options": ["True", "False"],
+        "correct": 1,
+        "explanation_id": "Jawaban: False. Seharusnya 'A university' karena bunyi awalnya adalah 'y' (konsonan).",
+        "hint_id": "Cek bunyi awal 'university'. Apakah bunyinya 'u' atau 'yu'?",
+        "difficulty": 3,
+        "cefrCanDo": "Can identify common errors with articles"
+      }
+    ]
   }
 ]
