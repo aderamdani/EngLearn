@@ -15,8 +15,9 @@ struct DailyLessonView: View {
     @State private var navigateToExercise = false
     
     var body: some View {
-        VStack(spacing: Spacing.xxl) {
+        VStack(spacing: Spacing.xl) {
             headerSection
+                .padding(.top, Spacing.xxl)
             
             if isComplete {
                 completionView
@@ -26,9 +27,8 @@ struct DailyLessonView: View {
             
             Spacer()
         }
-        .padding(Spacing.xxl)
+        .padding(Spacing.lg)
         .navigationTitle("Pelajaran Harian")
-        .background(.regularMaterial)
         .onAppear {
             updateMinutesFromStreak()
         }
@@ -36,8 +36,7 @@ struct DailyLessonView: View {
             if let lesson = dailyLesson {
                 GrammarExerciseView(lesson: lesson)
                     .onDisappear {
-                        // After exercise is done, update streak
-                        if lesson.exercises.count > 0 { // Simplistic check if we did something
+                        if lesson.exercises.count > 0 {
                             simulateLearning(minutes: 5, exercises: lesson.exercises.count)
                         }
                     }
@@ -49,21 +48,21 @@ struct DailyLessonView: View {
         VStack(spacing: Spacing.md) {
             ZStack {
                 Circle()
-                    .stroke(Color.gray.mix(with: .white, by: 0.8), lineWidth: 10)
-                    .frame(width: 150, height: 150)
+                    .stroke(Color.primary.opacity(0.1), lineWidth: 10)
+                    .frame(width: 120, height: 120)
                 
                 Circle()
                     .trim(from: 0, to: CGFloat(min(Double(minutesLearned) / Double(dailyGoalMinutes), 1.0)))
                     .stroke(Color.green, style: StrokeStyle(lineWidth: 10, lineCap: .round))
-                    .frame(width: 150, height: 150)
+                    .frame(width: 120, height: 120)
                     .rotationEffect(.degrees(-90))
                     .animation(.easeInOut(duration: 1.0), value: minutesLearned)
                 
-                VStack {
+                VStack(spacing: 0) {
                     Text("\(minutesLearned)")
-                        .font(.system(size: 40, weight: .black))
+                        .font(.system(size: 32, weight: .black))
                     Text("menit")
-                        .font(.caption)
+                        .font(.caption2)
                         .foregroundColor(.secondary)
                 }
             }
@@ -76,11 +75,12 @@ struct DailyLessonView: View {
     }
     
     private var dailyChallengeContent: some View {
-        VStack(spacing: Spacing.lg) {
+        VStack(spacing: Spacing.md) {
             Text("Tantangan Hari Ini")
-                .font(.title2.bold())
+                .font(.title3.bold())
             
             Text("Selesaikan campuran latihan grammar dan kosakata untuk mencapai target harianmu.")
+                .font(.subheadline)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.secondary)
             
@@ -97,23 +97,33 @@ struct DailyLessonView: View {
                 .background(Color.accentColor, in: RoundedRectangle(cornerRadius: CornerRadius.card))
                 .foregroundColor(.white)
             }
+            .buttonStyle(.plain)
             .accessibilityLabel("Mulai tantangan harian")
         }
-        .padding(Spacing.xl)
-        .background(.background, in: RoundedRectangle(cornerRadius: CornerRadius.hero))
-        .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.hero))
+        .padding(Spacing.lg)
+        .background {
+            RoundedRectangle(cornerRadius: CornerRadius.hero)
+                .fill(.background)
+                .shadow(color: .black.opacity(0.08), radius: 8, y: 2)
+        }
     }
     
     private var completionView: some View {
-        VStack(spacing: Spacing.lg) {
-            Image(systemName: "checkmark.seal.fill")
-                .font(.system(size: 80))
-                .foregroundColor(.green)
+        VStack(spacing: Spacing.sm) {
+            ZStack {
+                Circle()
+                    .fill(Color.green.opacity(0.1))
+                    .frame(width: 64, height: 64)
+                Image(systemName: "checkmark.seal.fill")
+                    .font(.system(size: 32))
+                    .foregroundColor(.green)
+            }
             
             Text("Luar Biasa!")
-                .font(.title.bold())
+                .font(.title2.bold())
             
-            Text("Kamu telah mencapai target belajar hari ini.")
+            Text("Target harian tercapai.")
+                .font(.subheadline)
                 .foregroundColor(.secondary)
             
             Button("Selesai") {
@@ -124,7 +134,10 @@ struct DailyLessonView: View {
             .frame(maxWidth: .infinity)
             .background(Color.accentColor, in: RoundedRectangle(cornerRadius: CornerRadius.card))
             .foregroundColor(.white)
+            .buttonStyle(.plain)
+            .padding(.top, Spacing.md)
         }
+        .padding(Spacing.lg)
     }
     
     // MARK: - Logic
@@ -141,7 +154,6 @@ struct DailyLessonView: View {
     }
     
     private func generateMixedLesson() {
-        // We will just load grammar_a1.json and take 5 random exercises to form a challenge
         let lessonService = LessonService()
         Task {
             do {
@@ -168,7 +180,6 @@ struct DailyLessonView: View {
     
     private func simulateLearning(minutes: Int, exercises: Int) {
         minutesLearned += minutes
-        
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: .now)
         
@@ -188,9 +199,4 @@ struct DailyLessonView: View {
         
         try? modelContext.save()
     }
-}
-
-#Preview {
-    DailyLessonView()
-        .modelContainer(for: [DailyStreak.self], inMemory: true)
 }
