@@ -95,9 +95,3 @@ struct SpeakingModuleView: View {
         }
     }
 }
-
-// Stub for compilation
-struct PhonemeGuideView: View {
-    let phoneme: Phoneme
-    var body: some View { Text(phoneme.ipaSymbol) }
-}

@@ -5,6 +5,16 @@ All notable changes to EngLearn will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2026-06-07
+
+### Added
+- Writing Module featuring guided prompts and live word count
+- WritingPromptView with English prompts, Indonesian instructions, and sample answers
+- Speaking Module containing a 44-phoneme pronunciation guide
+- PhonemeGuideView with detailed mouth position instructions and common mistakes (Indonesian)
+- TTS support for phoneme example words via AudioPlaybackService
+- Expanded curriculum: 10 writing prompts and 44 phonemes data
+
 ## [0.6.0] - 2026-06-07
 
 ### Added

@@ -119,9 +119,3 @@ struct WritingModuleView: View {
         }
     }
 }
-
-// Stub for Compilation
-struct WritingPromptView: View {
-    let prompt: WritingPrompt
-    var body: some View { Text(prompt.promptType) }
-}
