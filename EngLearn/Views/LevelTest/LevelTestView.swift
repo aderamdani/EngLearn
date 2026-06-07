@@ -14,20 +14,25 @@ struct LevelTestView: View {
     @State private var selectedOption: Int? = nil
     @State private var isSubmitted = false
     
+    @State private var currentRound = 0
+    private let maxRounds = 5
+    @State private var currentQuestion: TestQuestion? = nil
+    @State private var usedQuestionIDs = Set<String>()
+    
     // Adaptive logic: starting at A1, increase difficulty on correct, stay/decrease on wrong
     @State private var currentDifficulty: CEFRLevel = .a1
     
     private let questions = [
-        TestQuestion(prompt: "I ___ a student.", options: ["am", "is", "are", "be"], correct: 0, level: .a1),
-        TestQuestion(prompt: "She ___ to school every day.", options: ["go", "goes", "going", "gone"], correct: 1, level: .a1),
-        TestQuestion(prompt: "Look! They ___ football now.", options: ["play", "plays", "are playing", "is playing"], correct: 2, level: .a1),
-        TestQuestion(prompt: "Yesterday, I ___ a new book.", options: ["buy", "bought", "buys", "buying"], correct: 1, level: .a2),
-        TestQuestion(prompt: "My car is ___ than yours.", options: ["fast", "faster", "more fast", "fastest"], correct: 1, level: .a2),
-        TestQuestion(prompt: "I have ___ that movie three times.", options: ["see", "saw", "seen", "seeing"], correct: 2, level: .b1),
-        TestQuestion(prompt: "If it rains, we ___ at home.", options: ["stay", "will stay", "would stay", "stayed"], correct: 1, level: .b1),
-        TestQuestion(prompt: "He ___ for five hours before he finished.", options: ["worked", "has worked", "had worked", "was working"], correct: 2, level: .b2),
-        TestQuestion(prompt: "I wish I ___ more time.", options: ["have", "had", "would have", "will have"], correct: 1, level: .b2),
-        TestQuestion(prompt: "Hardly ___ I entered the room when the phone rang.", options: ["did", "had", "have", "was"], correct: 1, level: .c1)
+        TestQuestion(id: "1", prompt: "I ___ a student.", options: ["am", "is", "are", "be"], correct: 0, level: .a1),
+        TestQuestion(id: "2", prompt: "She ___ to school every day.", options: ["go", "goes", "going", "gone"], correct: 1, level: .a1),
+        TestQuestion(id: "3", prompt: "Look! They ___ football now.", options: ["play", "plays", "are playing", "is playing"], correct: 2, level: .a1),
+        TestQuestion(id: "4", prompt: "Yesterday, I ___ a new book.", options: ["buy", "bought", "buys", "buying"], correct: 1, level: .a2),
+        TestQuestion(id: "5", prompt: "My car is ___ than yours.", options: ["fast", "faster", "more fast", "fastest"], correct: 1, level: .a2),
+        TestQuestion(id: "6", prompt: "I have ___ that movie three times.", options: ["see", "saw", "seen", "seeing"], correct: 2, level: .b1),
+        TestQuestion(id: "7", prompt: "If it rains, we ___ at home.", options: ["stay", "will stay", "would stay", "stayed"], correct: 1, level: .b1),
+        TestQuestion(id: "8", prompt: "He ___ for five hours before he finished.", options: ["worked", "has worked", "had worked", "was working"], correct: 2, level: .b2),
+        TestQuestion(id: "9", prompt: "I wish I ___ more time.", options: ["have", "had", "would have", "will have"], correct: 1, level: .b2),
+        TestQuestion(id: "10", prompt: "Hardly ___ I entered the room when the phone rang.", options: ["did", "had", "have", "was"], correct: 1, level: .c1)
     ]
     
     var body: some View {
@@ -41,25 +46,30 @@ struct LevelTestView: View {
         .padding(Spacing.xxl)
         .navigationTitle("Tes Penempatan")
         .background(.regularMaterial)
+        .onAppear { loadNextQuestion() }
     }
     
+    @ViewBuilder
     private var testContent: some View {
-        let question = questions[currentQuestionIndex]
-        return VStack(alignment: .leading, spacing: Spacing.xl) {
-            ProgressView(value: Double(currentQuestionIndex), total: Double(questions.count))
-            
-            Text("Pilihlah jawaban yang paling tepat:")
-                .font(.subheadline).foregroundColor(.secondary)
-            
-            Text(question.prompt)
-                .font(.title2.bold())
-                .padding(.vertical, Spacing.lg)
-            
-            optionsList(question)
-            
-            Spacer()
-            
-            nextButton
+        if let question = currentQuestion {
+            VStack(alignment: .leading, spacing: Spacing.xl) {
+                ProgressView(value: Double(currentRound), total: Double(maxRounds))
+                
+                Text("Pilihlah jawaban yang paling tepat:")
+                    .font(.subheadline).foregroundColor(.secondary)
+                
+                Text(question.prompt)
+                    .font(.title2.bold())
+                    .padding(.vertical, Spacing.lg)
+                
+                optionsList(question)
+                
+                Spacer()
+                
+                nextButton
+            }
+        } else {
+            ProgressView()
         }
     }
     
@@ -91,7 +101,7 @@ struct LevelTestView: View {
         Button {
             submitAndNext()
         } label: {
-            Text(currentQuestionIndex + 1 == questions.count ? "Selesai" : "Berikutnya")
+            Text(currentRound + 1 >= maxRounds ? "Selesai" : "Berikutnya")
                 .font(.headline)
                 .frame(maxWidth: .infinity)
                 .padding()
@@ -134,29 +144,62 @@ struct LevelTestView: View {
     
     // MARK: - Logic
     
+    private func loadNextQuestion() {
+        let availableQuestions = questions.filter { $0.level == currentDifficulty && !usedQuestionIDs.contains($0.id) }
+        
+        if let nextQ = availableQuestions.randomElement() {
+            currentQuestion = nextQ
+            usedQuestionIDs.insert(nextQ.id)
+        } else {
+            // Fallback if we run out of questions for this level
+            if let backup = questions.first(where: { !usedQuestionIDs.contains($0.id) }) {
+                currentQuestion = backup
+                usedQuestionIDs.insert(backup.id)
+            } else {
+                calculateResult()
+            }
+        }
+    }
+    
     private func submitAndNext() {
-        let question = questions[currentQuestionIndex]
+        guard let question = currentQuestion else { return }
+        
         if selectedOption == question.correct {
             score += 1
-            // Simple logic: higher score = higher level
+            // Increase difficulty
+            if let nextLevel = getNextLevel(from: currentDifficulty) {
+                currentDifficulty = nextLevel
+            }
+        } else {
+            // Decrease difficulty
+            if let prevLevel = getPrevLevel(from: currentDifficulty) {
+                currentDifficulty = prevLevel
+            }
         }
         
-        if currentQuestionIndex + 1 < questions.count {
-            currentQuestionIndex += 1
+        if currentRound + 1 < maxRounds {
+            currentRound += 1
             selectedOption = nil
+            loadNextQuestion()
         } else {
             calculateResult()
         }
     }
     
+    private func getNextLevel(from level: CEFRLevel) -> CEFRLevel? {
+        let all = CEFRLevel.allCases
+        guard let index = all.firstIndex(of: level), index + 1 < all.count else { return nil }
+        return all[index + 1]
+    }
+    
+    private func getPrevLevel(from level: CEFRLevel) -> CEFRLevel? {
+        let all = CEFRLevel.allCases
+        guard let index = all.firstIndex(of: level), index > 0 else { return nil }
+        return all[index - 1]
+    }
+    
     private func calculateResult() {
-        // Simple mapping for this demo
-        if score >= 9 { recommendedLevel = .c1 }
-        else if score >= 7 { recommendedLevel = .b2 }
-        else if score >= 5 { recommendedLevel = .b1 }
-        else if score >= 3 { recommendedLevel = .a2 }
-        else { recommendedLevel = .a1 }
-        
+        recommendedLevel = currentDifficulty
         withAnimation { isComplete = true }
     }
     
@@ -177,6 +220,7 @@ struct LevelTestView: View {
     }
     
     struct TestQuestion {
+        let id: String
         let prompt: String
         let options: [String]
         let correct: Int
