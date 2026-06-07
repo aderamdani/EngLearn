@@ -18,14 +18,13 @@ struct GrammarModuleView: View {
                 levelPicker
                 
                 if isLoading {
-                    ProgressView()
+                    ProgressView("Memuat materi...")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
                     lessonList
                 }
             }
             .navigationTitle("Grammar")
-            .background(.regularMaterial)
             .searchable(text: $searchQuery, prompt: "Cari pelajaran...")
             .task(id: selectedLevel) {
                 await loadLessons()
@@ -41,7 +40,8 @@ struct GrammarModuleView: View {
         }
         .pickerStyle(.segmented)
         .padding(Spacing.lg)
-        .background(.regularMaterial)
+        .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.card))
+        .padding(.horizontal, Spacing.lg)
     }
     
     private var lessonList: some View {
@@ -75,7 +75,7 @@ struct GrammarModuleView: View {
                 .font(.title2)
                 .foregroundStyle(.tint)
                 .frame(width: 44, height: 44)
-                .background(Color.accentColor.opacity(0.1), in: Circle())
+                .background(.ultraThinMaterial, in: Circle())
             
             VStack(alignment: .leading, spacing: 2) {
                 Text(lesson.title)
@@ -113,7 +113,7 @@ struct GrammarModuleView: View {
             let count = (level == .a1 || level == .a2) ? 1 : (level == .b1 || level == .b2 ? 2 : 3)
             ForEach(0..<3) { i in
                 RoundedRectangle(cornerRadius: 1)
-                    .fill(i < count ? Color.orange : Color.secondary.opacity(0.2))
+                    .fill(i < count ? Color.orange : Color.primary.opacity(0.1))
                     .frame(width: 12, height: 3)
             }
         }
@@ -154,9 +154,4 @@ struct GrammarModuleView: View {
             lessons = []
         }
     }
-}
-
-#Preview {
-    GrammarModuleView()
-        .modelContainer(for: [LessonRecord.self], inMemory: true)
 }

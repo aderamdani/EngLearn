@@ -25,7 +25,6 @@ struct VocabularyModuleView: View {
                 }
             }
             .navigationTitle("Vocabulary")
-            .background(.regularMaterial)
             .searchable(text: $searchQuery, prompt: "Cari kosakata...")
             .task(id: selectedLevel) {
                 await seedAndLoad()
@@ -41,7 +40,8 @@ struct VocabularyModuleView: View {
         }
         .pickerStyle(.segmented)
         .padding(Spacing.lg)
-        .background(.regularMaterial)
+        .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.card))
+        .padding(.horizontal, Spacing.lg)
     }
     
     private var content: some View {
@@ -92,7 +92,7 @@ struct VocabularyModuleView: View {
                 Text(value)
                     .font(.headline)
                 Text(title)
-                    .font(.system(size: 8, weight: .bold))
+                    .font(.caption2.bold())
                     .foregroundColor(.secondary)
             }
         }
@@ -103,7 +103,6 @@ struct VocabularyModuleView: View {
                 .fill(.background)
                 .shadow(color: .black.opacity(0.08), radius: 8, y: 2)
         }
-        .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.card))
     }
     
     private var wordOfTheDaySection: some View {
@@ -125,7 +124,6 @@ struct VocabularyModuleView: View {
                         .fill(.background)
                         .shadow(color: .black.opacity(0.08), radius: 8, y: 2)
                 }
-                .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.card))
             }
         }
     }
@@ -198,8 +196,8 @@ struct VocabularyModuleView: View {
                         .background {
                             RoundedRectangle(cornerRadius: CornerRadius.standard)
                                 .fill(.background)
+                                .shadow(color: .black.opacity(0.05), radius: 4, y: 1)
                         }
-                        .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.standard))
                     }
                 }
             }
@@ -211,23 +209,18 @@ struct VocabularyModuleView: View {
             Image(systemName: "character.book.closed.fill")
                 .font(.system(size: 32))
                 .foregroundColor(.accentColor)
-            Text("Belum ada kosakata")
+            Text("Mulai Belajar Kosakata!")
                 .font(.headline)
             Text("Mulai belajar dengan Kartu Flash untuk level \(selectedLevel.displayName)!")
-                .font(.caption)
+                .font(.subheadline)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.secondary)
             
-            Button {
-                // Navigate to Flashcards or similar
-            } label: {
-                Text("Mulai Belajar Sekarang")
+            NavigationLink(destination: FlashcardView(level: selectedLevel)) {
+                Text("Mulai Sekarang")
                     .font(.subheadline.bold())
-                    .padding(.horizontal, Spacing.lg)
-                    .padding(.vertical, Spacing.sm)
-                    .background(Color.accentColor, in: Capsule())
-                    .foregroundColor(.white)
             }
+            .buttonStyle(.borderedProminent)
             .padding(.top, Spacing.sm)
         }
         .padding(Spacing.xl)
@@ -237,7 +230,6 @@ struct VocabularyModuleView: View {
                 .fill(.background)
                 .shadow(color: .black.opacity(0.08), radius: 8, y: 2)
         }
-        .glassEffect(.regular, in: .rect(cornerRadius: CornerRadius.card))
     }
     
     private func headerLabel(_ title: String, icon: String, color: Color) -> some View {
@@ -259,9 +251,4 @@ struct VocabularyModuleView: View {
             Log.data.error("Gagal menyemai data kosakata: \(error.localizedDescription)")
         }
     }
-}
-
-#Preview {
-    VocabularyModuleView()
-        .modelContainer(for: [VocabularyEntry.self], inMemory: true)
 }
