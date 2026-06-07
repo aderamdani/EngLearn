@@ -132,8 +132,33 @@ struct WritingPromptView: View {
         .background(.ultraThinMaterial, in: Capsule())
     }
     
+    @State private var saveTask: Task<Void, Never>? = nil
+
     private func saveDraft() {
-        // In a real implementation with debouncing, we would use a Task with Task.sleep
-        // For simplicity in this UI iteration, we just update the model context if needed.
+        saveTask?.cancel()
+        saveTask = Task {
+            try? await Task.sleep(nanoseconds: 2_000_000_000)
+            guard !Task.isCancelled else { return }
+            
+            await MainActor.run {
+                let descriptor = FetchDescriptor<WritingEntry>(predicate: #Predicate { $0.promptID == prompt.id })
+                if let entry = try? modelContext.fetch(descriptor).first {
+                    entry.text = text
+                    entry.wordCount = currentWordCount
+                    entry.lastEditedAt = Date()
+                } else {
+                    let newEntry = WritingEntry(
+                        promptID: prompt.id,
+                        level: CEFRLevel.a1, // Defaulting to A1 for now
+                        text: text,
+                        wordCount: currentWordCount,
+                        targetWordCount: prompt.wordCountTarget
+                    )
+                    modelContext.insert(newEntry)
+                }
+                try? modelContext.save()
+                Log.general.info("Draft saved for prompt: \(prompt.id)")
+            }
+        }
     }
 }
