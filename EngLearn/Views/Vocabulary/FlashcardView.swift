@@ -47,7 +47,13 @@ struct FlashcardView: View {
     
     private var cardView: some View {
         ZStack {
-            if !entries.isEmpty {
+            if entries.isEmpty {
+                ContentUnavailableView(
+                    "Belum Ada Kartu",
+                    systemImage: "rectangle.stack",
+                    description: Text("Kembali ke halaman Vocabulary dan mulai belajar kosakata terlebih dahulu.")
+                )
+            } else if currentIndex < entries.count {
                 let entry = entries[currentIndex]
                 cardFace(entry: entry, isFront: true)
                     .opacity(isFlipped ? 0 : 1)
@@ -55,11 +61,19 @@ struct FlashcardView: View {
                     .opacity(isFlipped ? 1 : 0)
                     .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
             } else {
-                ContentUnavailableView("Tidak ada kartu", systemImage: "rectangle.stack")
+                ContentUnavailableView(
+                    "Semua Kartu Selesai",
+                    systemImage: "checkmark.circle",
+                    description: Text("Kamu sudah menyelesaikan semua kartu untuk hari ini. Hebat!")
+                )
             }
         }
         .rotation3DEffect(.degrees(isFlipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
-        .accessibilityLabel(entries.isEmpty ? "Tidak ada kartu" : "Kartu kosakata: \(entries[currentIndex].word)")
+        .accessibilityLabel(
+            entries.isEmpty
+                ? "Belum ada kartu kosakata"
+                : (currentIndex < entries.count ? "Kartu kosakata: \(entries[currentIndex].word)" : "Semua kartu selesai")
+        )
     }
     
     private func cardFace(entry: VocabularyEntry, isFront: Bool) -> some View {
