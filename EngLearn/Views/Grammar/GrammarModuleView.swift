@@ -6,6 +6,7 @@ struct GrammarModuleView: View {
     @State private var selectedLevel: CEFRLevel = .a1
     @State private var lessons: [Lesson] = []
     @State private var isLoading = false
+    @State private var searchQuery = ""
     
     private let lessonService = LessonService()
     
@@ -25,6 +26,7 @@ struct GrammarModuleView: View {
             }
             .navigationTitle("Grammar")
             .background(.regularMaterial)
+            .searchable(text: $searchQuery, prompt: "Cari pelajaran...")
             .task(id: selectedLevel) {
                 await loadLessons()
             }
@@ -45,10 +47,10 @@ struct GrammarModuleView: View {
     private var lessonList: some View {
         ScrollView {
             LazyVStack(spacing: Spacing.md) {
-                if lessons.isEmpty {
+                if filteredLessons.isEmpty {
                     emptyState
                 } else {
-                    ForEach(Array(lessons.enumerated()), id: \.element.id) { index, lesson in
+                    ForEach(Array(filteredLessons.enumerated()), id: \.element.id) { index, lesson in
                         NavigationLink(destination: GrammarLessonView(lesson: lesson)) {
                             lessonCard(lesson, index: index + 1)
                         }
@@ -58,6 +60,13 @@ struct GrammarModuleView: View {
             }
             .padding(Spacing.lg)
         }
+    }
+    
+    private var filteredLessons: [Lesson] {
+        if searchQuery.isEmpty {
+            return lessons
+        }
+        return lessons.filter { $0.title.localizedCaseInsensitiveContains(searchQuery) }
     }
     
     private func lessonCard(_ lesson: Lesson, index: Int) -> some View {

@@ -33,11 +33,6 @@ struct ContentView: View {
             minWidth: AppConstants.Window.minWidth,
             minHeight: AppConstants.Window.minHeight
         )
-        .searchable(
-            text: $searchQuery,
-            placement: .toolbar,
-            prompt: String(localized: "Cari pelajaran, kosakata...", comment: "Search placeholder")
-        )
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
                 HStack(spacing: 8) {
