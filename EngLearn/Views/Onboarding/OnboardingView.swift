@@ -78,31 +78,40 @@ struct OnboardingView: View {
             Text("Bahasa ini akan digunakan untuk instruksi dan penjelasan.")
                 .foregroundColor(.secondary)
             
-            Button {
-                nativeLanguage = "id"
-            } label: {
-                HStack {
-                    Text("Bahasa Indonesia")
-                    Spacer()
-                    if nativeLanguage == "id" {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.accentColor)
-                    } else {
-                        Image(systemName: "circle")
-                            .foregroundColor(.secondary)
-                    }
-                }
-                .padding()
-                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: CornerRadius.card))
-                .overlay {
-                    if nativeLanguage == "id" {
-                        RoundedRectangle(cornerRadius: CornerRadius.card)
-                            .stroke(Color.accentColor, lineWidth: 2)
-                    }
-                }
+            VStack(spacing: Spacing.md) {
+                languageOption(code: "id", label: "Bahasa Indonesia", flag: "🇮🇩")
+                languageOption(code: "en", label: "English", flag: "🇬🇧")
             }
-            .buttonStyle(.plain)
         }
+    }
+    
+    private func languageOption(code: String, label: String, flag: String) -> some View {
+        let isSelected = nativeLanguage == code
+        return Button {
+            nativeLanguage = code
+        } label: {
+            HStack(spacing: Spacing.md) {
+                Text(flag)
+                    .font(.title2)
+                Text(label)
+                    .font(.headline)
+                Spacer()
+                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                    .font(.title3)
+                    .foregroundColor(isSelected ? .accentColor : .secondary)
+            }
+            .padding(Spacing.lg)
+            .background {
+                RoundedRectangle(cornerRadius: CornerRadius.card)
+                    .fill(isSelected ? Color.accentColor.opacity(0.1) : Color.clear)
+            }
+            .overlay {
+                RoundedRectangle(cornerRadius: CornerRadius.card)
+                    .stroke(isSelected ? Color.accentColor : Color.secondary.opacity(0.2), lineWidth: isSelected ? 2 : 1)
+            }
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel("\(label), \(isSelected ? "dipilih" : "tidak dipilih")")
     }
     
     private var beginnerOrTestStep: some View {
